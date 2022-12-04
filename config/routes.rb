@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   root "pages#home"
-  get 'sign_up_session', to: 'pages#sign_up_session'
-  get 'log_in_session', to: 'pages#sign_in_session'
   get 'home', to: 'pages#home'
   devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
   devise_scope :user do
