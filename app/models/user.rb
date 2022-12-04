@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :events
   has_one :store
+
+  enum role: { user: 0, vender: 1 }
 end
