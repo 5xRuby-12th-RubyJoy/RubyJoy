@@ -1,4 +1,4 @@
-<h2>會員註冊</h2>
+<h2>帳號註冊</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -16,10 +16,10 @@
   </div>
   
   <div class="field">
-    <%= f.label :role, '我要註冊會員帳號' %>
     <input type="radio" name="user[role]" value="user" />
-    <%= f.label :role, '我要註冊店舖帳號' %>
+    <%= f.label :role, '註冊會員' %>
     <input type="radio" name="user[role]" value="vender" />
+    <%= f.label :role, '註冊店舖' %>
   </div>
 
 
@@ -42,5 +42,5 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
 <%= link_to '返回首頁', root_path %>
