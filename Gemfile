@@ -59,4 +59,8 @@ gem "devise", "~> 4.8"
 
 gem "paranoia", "~> 2.6"
 
+
 gem "stimulus-rails", "~> 1.2"
+
+gem "rails-i18n", "~> 7.0"
+
