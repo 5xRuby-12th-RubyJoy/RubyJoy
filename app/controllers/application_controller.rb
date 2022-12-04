@@ -13,4 +13,10 @@ class ApplicationController < ActionController::Base
            status: 404,
            layout: false
   end
+
+  #  current_user -> User
+  # before_action :authenticate_user! -> Can be used for both role
+  def current_vendor
+    current_user.role == "vendor"
+  end
 end
