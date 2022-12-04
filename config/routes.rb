@@ -13,8 +13,15 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :events
-  resources :stores do
-    resources :products
-  end
+
+ 
+  
+  resources :products 
+     
+
+  
+  
+
 end

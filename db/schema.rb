@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_02_095800) do
+ActiveRecord::Schema.define(version: 2022_12_04_142844) do
 
   create_table "event_products", force: :cascade do |t|
     t.integer "quantity"
@@ -59,12 +59,8 @@ ActiveRecord::Schema.define(version: 2022_12_02_095800) do
     t.integer "price", default: 0
     t.integer "stock"
     t.datetime "deleted_at"
-    t.integer "store_id", null: false
-    t.integer "sell_log_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["sell_log_id"], name: "index_products_on_sell_log_id"
-    t.index ["store_id"], name: "index_products_on_store_id"
   end
 
   create_table "sell_logs", force: :cascade do |t|
@@ -73,7 +69,9 @@ ActiveRecord::Schema.define(version: 2022_12_02_095800) do
     t.integer "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "product_id"
     t.index ["order_id"], name: "index_sell_logs_on_order_id"
+    t.index ["product_id"], name: "index_sell_logs_on_product_id"
   end
 
   create_table "stores", force: :cascade do |t|
@@ -104,8 +102,6 @@ ActiveRecord::Schema.define(version: 2022_12_02_095800) do
   add_foreign_key "events", "users"
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
-  add_foreign_key "products", "sell_logs"
-  add_foreign_key "products", "stores"
   add_foreign_key "sell_logs", "orders"
   add_foreign_key "stores", "users"
 end
