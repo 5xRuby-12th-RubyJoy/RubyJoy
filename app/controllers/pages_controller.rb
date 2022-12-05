@@ -4,7 +4,4 @@ class PagesController < ApplicationController
 
   def sign_in_session
   end
-
-  def sign_up_session
-  end
 end
