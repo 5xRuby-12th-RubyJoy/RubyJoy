@@ -1,7 +1,16 @@
 <h1>商品更新</h1>
 <%=form_with(model: @product){|f|%>
   <div>
+<<<<<<< HEAD
     <%=f.label :name ,"商品名稱"%>
+=======
+      <%if @product.avatar.attached?%>
+        <img src="<%=(url_for(@product.avatar))%>">
+      <%end%>
+  </div>
+  <div>
+    <%=f.label :name%>
+>>>>>>> 4374616 (pgsql_and_product_picture)
     <%=f.text_field :name%>
   </div>
   <div>
@@ -15,6 +24,10 @@
   <div>
     <%=f.label :stock ,"庫存量"%>
     <%=f.text_field :stock%>
+  </div>
+  <div>
+    <%=f.label "產品照片上傳"%>
+    <%=f.file_field :avatar%>
   </div>
   <%=f.submit "更新"%>
 <%}%>
