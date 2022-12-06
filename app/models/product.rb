@@ -7,4 +7,5 @@ class Product < ApplicationRecord
   validates :stock, presence: true
 
   # relation
+  has_one_attached :avatar
 end

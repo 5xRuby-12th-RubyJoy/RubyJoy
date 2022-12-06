@@ -39,7 +39,14 @@ before_action :find_product,only: [:show,:edit,:destroy,:update]
       @product = find_by(id: params[:id])
     end
 
+<<<<<<< HEAD
    def product_params
      params.require(:product).permit(:name, :description, :price, :stock)
    end
  end
+=======
+  def product_params
+    params.require(:product).permit(:name, :description, :price, :stock,:avatar)
+  end
+end
+>>>>>>> 4374616 (pgsql_and_product_picture)
