@@ -7,8 +7,6 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.integer :stock
       t.datetime :deleted_at
       t.references :store, null: false, foreign_key: true
-      t.references :sell_log, null: false, foreign_key: true
-
       t.timestamps
     end
   end
