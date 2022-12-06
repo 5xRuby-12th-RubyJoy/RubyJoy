@@ -1,0 +1,2 @@
+class StroesController < ApplicationController
+end
