@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   end
 
   resources :events
+
   resources :stores do
+    member do
+      post :update
+    end
     resources :products
   end
   

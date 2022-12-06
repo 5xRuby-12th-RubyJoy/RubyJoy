@@ -1,0 +1,16 @@
+<h1>建立我的商店</h1>
+
+
+<%= form_with model:@store do |f| %>
+    <div>
+        <%= f.label '商店名稱' %>
+        <%= f.text_field :title %>
+    </div>
+    <div>
+        <%= f.label '商店描述' %>
+        <%= f.text_area :description , size: "30 x 2" %>
+    </div>
+    <div>
+        <%= f.submit %>
+    </div>
+<% end %>
