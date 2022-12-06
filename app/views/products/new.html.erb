@@ -1,5 +1,6 @@
 <h1>新增產品列表</h1>
   <%=form_with(model: @product){|f|%>
+  
     <div>
       <%=f.label :name%>
       <%=f.text_field :name%>
@@ -15,6 +16,10 @@
     <div>
       <%=f.label :stock%>
       <%=f.text_field :stock%>
+    </div>
+    <div>
+      <%=f.label "產品照片上傳"%>
+      <%=f.file_field :avatar%>
     </div>
     <%=f.submit "新增商品"%>
   <%}%>
