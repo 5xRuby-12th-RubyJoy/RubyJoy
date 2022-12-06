@@ -1,19 +1,19 @@
 <h1>商品更新</h1>
 <%=form_with(model: @product){|f|%>
   <div>
-    <%=f.label :name%>
+    <%=f.label :name ,"商品名稱"%>
     <%=f.text_field :name%>
   </div>
   <div>
-    <%=f.label :description%>
+    <%=f.label :description,"商品敘述"%>
     <%=f.text_area :description%>
   </div>
   <div>
-    <%=f.label :price%>
+    <%=f.label :price ,"商品價格"%>
     <%=f.text_field :price%>
   </div>
   <div>
-    <%=f.label :stock%>
+    <%=f.label :stock ,"庫存量"%>
     <%=f.text_field :stock%>
   </div>
   <%=f.submit "更新"%>
