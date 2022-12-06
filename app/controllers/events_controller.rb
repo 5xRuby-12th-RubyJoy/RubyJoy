@@ -10,8 +10,11 @@ class EventsController < ApplicationController
   
   def create
     @event = Event.new(event_params)
-    @event.save ?
-    (redirect_to events_path, notice:"活動建立成功!!") : (render :new)
+    if @event.save
+      redirect_to events_path, notice:"活動建立成功!!"
+    else
+      render :new
+    end
   end
   
   def show
@@ -23,8 +26,11 @@ class EventsController < ApplicationController
   end
   
   def update
-    @event.update(event_params) ?
-    (redirect_to events_path,notice:"活動更新成功!!") : (render :edit)
+    if @event.update(event_params)
+      redirect_to events_path,notice:"活動更新成功!!"
+    else  
+      render :edit
+    end
   end
   
   def destroy
