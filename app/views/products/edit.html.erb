@@ -1,0 +1,31 @@
+<h1>商品更新</h1>
+<%=form_with(model: @product){|f|%>
+  <div>
+
+    
+      <%if @product.avatar.attached?%>
+        <img src="<%=(url_for(@product.avatar))%>">
+      <%end%>
+  </div>
+  <div>
+    <%=f.label :name, "商品名稱"%>
+    <%=f.text_field :name%>
+  </div>
+  <div>
+    <%=f.label :description,"商品敘述"%>
+    <%=f.text_area :description%>
+  </div>
+  <div>
+    <%=f.label :price ,"商品價格"%>
+    <%=f.text_field :price%>
+  </div>
+  <div>
+    <%=f.label :stock ,"庫存量"%>
+    <%=f.text_field :stock%>
+  </div>
+  <div>
+    <%=f.label "產品照片上傳"%>
+    <%=f.file_field :avatar%>
+  </div>
+  <%=f.submit "更新"%>
+<%}%>

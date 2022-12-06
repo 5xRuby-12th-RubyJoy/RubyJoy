@@ -1,0 +1,30 @@
+<body class='bg-purple-200 p-12'>
+  <div class='bg-white dark:bg-slate-900 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl'>
+    <h1 class='text-2xl'>活動清單</h1>
+    <%= link_to "新增活動", new_event_path , class:'' %>
+    <table class='table-auto'>
+      <tr class='text-center'>
+        <td>活動名稱</td>
+        <td>副標題</td>
+        <td>活動內容</td>
+        <td>活動開始日期</td>
+        <td>活動結束日期</td>
+        <td>場地</td>
+      </tr>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= link_to event.title, event_path(event.id) %></td>
+          <td><%= event.subtitle %></td>
+          <td><%= event.description %></td>
+          <td><%= event.start_at %></td>
+          <td><%= event.end_at %></td>
+          <td><%= event.venue %></td>
+          <td>
+            <%= link_to "編輯活動", edit_event_path(event.id)%>
+            <%= link_to "刪除活動", event_path(event.id), method: "delete", data:{confirm:"確定要刪除?"} %>
+          </td><br>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</body>

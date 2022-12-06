@@ -19,11 +19,11 @@ module.exports = {
         theme_text3: "#8c8c8c",
         theme_text4: "#404040",
         theme_text5: "#0d0d0d",
-      }
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
-}
+  plugins: [require("@tailwindcss/forms")],
+};
