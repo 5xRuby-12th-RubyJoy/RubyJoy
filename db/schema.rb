@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_221_204_142_844) do
-  create_table 'event_products', force: :cascade do |t|
-    t.integer 'quantity'
-    t.integer 'event_id', null: false
-    t.integer 'product_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['event_id'], name: 'index_event_products_on_event_id'
-    t.index ['product_id'], name: 'index_event_products_on_product_id'
+
+ActiveRecord::Schema.define(version: 2022_12_06_052032) do
+
+  create_table "event_products", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "event_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_event_products_on_event_id"
+    t.index ["product_id"], name: "index_event_products_on_product_id"
   end
 
   create_table 'events', force: :cascade do |t|
@@ -35,21 +37,22 @@ ActiveRecord::Schema.define(version: 20_221_204_142_844) do
     t.index ['user_id'], name: 'index_events_on_user_id'
   end
 
-  create_table 'orders', force: :cascade do |t|
-    t.integer 'serial'
-    t.integer 'price'
-    t.integer 'sold_quantity'
-    t.text 'address'
-    t.string 'receiver'
-    t.string 'phone'
-    t.string 'state', default: 'pending'
-    t.datetime 'deleted_at'
-    t.integer 'product_id', null: false
-    t.integer 'user_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['product_id'], name: 'index_orders_on_product_id'
-    t.index ['user_id'], name: 'index_orders_on_user_id'
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "price"
+    t.integer "sold_quantity"
+    t.text "address"
+    t.string "receiver"
+    t.string "phone"
+    t.string "state", default: "pending"
+    t.datetime "deleted_at"
+    t.integer "product_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "serial"
+    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table 'products', force: :cascade do |t|
