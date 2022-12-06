@@ -1,0 +1,15 @@
+<h1>結帳</h1>
+
+
+購買產品:<%= @product.name %><br>
+購買數量:<%= @order.sold_quantity %><br>
+訂單總金額:<%= @order.price %><br>
+
+<form method=post action="https://ccore.spgateway.com/MPG/mpg_gateway">
+  <input type="hidden" name="MerchantID" value="<%= @form_info[:MerchantID] %>" readonly>
+  <input type="hidden" name="Version" value="<%= @form_info[:Version] %>" readonly>
+  <input type="hidden" name="TradeInfo" value="<%= @form_info[:TradeInfo] %>" readonly>
+  <input type="hidden" name="TradeSha" value="<%= @form_info[:TradeSha] %>" readonly>
+  <input type="hidden" name="Amt" value="<%= @order.price.to_i %>" readonly>
+  <input type="submit" value='付款'>
+</form>

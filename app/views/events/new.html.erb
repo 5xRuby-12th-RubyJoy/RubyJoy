@@ -1,0 +1,30 @@
+<body class=''>
+  <h1>新增活動</h1>
+  <%= form_for @event  do |form| %>
+    <div>
+      <%= form.label :title, '活動名稱:'%>
+      <%= form.text_field :title %>
+    </div>
+    <div>
+      <%= form.label :subtitle, '副標題:'%>
+      <%= form.text_field :subtitle %>
+    </div>
+    <div>
+      <%= form.label :description, '活動內容:'%>
+      <%= form.text_area :description %>
+    </div>
+    <div>
+      <%= form.label :start_at, '活動開始日期:'%>
+      <%= form.datetime_field :start_at %>
+    </div>
+    <div>
+      <%= form.label :end_at, '活動結束日期:'%>
+      <%= form.datetime_field :end_at %>
+    </div>
+    <div>
+      <%= form.label :venue, '場地:'%>
+      <%= form.text_area :venue %>
+    </div>
+    <%= form.submit "新增活動" %>
+  <% end %>
+</body>
