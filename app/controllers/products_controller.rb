@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+before_action :find_product,only: [:show,:edit,:destroy,:update]
   def index; end
 
   def new
@@ -15,11 +16,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find_by(id: params[:id])
   end
 
   def edit
-    @product = Product.find_by(id: params[:id])
   end
 
   def destroy
@@ -28,8 +27,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find_by(id: params[:id])
-
     if @product.update(product_params)
       redirect_to products_path, notice: '成功'
     else
@@ -38,8 +35,11 @@ class ProductsController < ApplicationController
   end
 
   private
+    def find_product
+      @product = find_by(id: params[:id])
+    end
 
-  def product_params
-    params.require(:product).permit(:name, :description, :price, :stock)
-  end
-end
+   def product_params
+     params.require(:product).permit(:name, :description, :price, :stock)
+   end
+ end
