@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'stores#index'
   get 'home', to: 'pages#home'
   get 'sign_in_session', to: 'pages#sign_in_session'
   
