@@ -2,7 +2,7 @@
 <%=form_with(model: @product){|f|%>
   <div>
 
-    <%=f.label :name ,"商品名稱"%>
+    
       <%if @product.avatar.attached?%>
         <img src="<%=(url_for(@product.avatar))%>">
       <%end%>
