@@ -26,22 +26,22 @@
   </tr>
 
   <% @store.each do |store| %>
-    <tr>
-      <td></td>
-      <td>
-        <%= link_to store.title, store_path(store.id) %>
-      </td>
-      <td>
-        <%= store.description %>
-      </td>
-      <td>
-        <%= link_to '編輯資訊' , edit_store_path(store.id) %>
-      </td>
-      <td>
-        <%= link_to '刪除商店' , store_path(store.id), method: 'delete' , data: {confirm: '確定要刪除嗎？' } %>
-      </td>
-    </tr>
-    <% end %>
+  <tr>
+  <td></td>
+  <td>
+    <%= link_to store.title, store_path(store.id) %>
+  </td>
+  <td>
+    <%= store.description %>
+  </td>
+  <td>
+    <%= link_to '編輯資訊' , edit_store_path(store.id) %>
+  </td>
+  <td>
+    <%= link_to '刪除商店' , store_path(store.id), method: 'delete' , data: {confirm: '確定要刪除嗎？' } %>
+  </td>
+  </tr>
+  <% end %>
 </table>
 
 
