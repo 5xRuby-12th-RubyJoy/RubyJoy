@@ -1,0 +1,15 @@
+<body class=''>
+  <% if @event%>
+    <h1>活動名稱:<%= @event.title %></h1>
+    <ul>
+      <li>副標題:<%= @event.subtitle %></li>
+      <li>活動內容:<%= @event.description %></li>
+      <li>活動開始日期:<%= @event.start_at %></li>
+      <li>活動結束日期:<%= @event.end_at %></li>
+      <li>場地:<%= @event.venue %></li>
+    </ul>
+    <%= link_to "回活動頁面", events_path%>
+  <% else %>
+    <h1>沒有這個活動頁面</h1>
+  <% end %>
+</body>
