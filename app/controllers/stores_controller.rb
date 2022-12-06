@@ -48,5 +48,4 @@ class StoresController < ApplicationController
   def find_store
     @store = Store.find_by!(id: params[:id])
   end
-
 end

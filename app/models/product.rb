@@ -1,4 +1,11 @@
 class Product < ApplicationRecord
-  belongs_to :store
-  belongs_to :sell_log
+  acts_as_paranoid
+  # validate
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :price, presence: true
+  validates :stock, presence: true
+
+  # relation
+  has_one_attached :avatar
 end
