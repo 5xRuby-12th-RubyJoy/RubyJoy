@@ -16,7 +16,11 @@ class ApplicationController < ActionController::Base
 
   #  current_user -> User
   # before_action :authenticate_user! -> Can be used for both role
-  def current_vendor
-    current_user.role == 'vendor'
+  def current_vendor?
+    current_user.role == "vendor"
+  end
+  
+  def current_user?
+    current_user.role == "user"
   end
 end
