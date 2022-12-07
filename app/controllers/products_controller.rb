@@ -1,13 +1,14 @@
 class ProductsController < ApplicationController
-before_action :find_product,only: [:show,:edit,:destroy,:update]
+  before_action :find_product, only: %i[show edit destroy update]
+  before_action :find_store, only: [:new, :create]
   def index; end
 
   def new
-    @product = Product.new
+    @product = @store.products.new
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = @store.products.new(product_params)
     if @product.save
       redirect_to products_path, notice: '成功'
     else
@@ -15,33 +16,33 @@ before_action :find_product,only: [:show,:edit,:destroy,:update]
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def destroy
     @product.destroy
-    redirect_to products_path, notice: '已刪除'
+    redirect_to store_path, notice: '已刪除'
   end
 
   def update
     if @product.update(product_params)
-      redirect_to products_path, notice: '成功'
+      redirect_to store_path, notice: '成功'
     else
       render :edit
     end
   end
 
   private
-    def find_product
-      @product = find_by(id: params[:id])
-    end
 
+  def find_product
+    @product = find_by(id: params[:id])
+  end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :stock,:avatar)
+    params.require(:product).permit(:name, :description, :price, :stock, :avatar,:store_id)
+  end
+  def find_store
+    @store = Store.find(params[:store_id])
   end
 end
-
