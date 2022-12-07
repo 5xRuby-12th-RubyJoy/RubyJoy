@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :find_product, only: %i[show edit destroy update]
-  before_action :find_store, only: [:new, :create]
+  before_action :find_store, only: %i[new create]
   def index; end
 
   def new
@@ -40,8 +40,9 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :stock, :avatar,:store_id)
+    params.require(:product).permit(:name, :description, :price, :stock, :avatar, :store_id)
   end
+
   def find_store
     @store = Store.find(params[:store_id])
   end
