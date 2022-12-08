@@ -1,24 +1,26 @@
-<hr>
+<div class="pt-16">
+
 <h1>編輯 商店資訊</h1>
 
 <%= form_with model:@store do |f| %>
   <div>
     <%= f.label '商店名稱' %>
-    <%= f.text_field :title %>
+      <%= f.text_field :title %>
   </div>
   <div>
     <%= f.label '商店描述' %>
-    <%= f.text_area :description , size: "30 x 2" %>
+      <%= f.text_area :description , size: "30 x 2" %>
   </div>
   <div>
-    <%= f.submit '送出編輯'%>
+    <%= f.submit '送出編輯' %>
   </div>
-<% end %>
+  <% end %>
 
-<button>
-  <%=link_to "修正產品資訊" ,edit_product_path(@store.id)%>
-</button>
+    <button>
+      <%= link_to '修改商品' , '#' %>
+    </button>
 
-<button>
-<%= link_to '上一頁' , stores_path %>
-</button>
+    <button>
+      <%= link_to '上一頁' , stores_path %>
+    </button>
+</div>
