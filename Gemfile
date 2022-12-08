@@ -62,4 +62,7 @@ gem 'paranoia', '~> 2.6'
 gem 'rails-i18n', '~> 7.0'
 
 gem 'stimulus-rails', '~> 1.2'
+
 gem 'pg', '~> 1.4', '>= 1.4.5'
+
+gem 'dotenv-rails', '~> 2.8'
