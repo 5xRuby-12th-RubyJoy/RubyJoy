@@ -1,15 +1,28 @@
 <h1>結帳</h1>
 
-
-購買產品:<%= @product.name %><br>
-購買數量:<%= @order.sold_quantity %><br>
-訂單總金額:<%= @order.price %><br>
-
-<form method=post action="https://ccore.spgateway.com/MPG/mpg_gateway">
-  <input type="hidden" name="MerchantID" value="<%= @form_info[:MerchantID] %>" readonly>
-  <input type="hidden" name="Version" value="<%= @form_info[:Version] %>" readonly>
-  <input type="hidden" name="TradeInfo" value="<%= @form_info[:TradeInfo] %>" readonly>
-  <input type="hidden" name="TradeSha" value="<%= @form_info[:TradeSha] %>" readonly>
-  <input type="hidden" name="Amt" value="<%= @order.price.to_i %>" readonly>
-  <input type="submit" value='付款'>
-</form>
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900 flex justify-center items-center">
+  <div class="flex flex-col justify-between w-72 sm:w-96 h-96 bg-white bg-center text-gray-800 shadow-md overflow-hidden rounded-r-xl" style="background-image:url('https://placeimg.com/480/480/any')">
+    <div class="flex justify-between items-center ml-4 pr-8 rounded-r-xl">
+      <div class="bg-red-600 text-white bg-opacity-95 shadow px-2 py-1 flex items-center font-bold text-xs rounded">確認商品資訊</div>
+      <div class="bg-red-600 w-12 h-24 shadow flex flex-col-reverse p-2 text-center font-bold text-white rounded-b-full">50%<br>off</div>
+    </div>
+    <div class="w-2/3 bg-white bg-opacity-95 shadow-md rounded-r-xl p-4 flex flex-col mr-4 mb-8">
+      <h2 class="text-xl font-bold pb-2">購買商品：<%= @product.name %></h2>
+      <p class="truncate text-gray-500 text-sm">商品單價：<%= @product.price %></p>
+      <p class="truncate text-gray-500 text-sm">購買數量：<%= @order.sold_quantity %></p>
+      <div class="text-lg font-semibold text-slate-500">
+        總金額：<%= @order.price %> 元
+      </div>
+      <form class="flex-auto p-6" method=post action="https://ccore.spgateway.com/MPG/mpg_gateway">
+        <input type="hidden" name="MerchantID" value="<%= @form_info[:MerchantID] %>" readonly>
+        <input type="hidden" name="Version" value="<%= @form_info[:Version] %>" readonly>
+        <input type="hidden" name="TradeInfo" value="<%= @form_info[:TradeInfo] %>" readonly>
+        <input type="hidden" name="TradeSha" value="<%= @form_info[:TradeSha] %>" readonly>
+        <input type="hidden" name="Amt" value="<%= @order.price.to_i %>" readonly>
+        <button class="h-10 px-6 font-semibold rounded-md bg-red-500 hover:bg-red-800 text-white " type="submit">
+          付款
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
