@@ -1,4 +1,30 @@
-<h1>購買</h1>
-<%=@product.each{|product|%>
 
-<% end %>
+<hr>
+  <%= link_to '新增商店' , new_store_path %>
+<hr>
+
+<table>
+  <thead>
+    <tr>
+      <td>商店名稱</td>
+      <td>商店描述</td>
+      <td>編輯商店</td>
+      <td>刪除</td>
+    </tr>
+  </thead>
+
+  
+  <tbody>
+    <tr>
+      <td><%= @store.title %></td>
+      <td><%= @store.description %></td>
+      <td><%= link_to '編輯資訊', edit_store_path(@store.id) %></td>
+      <td>
+          <%= link_to '刪除商店', store_path(@store.id), method: 'delete', data: {confirm: '確定要刪除嗎？'} %>
+      </td>
+    </tr>
+  </tbody>
+  
+</table>
+
+>>>>>>> origin/dev

@@ -1,4 +1,6 @@
-import { application } from "./application"
+import { Application } from "stimulus"
+import { definitionsFromContext } from "stimulus/webpack-helpers"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+const application = Application.start()
+const context = require.context("controllers", true, /_controller\.js$/)
+application.load(definitionsFromContext(context))

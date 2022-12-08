@@ -20,6 +20,9 @@ module.exports = {
         theme_text4: "#404040",
         theme_text5: "#0d0d0d",
       },
+      backgroundImage: {
+        log_in_page_background_img: "url('/assets/log_in_page_background.jpg')",
+      },
     },
   },
   variants: {

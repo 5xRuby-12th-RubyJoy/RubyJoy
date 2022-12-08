@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   resources :events
 
-  resources :store do
+
+  resources :stores do
     resources :products
   end
+
 end
