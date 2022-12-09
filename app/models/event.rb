@@ -8,6 +8,6 @@ class Event < ApplicationRecord
   validates :venue, presence: true
   
 
-  has_many :products,through :event_product
+  # has_many :products,through :event_product
 
 end

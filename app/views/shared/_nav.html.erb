@@ -1,10 +1,98 @@
-<nav class="sticky">
-<%= link_to '首頁', root_path %>
-<% if current_user %>
-<span>我是<%= current_user.name %>，我是： <%= current_user.role %> </span>
-<%= link_to '登出', destroy_user_session_path, method: 'delete' %>
-<% else %>
-  <%= link_to '註冊', new_user_registration_path %>
-  <%= link_to '登入', sign_in_session_path %>
-<% end %>
+<nav
+  data-controller="nav-burger"
+  class="md:fixed flex bg-theme_blue flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700"
+>
+  <div>
+    <a href="/home" class="flex items-center">
+      <img
+        src="https://fakeimg.pl/120x80/487771,128/000,255"
+        class="h-6 mr-3 sm:h-9"
+        alt="Flowbite Logo"
+      />
+      <span
+        class="text-white self-center text-3xl font-semibold whitespace-nowrap dark:text-white"
+        >RubyJoy</span
+      >
+    </a>
+  </div>
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    data-action="click->nav-burger#toggle"
+    class="h-6 w-6 cursor-pointer md:hidden block"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      class="text-white"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M4 6h16M4 12h16M4 18h16"
+    />
+  </svg>
+
+  <div
+    class="hidden w-full md:flex md:items-center md:w-auto"
+    data-nav-burger-target="show"
+  >
+    <ul class="pt-4 text-base text-white md:flex md:justify-between md:pt-0">
+      <li>
+        <a
+          href="/home"
+          class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
+          aria-current="page"
+          >首頁</a
+        >
+      </li>
+      <% if current_user && current_user.role == "user" %>
+      <li>
+        <a
+          href="/events"
+          class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
+          aria-current="page"
+          >我的活動</a
+        >
+      </li>
+      <% elsif current_user && current_user.role == "vendor" %>
+      <li>
+        <a
+          href="#"
+          class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
+          aria-current="page"
+          >進入店鋪</a
+        >
+      </li>
+      <% end %> <% if current_user %>
+      <li>
+        <a
+          rel="nofollow"
+          data-method="delete"
+          href="/users/sign_out"
+          class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
+          aria-current="page"
+          >登出</a
+        >
+      </li>
+      <% else %>
+      <li>
+        <a
+          href="/users/sign_up"
+          class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
+          aria-current="page"
+          >註冊</a
+        >
+      </li>
+      <li>
+        <a
+          href="/sign_in_session"
+          class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
+          aria-current="page"
+          >登入</a
+        >
+      </li>
+      <% end %>
+    </ul>
+  </div>
 </nav>
