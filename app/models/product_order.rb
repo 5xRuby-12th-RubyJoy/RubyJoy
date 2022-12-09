@@ -1,4 +1,4 @@
 class ProductOrder < ApplicationRecord
-  belongs_to :oreder
+  belongs_to :order
   belongs_to :product
 end
