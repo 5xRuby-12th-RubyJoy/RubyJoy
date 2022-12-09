@@ -1,5 +1,7 @@
+<div class="pt-20" >
+
 <h1>新增產品列表</h1>
-  <%=form_with(model: @product){|f|%>
+  <%=form_with(model: @product, url: store_products_path, method: 'post'){|f|%>
   
     <div>
       <%=f.label :name,"商品名稱"%>
@@ -23,3 +25,5 @@
     </div>
     <%=f.submit "新增商品"%>
   <%}%>
+
+</div>
