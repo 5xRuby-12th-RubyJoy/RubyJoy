@@ -8,6 +8,5 @@ class Product < ApplicationRecord
 
   # relation
   has_one_attached :avatar
-  has_many :sell_log
   has_many :event
 end
