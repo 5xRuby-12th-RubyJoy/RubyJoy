@@ -119,7 +119,9 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.13.9-arm64-darwin)
+    nokogiri (1.13.10-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     paranoia (2.6.1)
@@ -196,7 +198,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.5.4-arm64-darwin)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -233,6 +234,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   aasm (~> 5.4)
@@ -252,7 +254,6 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   spring
-  sqlite3 (~> 1.4)
   stimulus-rails (~> 1.2)
   turbolinks (~> 5)
   tzinfo-data
