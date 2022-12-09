@@ -45,6 +45,7 @@ class OrdersController < ApplicationController
   end
 
   private
+
   def find_product
     @product = Product.find(params[:product_id])
   end

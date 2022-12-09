@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_05_193557) do
+ActiveRecord::Schema.define(version: 2022_12_07_025957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,15 @@ ActiveRecord::Schema.define(version: 2022_12_05_193557) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "product_orders", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_product_orders_on_order_id"
+    t.index ["product_id"], name: "index_product_orders_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -94,6 +103,17 @@ ActiveRecord::Schema.define(version: 2022_12_05_193557) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["store_id"], name: "index_products_on_store_id"
+  end
+
+  create_table "sell_logs", force: :cascade do |t|
+    t.integer "current_quantity"
+    t.integer "sold_quantity"
+    t.bigint "order_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_sell_logs_on_order_id"
+    t.index ["product_id"], name: "index_sell_logs_on_product_id"
   end
 
   create_table "stores", force: :cascade do |t|
@@ -126,6 +146,10 @@ ActiveRecord::Schema.define(version: 2022_12_05_193557) do
   add_foreign_key "events", "users"
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "product_orders", "orders"
+  add_foreign_key "product_orders", "products"
   add_foreign_key "products", "stores"
+  add_foreign_key "sell_logs", "orders"
+  add_foreign_key "sell_logs", "products"
   add_foreign_key "stores", "users"
 end

@@ -19,9 +19,11 @@ class ApplicationController < ActionController::Base
   def current_vendor?
     current_user.role == "vendor"
   end
+
   
   def current_user?
     current_user.role == "user"
   end
 
 end
+
