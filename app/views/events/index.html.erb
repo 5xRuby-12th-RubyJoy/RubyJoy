@@ -16,8 +16,8 @@
           <td><%= link_to event.title, event_path(event.id) %></td>
           <td><%= event.subtitle %></td>
           <td><%= event.description %></td>
-          <td><%= event.start_at %></td>
-          <td><%= event.end_at %></td>
+          <td><%= event.start_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          <td><%= event.end_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
           <td><%= event.venue %></td>
           <td>
             <%= link_to "編輯活動", edit_event_path(event.id)%>
