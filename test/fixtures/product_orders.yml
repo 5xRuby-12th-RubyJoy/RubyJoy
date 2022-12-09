@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  oreder: one
+  product: one
+
+two:
+  oreder: two
+  product: two

@@ -23,6 +23,7 @@ class Order < ApplicationRecord
   end
 
   private
+
   def generate_serial
     self.serial = SecureRandom.alphanumeric(12)
   end
