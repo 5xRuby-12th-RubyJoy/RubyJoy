@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(store_params) if current_user?
+    @event = current_user.events.build(event_params) if current_user?
     if @event.save
       redirect_to events_path, notice: '活動建立成功!!'
     else

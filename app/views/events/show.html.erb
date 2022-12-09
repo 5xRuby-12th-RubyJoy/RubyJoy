@@ -1,14 +1,16 @@
-<body class=''>
+<body class='bg-theme_blue'>
   <% if @event%>
-    <h1>活動名稱:<%= @event.title %></h1>
-    <ul>
-      <li>副標題:<%= @event.subtitle %></li>
-      <li>活動內容:<%= @event.description %></li>
-      <li>活動開始日期:<%= @event.start_at %></li>
-      <li>活動結束日期:<%= @event.end_at %></li>
-      <li>場地:<%= @event.venue %></li>
+  <div class='min-w-fit flex-col border bg-white py-10 shadow rounded-lg mx-20 flex items-center justify-center h-screen'>
+    <h1 class='text-2xl text-center'>活動名稱:<%= @event.title %></h1>
+    <ul class='text-2xl text-center'>
+      <li class='my-2'>副標題:<%= @event.subtitle %></li>
+      <li class='my-2'>活動內容:<%= @event.description %></li>
+      <li class='my-2'>活動開始日期:<%= @event.start_at.strftime("%Y-%m-%d %H:%M:%S") %></li>
+      <li class='my-2'>活動結束日期:<%= @event.end_at.strftime("%Y-%m-%d %H:%M:%S") %></li>
+      <li class='my-2'>場地:<%= @event.venue %></li>
     </ul>
-    <%= link_to "回活動頁面", events_path%>
+    <%= link_to "回活動頁面", events_path,class:'mt-5  border p-2 bg-theme_red-to-r from-gray-800 bg-theme_dark_red text-white rounded-lg hover:bg-slate-400 scale-105 duration-300'%>
+  </div>
   <% else %>
     <h1>沒有這個活動頁面</h1>
   <% end %>
