@@ -66,3 +66,5 @@ gem 'stimulus-rails', '~> 1.2'
 gem 'pg', '~> 1.4', '>= 1.4.5'
 
 gem 'dotenv-rails', '~> 2.8'
+
+gem 'aasm', '~> 5.4'
