@@ -21,7 +21,7 @@
     font-family: "Poppins", sans-serif;
   }
 </style>
-<!-- 編輯｜刪除按鈕 -->
+<!-- 功能列按鈕 -->
 <div class="flex space-x-10 bg-gray-100 p-2 w-full justify-between md:pt-20">
   <button
     class="min-w-auto w-32 h-10 bg-red-400 p-2 rounded-xl hover:bg-red-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold"
@@ -29,10 +29,13 @@
     <%= link_to '編輯商店資訊' , edit_store_path(@store.id) %>
   </button>
   <button
-    class="min-w-auto w-32 h-10 bg-green-400 p-2 rounded-xl hover:bg-green-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold"
-  >
-    ⚠️ <%= link_to '刪除商店' , store_path(@store.id), method: 'delete' , data:
-    {confirm: '確定要刪除嗎？' } %>
+    class="min-w-auto w-40 h-10 bg-green-400 p-2 rounded-xl hover:bg-green-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold">
+    <%= link_to '訂單與商品狀態查詢' , store_path(@store.id), method: 'delete' , data: {confirm: '確定要刪除嗎？' } %>
+  </button>
+  
+  <button
+    class="min-w-auto w-32 h-10 bg-blue-400 p-2 rounded-xl hover:bg-blue-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold">
+    <%= link_to '上架商品', new_store_product_path(@store.id) %>
   </button>
 </div>
 
@@ -52,7 +55,11 @@
   &nbsp;&nbsp;<%= @store.description %>
 </span>
 
-  </div>
+    <hr class="my-4" />
+
+      特色：<%= @store.description %>
+  
+  </span>
 </section>
 
 <!-- Card List Section -->
