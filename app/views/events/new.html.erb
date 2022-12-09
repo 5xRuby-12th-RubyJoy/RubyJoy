@@ -1,30 +1,32 @@
-<body class=''>
-  <h1>新增活動</h1>
+<body class='bg-theme_blue'>
   <%= form_for @event  do |form| %>
-    <div>
-      <%= form.label :title, '活動名稱:'%>
-      <%= form.text_field :title %>
+    <div class='min-w-fit flex-col border bg-white py-10 shadow rounded-lg mx-20 flex items-center justify-center h-screen'>
+    <h1 class='m-6 font-bold text-3xl'>新增活動</h1>
+    <div class='flex items-center mb-5'>
+      <%= form.label :title, '活動名稱:' ,class:'text-xl'%>
+      <%= form.text_field :title , class:' rounded-[4px] border p-1 hover:outline-none focus:outline-none hover:border-yellow-500 rounded-lg' , placeholder:'請輸入標題' %>
     </div>
-    <div>
-      <%= form.label :subtitle, '副標題:'%>
-      <%= form.text_field :subtitle %>
+    <div class='flex items-center mb-5'>
+      <%= form.label :subtitle, '副標題:' ,class:'text-xl'%>
+      <%= form.text_field :subtitle ,class:' rounded-[4px] border p-1 hover:outline-none focus:outline-none hover:border-yellow-500 rounded-lg' , placeholder:'請輸入副標題'%>
     </div>
-    <div>
-      <%= form.label :description, '活動內容:'%>
-      <%= form.text_area :description %>
+    <div class='flex items-center mb-5'>
+      <%= form.label :description, '活動內容:' ,class:'text-xl '%>
+      <%= form.text_area :description ,class:' rounded-[4px] border p-1 hover:outline-none focus:outline-none hover:border-yellow-500 rounded-lg', placeholder:'請輸入活動內容......'%>
     </div>
-    <div>
-      <%= form.label :start_at, '活動開始日期:'%>
-      <%= form.datetime_field :start_at %>
+    <div class='flex items-center mb-5'>
+      <%= form.label :start_at, '活動開始日期:' ,class:'text-xl'%>
+      <%= form.datetime_field :start_at ,class:' rounded-[4px] border p-1 hover:outline-none focus:outline-none hover:border-yellow-500 rounded-lg' %>
     </div>
-    <div>
-      <%= form.label :end_at, '活動結束日期:'%>
-      <%= form.datetime_field :end_at %>
+    <div class='flex items-center mb-5'>
+      <%= form.label :end_at, '活動結束日期:' ,class:'text-xl'%>
+      <%= form.datetime_field :end_at ,class:' rounded-[4px] border p-1 hover:outline-none focus:outline-none hover:border-yellow-500 rounded-lg'%>
     </div>
-    <div>
-      <%= form.label :venue, '場地:'%>
-      <%= form.text_area :venue %>
+    <div class='flex items-center mb-5'>
+      <%= form.label :venue, '場地:' ,class:'text-xl'%>
+      <%= form.text_area :venue ,class:' rounded-[4px] border p-1 hover:outline-none focus:outline-none hover:border-yellow-500 rounded-lg', placeholder:'請輸入場地......'%>
+    </div class='flex items-center'>
+    <%= form.submit "新增活動" ,class:'mt-5  border p-2 bg-theme_red-to-r from-gray-800 bg-theme_dark_red text-white rounded-lg hover:bg-slate-400 scale-105 duration-300'%>
     </div>
-    <%= form.submit "新增活動" %>
   <% end %>
-</body>
+<body>
