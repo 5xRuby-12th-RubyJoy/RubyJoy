@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
   before_action :find_product, only: %i[show edit destroy update]
-  before_action :find_store, only: %i[new create]
-  def index; end
+  before_action :find_store, only: %i[ create index edit update new]
+
+
+  def index
+    @products = @store.products.all
+  end
 
   def new
     @product = @store.products.new
@@ -27,7 +31,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to store_path, notice: '成功'
+      redirect_to store_products_path, notice: '成功'
     else
       render :edit
     end
@@ -36,7 +40,7 @@ class ProductsController < ApplicationController
   private
 
   def find_product
-    @product = find_by(id: params[:id])
+    @product = Product.find(params[:id])
   end
 
   def product_params
