@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: %i[show edit destroy update]
+  before_action :find_product, only: %i[show edit destroy update buy]
   before_action :find_store, only: %i[new create]
   def index; end
 
@@ -33,10 +33,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def buy; end
+
   private
 
   def find_product
-    @product = find_by(id: params[:id])
+    @product = Product.find_by(id: params[:id])
   end
 
   def product_params
