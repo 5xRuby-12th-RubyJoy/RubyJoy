@@ -1,3 +1,35 @@
+<!-- 本頁表格僅先用來測試是否可以正常迴圈轉出所有商店商品及成功點擊編輯進入 edit 頁面 -->
+
 <h1>產品</h1>
-
-
+<div class="pt-20">
+<table
+  style="border: 3px #cccccc solid"
+  cellpadding="10"
+  border="1"
+>
+  <thead>
+    <tr>
+      <td>商品名稱</td>
+      <td>商品描述</td>
+      <td>商品價格</td>
+      <td>庫存數量</td>
+      <td>
+        處理
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.description %></td>
+      <td><%= product.price %></td>
+      <td><%= product.stock %></td>
+      <td>
+        <%= link_to '編輯', edit_store_product_path(@store, product) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

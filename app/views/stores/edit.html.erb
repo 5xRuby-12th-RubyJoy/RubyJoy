@@ -38,7 +38,7 @@
           required: true %>
         </div>
         <%if @store.avatar.attached?%>
-        <img src="<%=(url_for(@store.avatar))%>" width="300" height="300">
+        <img src="<%=(url_for(@store.avatar))%>" width="300" height="300" class="rounded mx-auto mt-8">
         <%end%>
         <div class="flex justify-center mt-10">
           <button
