@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def create
     @product = @store.products.new(product_params)
     if @product.save
-      redirect_to store_products_path, notice: '成功'
+      redirect_to store_products_path, notice: '成功新增商品'
     else
       render :new
     end
