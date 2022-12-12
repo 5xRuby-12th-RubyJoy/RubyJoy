@@ -10,4 +10,7 @@ class Event < ApplicationRecord
 
   # has_many :products,through :event_product
 
+  
+  # relation
+  has_one_attached :avatar
 end
