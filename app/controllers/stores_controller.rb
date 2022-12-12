@@ -2,11 +2,7 @@ class StoresController < ApplicationController
   before_action :find_store, only: [:index, :update, :edit, :destroy, :show ]
 
   def index
-    if current_user_store?
-      @store = current_user.store
-    else
-      redirect_to new_store_path
-    end
+    @store = Store.all
   end
 
   def new
@@ -58,4 +54,5 @@ class StoresController < ApplicationController
   def current_user_store?
     @store = current_user.store
   end
+
 end
