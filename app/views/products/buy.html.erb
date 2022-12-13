@@ -1,0 +1,46 @@
+<h1><%= @product.name %></h1>
+<article>
+  <%= @product.description %>
+</article>
+
+<%= form_with(url: orders_path, method: 'post', data: { controller: "order-quantity" }) do |f| %>
+ 
+
+  <input type="hidden" name="product_id" value="<%= @product.id %>">
+  <button data-action="click->order-quantity#decrement">-</button>
+  <input data-order-quantity-target="quantity" type="number" name="quantity" value="1" min="1" max="<%= @product.stock %>">
+  <button data-action="click->order-quantity#increment">+</button>
+
+  <hr>
+
+  <div data-controller="order-amount"
+     data-price="<%= @product.price %>"
+     data-action="update-quantity@document->order-amount#updateQuantity"
+     >
+    <div>
+      單價：<%= @product.price %>元
+    </div>
+    <div>
+      小計：<span data-order-amount-target="amount"></span>元
+    </div>
+  </div>
+
+  <hr>
+
+  <div>
+    <%= f.label :receiver, "收件人姓名："%><br>
+    <%= f.text_field :receiver %>
+  </div>
+  <div>
+    <%= f.label :phone, "收件人電話：" %><br>
+    <%= f.telephone_field :phone %>
+  </div>
+  <div>
+    <%= f.label :address, "收件人地址：" %><br>
+    <%= f.text_field :address %>
+  </div>
+
+  <hr>
+
+  <button>結帳</button>
+<% end %>

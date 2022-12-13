@@ -15,8 +15,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :events
+  resources :products, only: [] do
+    member do
+      get :buy
+    end
+  end
 
+  resources :events
 
   resources :stores do
     resources :products
