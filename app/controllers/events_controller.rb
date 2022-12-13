@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :find_id, only: %i[show edit update destroy]
   def index
-    @events = Event.all
+    @events = current_user.events.all
   end
 
   def new

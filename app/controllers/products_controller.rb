@@ -1,13 +1,10 @@
 class ProductsController < ApplicationController
-
-  before_action :find_product, only: %i[ show edit destroy update buy ]
-  before_action :find_store, only: %i[ create index edit update new ]
-
+  before_action :find_product, only: %i[show edit destroy update buy]
+  before_action :find_store, only: %i[create index edit update new]
 
   def index
-    @products = current_user.store.products.all
+    @products = @store.products
   end
-
 
   def new
     @product = current_user.store.products.new
@@ -52,7 +49,7 @@ class ProductsController < ApplicationController
   end
 
   def find_store
-    # @store = Store.find(params[:store_id])
-    @store = current_user.store
+    @store = Store.find(params[:store_id])
+   
   end
 end
