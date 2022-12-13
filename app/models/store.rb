@@ -3,5 +3,4 @@ class Store < ApplicationRecord
   has_many :products
     # relation
     has_one_attached :avatar
-
 end

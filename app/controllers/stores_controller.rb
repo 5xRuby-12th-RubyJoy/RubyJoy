@@ -5,10 +5,11 @@ class StoresController < ApplicationController
     if current_user_store?
       @store = current_user.store
       redirect_to store_products_path(@store.id)
+    elsif current_user?
+      @store = Store.all
     else
       redirect_to new_store_path
     end
-
   end
 
   def new
