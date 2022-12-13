@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
   private
 
   def find_product
-    @product = current_user.store.products.find(params[:id])
+    @product = Product.find_by(id: params[:id])
   end
 
   def product_params
@@ -49,7 +49,6 @@ class ProductsController < ApplicationController
   end
 
   def find_store
-    @store = Store.find(params[:store_id])
-   
+    @store = Store.find_by(id: params[:store_id])
   end
 end
