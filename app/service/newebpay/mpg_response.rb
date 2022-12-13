@@ -21,7 +21,6 @@ module Newebpay
 
     private
 
-
     # AES 解密
     def decrypy(encrypted_data)
       encrypted_data = [encrypted_data].pack('H*')
