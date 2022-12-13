@@ -8,6 +8,7 @@ class StoresController < ApplicationController
     else
       redirect_to new_store_path
     end
+
   end
 
   def new
@@ -59,4 +60,5 @@ class StoresController < ApplicationController
   def current_user_store?
     @store = current_user.store
   end
+
 end

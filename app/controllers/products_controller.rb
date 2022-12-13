@@ -1,10 +1,13 @@
 class ProductsController < ApplicationController
+
   before_action :find_product, only: %i[ show edit destroy update buy ]
   before_action :find_store, only: %i[ create index edit update new ]
+
 
   def index
     @products = current_user.store.products.all
   end
+
 
   def new
     @product = current_user.store.products.new

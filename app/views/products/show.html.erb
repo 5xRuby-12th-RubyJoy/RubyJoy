@@ -1,6 +1,8 @@
 <h1>產品資料</h1>
 <h2><%= @product.name %></h2>
-
+  <%if @product.avatar.attached?%>
+    <img src="<%=(url_for(@product.avatar))%>">
+  <%end%>
   <ul>
     <li>產品描述:<%=@product.description%></li>
     <li>產品價格:<%=@product.price%></li>
