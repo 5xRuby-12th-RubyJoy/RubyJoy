@@ -21,6 +21,7 @@ module Newebpay
     end
 
     private
+
     def trade_info
       aes_encode(url_encoded_query_string)
     end
