@@ -1,6 +1,6 @@
 <div class="  pt-28 ">
 <!-- 商店資訊 -->
-<section>
+  <section>
   <div class="flex flex-col items-center justify-center ">
     <div>
       <%if @store.avatar.attached?%>
@@ -15,9 +15,9 @@
       &nbsp;&nbsp;<%= @store.description %>
     </span>
   </div>
-</section>
+  </section>
 <!-- 功能列按鈕 -->
-<div class="flex space-x-10 bg-gray-100 p-2 w-full justify-center">
+  <div class="flex space-x-10 bg-gray-100 p-2 w-full justify-center">
   <button
     class="min-w-auto w-32 h-10 bg-theme_blue p-2 rounded-xl hover:bg-red-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold">
     <%= link_to '編輯商店資訊' , edit_store_path(@store.id) %>
@@ -30,10 +30,10 @@
     class="min-w-auto w-32 h-10 bg-theme_pink p-2 rounded-xl hover:bg-blue-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold">
     <%= link_to '新增商品' , new_store_product_path(@store.id) %>
   </button>
-</div>
+  </div>
 
 <!-- 商品列表 -->
-<div class="px-3 bg-theme_beige pt-16">
+  <div class="px-3 bg-theme_beige pt-16">
   <div class=" mx-auto display: flex gap-10 flex-wrap justify-center">
     <% @products.each do |product| %>
       <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-lg mb-5">
@@ -69,7 +69,7 @@
       </div>
       <% end %>
   </div>
-</div>
+  </div>
 </div>
 
 
