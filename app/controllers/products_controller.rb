@@ -50,6 +50,6 @@ class ProductsController < ApplicationController
 
   def find_store
     @store = Store.find(params[:store_id])
-    # @store = current_user.store
+   
   end
 end
