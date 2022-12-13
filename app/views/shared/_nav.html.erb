@@ -1,10 +1,9 @@
 <div>
 <nav data-controller="nav-burger"
-  class="md:fixed flex bg-theme_blue flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700">
+  class="md:fixed flex bg-theme_blue flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 z-10">
   <div>
     <a href="/home" class="flex items-center">
-      <img src="https://fakeimg.pl/120x80/487771,128/000,255" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
-      <span class="text-white self-center text-3xl font-semibold whitespace-nowrap dark:text-white">RubyJoy</span>
+      <img src="assets/RubyJoy_logo.png" alt="RubyJoy Logo" width="150" />
     </a>
   </div>
 
@@ -33,7 +32,7 @@
       <% elsif current_user && current_user.role == "vendor" %>
       <li>
         <a
-          href="/stores"
+          href="/stores/#{@store.id}/products"
           class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
           aria-current="page"
           >進入店鋪</a

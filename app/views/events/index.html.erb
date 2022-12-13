@@ -1,31 +1,20 @@
-<body class='bg-theme_blue'>
-  <div class='min-w-fit flex-col border bg-white py-10 shadow rounded-lg mx-20 mb-2 flex items-center justify-center h-screen'>
-    <h1 class='text-2xl  font-bold'>活動清單</h1>
-    <%= link_to "新增活動", new_event_path , class:'px-4 py-2 bg-theme_pink outline-none border border-indigo-100 rounded text-theme_text4 font-medium active:scale-95 hover:bg-theme_red hover:text-white focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200' %>
-    <table class='table border-separate '>
-      <thead class='bg-theme_blue text-center text-theme_text1 text-xl'>
-        <td>活動名稱</td>
-        <td>副標題</td>
-        <td>活動內容</td>
-        <td>活動開始日期</td>
-        <td>活動結束日期</td>
-        <td>場地</td>
-        <td>動作</td>
-      </thead>
+<div class='container mx-auto flex justify-center flex-wrap pt-32 '>
+    <h1 class='w-full text-center text-3xl font-bold'>我的活動清單</h1>
+    <div class='w-full flex justify-center my-3'>
+      <%= link_to "新增活動", new_event_path , class:' text-center font-bold px-4 py-2 bg-indigo-500 outline-none rounded text-white shadow-indigo-200 shadow-lg font-medium active:shadow-none active:scale-95 hover:bg-indigo-600 focus:bg-indigo-600 focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200' %>
+    </div>
       <% @events.each do |event| %>
-        <tbody class='bg-theme_beige text-center'>
-          <td class='p-3'><%= link_to event.title, event_path(event.id) , class:''%></td>
-          <td><%= event.subtitle %></td>
-          <td><%= event.description %></td>
-          <td><%= event.start_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-          <td><%= event.end_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-          <td><%= event.venue %></td>
-          <td>
-            <%= link_to "編輯活動", edit_event_path(event.id), class:'px-4 py-2 bg-theme_pink outline-none border border-indigo-100 rounded text-theme_text4 font-medium active:scale-95 hover:bg-theme_red hover:text-white focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200'%>
-            <%= link_to "刪除活動", event_path(event.id), class:'px-4 py-2 bg-theme_pink outline-none border border-indigo-100 rounded text-theme_text4 font-medium active:scale-95 hover:bg-theme_red hover:text-white focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200', method: "delete", data:{confirm:"確定要刪除?"} %>
-          </td><br>
-        </tbody>
+        <div class='flex justify-center flex-wrap mx-2 my-2 bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full w-1/3 px-3'>
+          <div>
+            <%if @event.avatar.attached?%>
+                <img class="rounded align-center mt-5" src="<%=(url_for(@event.avatar))%>" width="300", height="300"/>
+            <%end%>
+          </div>
+          <div class='w-full text-center text-xl font-bold my-3'><%= event.title %></div>
+          <div class='w-full break-all'>
+            <%= event.description %>
+          </div>
+          <%= link_to "查看活動", event_path(event.id), class:'text-center font-bold px-4 py-2 bg-indigo-500 outline-none rounded text-white shadow-indigo-200 shadow-lg font-medium active:shadow-none active:scale-95 hover:bg-indigo-600 focus:bg-indigo-600 focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200 my-3'%>
+        </div>
       <% end %>
-    </table>
-  </div>
-</body>
+</div>

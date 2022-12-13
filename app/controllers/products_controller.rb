@@ -1,20 +1,20 @@
 class ProductsController < ApplicationController
 
-  before_action :find_product, only: %i[show edit destroy update]
-  before_action :find_store, only: %i[ create index edit update new]
+  before_action :find_product, only: %i[ show edit destroy update buy ]
+  before_action :find_store, only: %i[ create index edit update new ]
 
 
   def index
-    @products = @store.products.all
+    @products = current_user.store.products.all
   end
 
 
   def new
-    @product = @store.products.new
+    @product = current_user.store.products.new
   end
 
   def create
-    @product = @store.products.new(product_params)
+    @product = current_user.store.products.new(product_params)
     if @product.save
       redirect_to store_products_path, notice: '成功新增商品'
     else
@@ -28,12 +28,12 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to store_path, notice: '已刪除'
+    redirect_to store_products_path, notice: '已刪除商品'
   end
 
   def update
     if @product.update(product_params)
-      redirect_to store_products_path, notice: '成功'
+      redirect_to store_products_path, notice: '成功更新商品'
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
   private
 
   def find_product
-    @product = Product.find(params[:id])
+    @product = current_user.store.products.find(params[:id])
   end
 
   def product_params
@@ -52,6 +52,7 @@ class ProductsController < ApplicationController
   end
 
   def find_store
-    @store = Store.find(params[:store_id])
+    # @store = Store.find(params[:store_id])
+    @store = current_user.store
   end
 end
