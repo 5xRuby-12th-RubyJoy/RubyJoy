@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   resources :events
 
   resources :stores do
-    resources :products
+    resources :products do
+      member do 
+        patch :add_gift
+      end
+    end
   end
 end

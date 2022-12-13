@@ -8,5 +8,6 @@ class Product < ApplicationRecord
 
   # relation
   has_one_attached :avatar
-  has_many :events
+  has_many :event_products
+  has_many :events, through: :event_products
 end
