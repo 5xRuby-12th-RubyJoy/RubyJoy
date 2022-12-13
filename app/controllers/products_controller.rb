@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = current_user.store.products.all
+    @products = @store.products
   end
 
 
@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
   end
 
   def find_store
-    # @store = Store.find(params[:store_id])
-    @store = current_user.store
+    @store = Store.find(params[:store_id])
+    # @store = current_user.store
   end
 end
