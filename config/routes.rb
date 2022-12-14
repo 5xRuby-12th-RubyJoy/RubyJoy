@@ -25,5 +25,8 @@ Rails.application.routes.draw do
 
   resources :stores do
     resources :products
+     member do
+       get :checkout_order
+     end
   end
 end
