@@ -62,6 +62,9 @@ class StoresController < ApplicationController
 
   def find_store
     @store = Store.find_by(id: params[:store_id])
+    if current_user_store?
+      @store = current_user.store
+    end
   end
   
   def current_user_store?
