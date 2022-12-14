@@ -1,12 +1,12 @@
 class StoresController < ApplicationController
-  before_action :find_store, only: %i[index update edit destroy show]
+  before_action :find_store, only: [:index, :update, :edit, :destroy, :show ]
 
   def index
-    if current_user_store?
+    if  current_user?
+      @store = Store.all
+    elsif current_user_store?
       @store = current_user.store
       redirect_to store_products_path(@store.id)
-    elsif current_user?
-      @store = Store.all
     else
       redirect_to new_store_path
     end
@@ -15,7 +15,7 @@ class StoresController < ApplicationController
   def new
     @store = Store.new
   end
-
+  
   def create
     @store = current_user.build_store(store_params) if current_vendor?
     if @store.save
@@ -25,10 +25,18 @@ class StoresController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    if current_user_store?
+      @store = current_user.store
+      redirect_to store_products_path(@store.id)
+    else
+      redirect_to new_store_path
+    end
+  end
 
-  def edit; end
-
+  def edit
+  end
+  
   def update
     if @store.update(store_params)
       redirect_to stores_path, notice: '成功更新商店！'
@@ -44,19 +52,24 @@ class StoresController < ApplicationController
   end
 
   def checkout_order
+
   end
 
   private
-
+  
   def store_params
     params.require(:store).permit(:title, :description, :avatar)
-  end
+  end 
 
   def find_store
-    @store = current_user.store
+    @store = Store.find_by(id: params[:store_id])
+    if current_user_store?
+      @store = current_user.store
+    end
   end
-
+  
   def current_user_store?
     @store = current_user.store
   end
+
 end
