@@ -49,7 +49,6 @@ class ProductsController < ApplicationController
   end
 
   def find_store
-    @store = Store.find(params[:store_id])
-   
+    @store = Store.find_by(id: params[:store_id])
   end
 end
