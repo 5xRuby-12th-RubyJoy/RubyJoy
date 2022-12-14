@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: %i[show edit update destroy index add_gift ]
-  before_action :find_product, only: [:add_gift]
+  before_action :find_event, only: %i[show edit update destroy index add_gift]
+  before_action :find_product, only: [:add_gift, :remove_gift]
 
   def index
     @events = current_user.events.all
@@ -16,7 +16,11 @@ class EventsController < ApplicationController
     end
   end
 
-
+  def remove_gift
+    @gift = @event.event_products.find_by(product_id: params[:id])
+    @gift.destroy
+    redirect_to root_path, notice: "成功"
+  end
 
   def new
     @event = Event.new

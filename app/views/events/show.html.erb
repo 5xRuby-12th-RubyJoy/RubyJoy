@@ -80,13 +80,12 @@
       <p class="text-gray-700 text-base mb-4">
         &nbsp;&nbsp;<%= event_product.description %>
       </p>
-      <% if @event.user == current_user %>
-      <button
-        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-        >移除禮物</button
-      >
-      
-      <% else %>
+      <% if @event.user == current_user %> <%= link_to '移除禮物',
+      event_event_product_path(@event, event_product) , method: "delete", data:
+      { confirm: "確定刪除禮物嗎？"} ,class: "focus:outline-none text-white
+      bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium
+      rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600
+      dark:hover:bg-red-700 dark:focus:ring-red-900"%> <% else %>
       <a
         class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
         href="#"

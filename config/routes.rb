@@ -22,24 +22,25 @@ Rails.application.routes.draw do
   end
 
   resources :events do
+    resources :event_products, only: [:destroy]
     member do
       patch :add_gift
     end
   end
 
-  resources :events do 
+  resources :events do
     member do
       resources :stores
     end
   end
 
-resources :events, only: [] do
-  resources :stores, only:[] do 
-    resources :products
+  resources :events, only: [] do
+    resources :stores, only: [] do
+      resources :products
+    end
   end
-end
 
   resources :stores do
-    resources :products 
+    resources :products
   end
 end
