@@ -53,11 +53,11 @@
               >前往選擇禮物</a
             >
             <a
-            class="inline-block px-7 py-3 mr-2  bg-green-700 hover:bg-green-800 text-white font-medium text-base leading-snug uppercase rounded shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-            href="/events/<%= @event.id %>/edit"
-            >編輯活動</a
-          >
-          
+              class="inline-block px-7 py-3 mr-2 bg-green-700 hover:bg-green-800 text-white font-medium text-base leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              href="/events/<%= @event.id %>/edit"
+              >編輯活動</a
+            >
+
             <% end %>
           </div>
         </div>
@@ -68,26 +68,24 @@
 <div class="mx-auto border-theme_blue w-1/2 border-b-2 mb-10"></div>
 
 <div class="flex justify-center mb-5 flex-wrap gap-5 w-full">
+  <% @event_products.each do |event_product| %>
   <div class="rounded-lg shadow-lg bg-white max-w-sm">
-    <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-      <img
-        class="rounded-t-lg"
-        src="https://mdbootstrap.com/img/new/standard/nature/182.jpg"
-        alt=""
-      />
-    </a>
+    <%if event_product.avatar.attached?%>
+    <img src="<%=(url_for(event_product.avatar))%>" />
+    <%end%>
     <div class="p-6">
-      <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
+      <h5 class="text-gray-900 text-xl font-medium mb-2">
+        <%= event_product.name %>
+      </h5>
       <p class="text-gray-700 text-base mb-4">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+        &nbsp;&nbsp;<%= event_product.description %>
       </p>
       <% if @event.user == current_user %>
-      <a
+      <button
         class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-        href="#"
-        >刪除禮物</a
+        >移除禮物</button
       >
+      
       <% else %>
       <a
         class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
@@ -97,4 +95,5 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 </div>

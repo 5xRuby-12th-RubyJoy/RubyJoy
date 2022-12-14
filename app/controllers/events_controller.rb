@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: %i[show edit update destroy index add_gift]
+  before_action :find_event, only: %i[show edit update destroy index add_gift ]
   before_action :find_product, only: [:add_gift]
 
   def index
@@ -16,6 +16,8 @@ class EventsController < ApplicationController
     end
   end
 
+
+
   def new
     @event = Event.new
   end
@@ -29,7 +31,9 @@ class EventsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @event_products = @event.products.all
+  end
 
   def edit; end
 
