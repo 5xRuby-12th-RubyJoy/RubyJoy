@@ -66,3 +66,4 @@ gem 'dotenv-rails', '~> 2.8'
 
 gem 'aasm', '~> 5.4'
 gem "aws-sdk-s3", require: false
+gem 'ransack'

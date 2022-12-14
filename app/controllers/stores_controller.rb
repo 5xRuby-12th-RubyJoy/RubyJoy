@@ -2,8 +2,9 @@ class StoresController < ApplicationController
   before_action :find_store, only: [:index, :update, :edit, :destroy, :show ]
 
   def index
-    if  current_user?
-      @store = Store.all
+    if current_user?
+      @q =Store.ransack(params[:q])
+      @store=@q.result
     elsif current_user_store?
       @store = current_user.store
       redirect_to store_products_path(@store.id)
@@ -62,6 +63,9 @@ class StoresController < ApplicationController
 
   def find_store
     @store = Store.find_by(id: params[:store_id])
+    if current_user_store?
+      @store =current_user.store
+    end
   end
   
   def current_user_store?
