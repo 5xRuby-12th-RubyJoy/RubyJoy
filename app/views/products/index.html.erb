@@ -1,75 +1,104 @@
-<div class="  pt-28 ">
-<!-- 商店資訊 -->
-<section>
-  <div class="flex flex-col items-center justify-center ">
-    <div>
-      <%if @store.avatar.attached?%>
-        <img class="rounded align-center mt-5" src="<%=(url_for(@store.avatar))%>" width="300" , height="300" />
+<div class="pt-28">
+  <!-- 商店資訊 -->
+  <section>
+    <div class="flex flex-col items-center justify-center">
+      <div>
+        <%if @store.avatar.attached?%>
+        <img
+          class="rounded align-center mt-5"
+          src="<%=(url_for(@store.avatar))%>"
+          width="300"
+          ,
+          height="300"
+        />
         <%end %>
+      </div>
+      <span class="text-3xl text-center font-bold mt-10">
+        <%= @store.title %>
+      </span>
+
+      <span class="my-5 text-base text-center w-6/12">
+        &nbsp;&nbsp;<%= @store.description %>
+      </span>
     </div>
-    <span class="text-3xl text-center font-bold mt-10">
-      <%= @store.title %>
-    </span>
-
-    <span class="my-5 text-base text-center w-6/12">
-      &nbsp;&nbsp;<%= @store.description %>
-    </span>
+  </section>
+  <!-- 功能列按鈕 -->
+  <div class="flex space-x-10 bg-gray-100 p-2 w-full justify-center">
+    <button
+      class="min-w-auto w-32 h-10 bg-theme_blue p-2 rounded-xl hover:bg-red-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold"
+    >
+      <%= link_to '編輯商店資訊' , edit_store_path(@store.id) %>
+    </button>
+    <button
+      class="min-w-auto w-40 h-10 bg-theme_dark_red p-2 rounded-xl hover:bg-green-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold"
+    >
+      <%= link_to '訂單查詢' , store_path(@store.id) %>
+    </button>
+    <button
+      class="min-w-auto w-32 h-10 bg-theme_pink p-2 rounded-xl hover:bg-blue-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold"
+    >
+      <%= link_to '新增商品' , new_store_product_path(@store.id) %>
+    </button>
   </div>
-</section>
-<!-- 功能列按鈕 -->
-<div class="flex space-x-10 bg-gray-100 p-2 w-full justify-center">
-  <button
-    class="min-w-auto w-32 h-10 bg-theme_blue p-2 rounded-xl hover:bg-red-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold">
-    <%= link_to '編輯商店資訊' , edit_store_path(@store.id) %>
-  </button>
-  <button
-    class="min-w-auto w-40 h-10 bg-theme_dark_red p-2 rounded-xl hover:bg-green-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold">
-    <%= link_to '訂單查詢' , store_path(@store.id) %>
-  </button>
-  <button
-    class="min-w-auto w-32 h-10 bg-theme_pink p-2 rounded-xl hover:bg-blue-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold">
-    <%= link_to '新增商品' , new_store_product_path(@store.id) %>
-  </button>
-</div>
 
-<!-- 商品列表 -->
-<div class="px-3 bg-theme_beige pt-16">
-  <div class=" mx-auto display: flex gap-10 flex-wrap justify-center">
-    <% @products.each do |product| %>
-      <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-lg mb-5">
+  <!-- 商品列表 -->
+  <div class="px-3 bg-theme_beige pt-16">
+    <div class="mx-auto display: flex gap-10 flex-wrap justify-center">
+      <% @products.each do |product| %>
+      <div
+        class="bg-white shadow-md border border-gray-200 rounded-lg max-w-lg mb-5"
+      >
         <div>
           <%if @store.avatar.attached?%>
-            <img class="rounded align-center h-1/4 w-80" src="<%=(url_for(product.avatar))%>" />
-            <%end%>
+          <img
+            class="rounded align-center h-1/4 w-80"
+            src="<%=(url_for(product.avatar))%>"
+          />
+          <%end%>
         </div>
         <div class="px-5 mt-2">
-          <h1 class="text-center text-theme_text5  font-bold text-2xl tracking-tight mb-2">
+          <h1
+            class="text-center text-theme_text5 font-bold text-2xl tracking-tight mb-2"
+          >
             <%= product.name %>
           </h1>
 
-          <p class="text-lg text-theme_text5 mb-3">商品描述：<%= product.description %>
+          <p class="text-lg text-theme_text5 mb-3">
+            商品描述：<%= product.description %>
           </p>
-          <p class="text-lg text-theme_text5 mb-3">商品價格：<%= product.price %>
+          <p class="text-lg text-theme_text5 mb-3">
+            商品價格：<%= product.price %>
           </p>
-          <p class="text-lg text-theme_text5 mb-3">商品庫存量：<%= product.stock %>
+          <p class="text-lg text-theme_text5 mb-3">
+            商品庫存量：<%= product.stock %>
           </p>
           <div class="mb-3">
             <button
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center"
-              。>
-              <%= link_to '修改商品內容' , edit_store_product_path(@store, product) %>
+            >
+              <%= link_to '修改商品內容' , edit_store_product_path(@store,
+              product) %>
             </button>
             <button
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center"
-              。>
-              <%= link_to '刪除商品' , store_product_path(@store, product), method: 'DELETE' , data: {confirm: "確定嗎" } %>
+            >
+              <%= link_to '刪除商品' , store_product_path(@store, product),
+              method: 'DELETE' , data: {confirm: "確定嗎" } %>
+            </button>
+            <button
+              data-controller="add-gift"
+              data-action="click->add-gift#toggle"
+              data-event-id="<%= @event.id%>"
+              data-product-id="<%= product.id %>"
+              class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center"
+            >
+              <%= @event.products.include?(product) ? '已加入禮物' : '加入禮物'
+              %>
             </button>
           </div>
         </div>
       </div>
       <% end %>
+    </div>
   </div>
 </div>
-</div>
-
-

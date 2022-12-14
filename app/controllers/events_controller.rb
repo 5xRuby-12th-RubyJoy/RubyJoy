@@ -1,7 +1,19 @@
 class EventsController < ApplicationController
-  before_action :find_id, only: %i[show edit update destroy]
+  before_action :find_event, only: %i[show edit update destroy index add_gift]
+  before_action :find_product, only: [:add_gift]
+
   def index
     @events = current_user.events.all
+  end
+
+  def add_gift
+    if @event.products.include?(@product)
+      @event.products.delete(@product)
+      render json: { status: "deleted" }
+    else
+      @event.products << @product
+      render json: { status: "created" }
+    end
   end
 
   def new
@@ -11,7 +23,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params) if current_user?
     if @event.save
-      redirect_to events_path, notice: '活動建立成功!!'
+      redirect_to events_path, notice: "活動建立成功!!"
     else
       render :new
     end
@@ -23,7 +35,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to events_path, notice: '活動更新成功!!'
+      redirect_to events_path, notice: "活動更新成功!!"
     else
       render :edit
     end
@@ -31,7 +43,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_path, notice: '刪除活動成功!!'
+    redirect_to events_path, notice: "刪除活動成功!!"
   end
 
   private
@@ -40,7 +52,11 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :subtitle, :description, :start_at, :end_at, :venue, :avatar)
   end
 
-  def find_id
+  def find_event
     @event = Event.find_by(id: params[:id])
+  end
+
+  def find_product
+    @product = Product.find(params[:product_id])
   end
 end
