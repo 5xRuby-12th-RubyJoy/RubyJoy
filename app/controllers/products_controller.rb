@@ -1,10 +1,12 @@
 class ProductsController < ApplicationController
   before_action :find_product, only: %i[show edit destroy update buy]
   before_action :find_store, only: %i[create index edit update new]
-  before_action :find_event, only: %i[index]
 
   def index
     @products = @store.products
+    if current_user == 'user'
+     @event = Event.find(params[:event_id])
+    end
   end
 
   def new
@@ -55,8 +57,5 @@ class ProductsController < ApplicationController
     @store = Store.find(params[:store_id])
   end
 
-  def find_event
-    @event = Event.find(params[:event_id])
-
-  end
+  
 end

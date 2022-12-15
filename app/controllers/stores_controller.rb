@@ -1,11 +1,15 @@
 class StoresController < ApplicationController
-
   before_action :find_store, only: %i[index update edit destroy show]
-  before_action :find_event, only: [:index]
+  
+
+
   def index
     if current_user?
       @q =Store.ransack(params[:q])
       @store=@q.result
+
+      @event = Event.find(params[:id])
+
     elsif current_user_store?
       @store = current_user.store
       redirect_to store_products_path(@store.id)
@@ -72,10 +76,6 @@ class StoresController < ApplicationController
   
   def current_user_store?
     @store = current_user.store
-  end
-
-  def find_event
-    @event = Event.find(params[:id])
   end
 
 end
