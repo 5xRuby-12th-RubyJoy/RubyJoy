@@ -1,4 +1,4 @@
-<!-- Section: Design Block -->
+<!-- Section: Event Intro -->
 <section class="pt-20 md:pt-36 mb-10">
   <div class="md:px-12 text-gray-800 text-center lg:text-left">
     <div class="container mx-auto xl:px-32">
@@ -57,7 +57,6 @@
               href="/events/<%= @event.id %>/edit"
               >編輯活動</a
             >
-
             <% end %>
           </div>
         </div>
@@ -65,35 +64,54 @@
     </div>
   </div>
 </section>
+
 <div class="mx-auto border-theme_blue w-1/2 border-b-2 mb-10"></div>
 
-<div class="flex justify-center mb-5 flex-wrap gap-5 w-full">
-  <% @event_products.each do |event_product| %>
-  <div class="rounded-lg shadow-lg bg-white max-w-sm">
-    <%if event_product.avatar.attached?%>
-    <img src="<%=(url_for(event_product.avatar))%>" />
-    <%end%>
-    <div class="p-6">
-      <h5 class="text-gray-900 text-xl font-medium mb-2">
-        <%= event_product.name %>
-      </h5>
-      <p class="text-gray-700 text-base mb-4">
-        &nbsp;&nbsp;<%= event_product.description %>
-      </p>
-      <% if @event.user == current_user %> <%= link_to '移除禮物',
-      event_event_product_path(@event, event_product) , method: "delete", data:
-      { confirm: "確定刪除禮物嗎？"} ,class: "focus:outline-none text-white
-      bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium
-      rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600
-      dark:hover:bg-red-700 dark:focus:ring-red-900"%> <% else %>
-      <a
-        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-        href="#"
-        >前往結賬</a
-      >
+<!-- Section: gift lists -->
 
-      <% end %>
+<div class="pt-3">
+  <div class="mx-auto display: flex gap-10 flex-wrap justify-center">
+    <% @event_products.each do |event_product| %>
+    <div
+      class="bg-white shadow-md border border-gray-200 rounded-lg max-w-lg mb-5"
+    >
+      <div>
+        <%if event_product.avatar.attached?%>
+        <img
+          class="rounded align-center h-1/4 w-80"
+          src="<%=(url_for(event_product.avatar))%>"
+        />
+        <%end%>
+      </div>
+      <div class="px-5 mt-2">
+        <h1
+          class="text-center text-theme_text5 font-bold text-2xl tracking-tight mb-2"
+        >
+          <%= event_product.name %>
+        </h1>
+
+        <p class="text-lg text-theme_text5 mb-3">
+          &nbsp;&nbsp;<%= event_product.description %>
+        </p>
+
+        <div class="flex justify-center">
+          <% if @event.user == current_user %> <%= link_to '移除禮物',
+          event_event_product_path(@event, event_product) , method: "delete",
+          data: { confirm: "確定刪除禮物嗎？"} ,class: "focus:outline-none
+          text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300
+          font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-3 dark:bg-red-600
+          dark:hover:bg-red-700 dark:focus:ring-red-900"%> <% else %>
+          <a
+            class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+            href="#"
+            >前往結賬</a
+          >
+
+          <% end %>
+        </div>
+      </div>
     </div>
+
+    <% end %>
   </div>
-  <% end %>
 </div>
