@@ -29,3 +29,21 @@
         background-image:url(images/description_img.png);
     }
   }
+  .slide-box{
+    width:98%;
+    margin: auto;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+  }
+  .slide-box .group{ 
+    position: absolute;
+    top: 0;
+    left: 25px;
+  }
+  .group li{
+    width: 250px;
+    height: 250px;
+    float: left;
+    list-style: none;
+  }

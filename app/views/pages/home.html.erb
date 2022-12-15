@@ -48,15 +48,37 @@
   </article>
 </section>
 
-<section id="slideshow" class="w-full bg-theme_beige flex justify-center flex-wrap">
-  <h2 class="text-center text-3xl py-6 font-bold w-full">使用 RubyJoy，大家都Joy</h2>
-  <div class="flex pb-4">
-    <div class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg w-52">
-      <img class="rounded-lg" src="images/description_img.png">
-      <p class="w-full break-all py-2 font-bold">謝謝RubyJoy這個平台，我非常滿意，絕對推薦。這網站是首屈一指的！</p>
-      <p class="w-full break-all font-bold  text-theme_text3 text-right">wayne</p>
+<section id="slides" class="w-full bg-theme_beige flex justify-center flex-wrap">
+    <h2 class="text-center text-3xl py-6 font-bold w-full">使用 RubyJoy，大家都Joy</h2>
+    <div class="slide-box ">
+      <ul class="group">
+        <li id="card"  class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg w-52 slide-card-hover cursor-pointer hover:bg-theme_pink">
+          <img class="rounded-lg" src="images/description_img.png">
+          <p class="w-full break-all py-2 font-bold">謝謝RubyJoy這個平台，我非常滿意，絕對推薦。這網站是首屈一指的！</p>
+          <p class="w-full break-all font-bold  text-theme_text3 text-right">wayne</p>
+        </li>
+        <li id="card"  class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg w-52 slide-card-hover cursor-pointer hover:bg-theme_pink">
+          <img class="rounded-lg" src="images/description_img.png">
+          <p class="w-full break-all py-2 font-bold">謝謝RubyJoy這個平台，我非常滿意，絕對推薦。這網站是首屈一指的！</p>
+          <p class="w-full break-all font-bold  text-theme_text3 text-right">wayne</p>
+        </li>
+        <li id="card"  class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg w-52 slide-card-hover cursor-pointer hover:bg-theme_pink">
+          <img class="rounded-lg" src="images/description_img.png">
+          <p class="w-full break-all py-2 font-bold">謝謝RubyJoy這個平台，我非常滿意，絕對推薦。這網站是首屈一指的！</p>
+          <p class="w-full break-all font-bold  text-theme_text3 text-right">wayne</p>
+        </li>
+        <li id="card"  class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg w-52 slide-card-hover cursor-pointer hover:bg-theme_pink">
+          <img class="rounded-lg" src="images/description_img.png">
+          <p class="w-full break-all py-2 font-bold">謝謝RubyJoy這個平台，我非常滿意，絕對推薦。這網站是首屈一指的！</p>
+          <p class="w-full break-all font-bold  text-theme_text3 text-right">wayne</p>
+        </li>
+        <li id="card"  class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg w-52 slide-card-hover cursor-pointer hover:bg-theme_pink">
+          <img class="rounded-lg" src="images/description_img.png">
+          <p class="w-full break-all py-2 font-bold">謝謝RubyJoy這個平台，我非常滿意，絕對推薦。這網站是首屈一指的！</p>
+          <p class="w-full break-all font-bold  text-theme_text3 text-right">wayne</p>
+        </li>
+      </ul> 
     </div>
-  </div>
 </section>
 
 <footer class="bg-theme_dark_red flex flex-wrap">
@@ -80,8 +102,29 @@
   <a href="#" class="text-theme_text1 text-lg px-5 py-2 block font-bold text-center"> 媒體連繫 </a>
   <a href="#" class="text-theme_text1 text-lg px-5 py-2 block font-bold text-center"> 大事記 </a>
   </div>
+  <p class="w-full bg-theme_blue font-bold text-theme_text1 py-3 text-center">© 2022 All rights reserved. And Design by RubyJoy </p>
 </footer>
 
-<div class="bg-theme_blue flex justify-center">
- <p class="font-bold text-theme_text1 py-3 text-center">© 2022 All rights reserved. And Design by RubyJoy </p>
-</div>
+<script>
+    window.addEventListener("load",()=>{
+        let slideBox = document.querySelector('.slide-box');
+        let cardGroup = slideBox.querySelectorAll('.group')[0];
+        let card = cardGroup.getElementsByTagName('li');
+        let space = -2;
+        let timer = setInterval(move,30);
+
+        cardGroup.innerHTML = cardGroup.innerHTML + cardGroup.innerHTML;
+        cardGroup.style.width = card[0].offsetWidth * card.length+'px';          
+        function move() {
+            if (cardGroup.offsetLeft < -cardGroup.offsetWidth / 2) {
+                cardGroup.style.left = 0;
+            }
+            if (cardGroup.offsetLeft > 0) {
+                cardGroup.style.left = -cardGroup.offsetWidth / 2 + 'px';
+            }
+            cardGroup.style.left = cardGroup.offsetLeft + space + 'px';
+        };
+        slideBox.addEventListener("mouseover",() => clearInterval(timer));
+        slideBox.addEventListener("mouseout",() => {timer = setInterval(move,30);}); 
+    });
+</script>
