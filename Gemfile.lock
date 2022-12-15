@@ -103,6 +103,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.5.0)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -135,6 +136,11 @@ GEM
       timeout
     net-smtp (0.3.3)
       net-protocol
+    ngrok-rspec (1.1.18)
+      capybara (>= 2.4)
+      ngrok-tunnel (~> 2.0)
+      rspec (>= 2.99)
+    ngrok-tunnel (2.1.1)
     nio4r (2.5.8)
     nokogiri (1.13.10-arm64-darwin)
       racc (~> 1.4)
@@ -195,6 +201,19 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    rspec (3.12.0)
+      rspec-core (~> 3.12.0)
+      rspec-expectations (~> 3.12.0)
+      rspec-mocks (~> 3.12.0)
+    rspec-core (3.12.0)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-support (3.12.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -268,6 +287,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   net-smtp
+  ngrok-rspec
   paranoia (~> 2.6)
   pg (~> 1.4, >= 1.4.5)
   puma (~> 5.0)

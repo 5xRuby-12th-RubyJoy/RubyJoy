@@ -4,7 +4,8 @@ class Order < ApplicationRecord
   belongs_to :product
   belongs_to :user
   validates :price, :sold_quantity, presence: true
-
+  has_many :product_orders
+  has_many :products , through: :product_orders
   aasm column: 'state', no_direct_assignment: true do
     state :pending, initial: true
     state :paid, :cancelled, :refunded

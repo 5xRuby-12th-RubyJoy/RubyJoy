@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   def create
     sold_quantity = params[:quantity].to_i
     price = @product.price * sold_quantity
-
+ 
     order = current_user.orders.new(
       sold_quantity:,
       price:,
@@ -28,6 +28,7 @@ class OrdersController < ApplicationController
     @product = Product.find(@order[:product_id])
     @form_info = Newebpay::Mpg.new(@order).form_info
   end
+
 
   def pay
     order = Order.find_by!(serial: params[:id])
