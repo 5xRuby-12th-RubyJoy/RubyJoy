@@ -51,8 +51,9 @@ class StoresController < ApplicationController
 
     redirect_to stores_path, alert: '商店已刪除'
   end
-  
-  def create_products 
+
+  def checkout_order
+
   end
 
   private
