@@ -29,3 +29,6 @@
         background-image:url(images/description_img.png);
     }
   }
+  .min-h-52{
+    min-height: 208px;
+  }
