@@ -91,17 +91,19 @@
               <%= link_to '刪除商品' , store_product_path(@store, product),
               method: 'DELETE' , data: {confirm: "確定嗎" } %>
             </button>
-            <button
-              data-controller="add-gift"
-              data-action="click->add-gift#toggle"
-              data-event-id="<%= @event.id%>"
-              data-product-id="<%= product.id %>"
-              class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center"
-            >
-              <%= @event.products.include?(product) ? '已加入禮物' : '加入禮物'
-              %>
-            </button>
           </div>
+          <% end %>
+          <% if current_user.role == 'user'  %>
+          <div class="flex justify-center mb-3">
+          <button
+          data-controller="add-gift"
+          data-action="click->add-gift#toggle"
+          data-event-id="<%= @event.id%>"
+          data-product-id="<%= product.id %>"
+          class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center">
+          <%= @event.products.include?(product) ? '已加入禮物' : '加入禮物'%>
+        </button>
+      </div>
           <% end %>
         </div>
       </div>
