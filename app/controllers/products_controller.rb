@@ -37,7 +37,9 @@ class ProductsController < ApplicationController
     end
   end
 
-  def buy; end
+  def buy
+    render html: params
+  end
 
   private
 
@@ -55,5 +57,6 @@ class ProductsController < ApplicationController
 
   def find_event
     @event = Event.find(params[:event_id])
+
   end
 end

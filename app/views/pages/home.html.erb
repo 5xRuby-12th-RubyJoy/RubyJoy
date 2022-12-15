@@ -1,29 +1,87 @@
-<div class="sbsolute inset-0 z-10" id="video">
+<div id="video" class="sbsolute inset-0 ">
   <video autoplay muted loop>
     <source src="videos/video.mp4" type="video/mp4">
   </video>
 </div>
-<div class="absolute inset-y-24 md:inset-y-1/4 z-10 w-full text-center opacity-100" id="banner_text">
-    <p class="text-gray-50 text-5xl md:text-8xl lg:text-9xl font-bold py-5 ">RubyJoy</p>
-    <p class="py-5 text-gray-50 text-3xl md:text-6xl lg:text-7xl font-bold">計畫活動更聰明的選擇!!</p>
+
+<div id="banner_text" class="absolute inset-y-24 md:inset-y-1/4 w-full text-center">
+  <p class="text-gray-50 text-5xl md:text-8xl lg:text-9xl font-bold py-5 ">RubyJoy</p>
+  <p class="py-5 text-gray-50 text-3xl md:text-6xl lg:text-7xl font-bold">計畫活動更聰明的選擇!!</p>
 </div>
-<section class="w-full">
-    <h2 class="text-center text-3xl my-6 font-bold">RubyJoy分三步</h2>
-    <div class="w-full flex justify-center w-full flex-wrap">
-      <div class= "flex justify-center flex-wrap my-2 bg-white max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full md:w-1/3 px-3">
-        <img src="images/creat_icon.png" class="w-40 h-40"/>
-        <h3 class="text-2xl font-bold my-2 w-full text-center">1.創建願望清單<h3>
-        <p class="text-xl font-bold text-theme_text3">註冊即可創建您自己的願望清單。您可以從在線商店使用我們的合作夥伴商店。<p>
-      </div>
-      <div class= "flex justify-center flex-wrap my-2 bg-white max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full md:w-1/3 px-3">
-        <img src="images/share_icon.png" class="w-40 h-40"/>
-        <h3 class="text-2xl font-bold my-2 w-full text-center">2.分享願望清單<h3>
-        <p class="text-xl font-bold text-theme_text3">您可以與您的朋友和家人分享您的願望清單，請朋友和家人幫您完成。<p>
-      </div>
-      <div class= "flex justify-center flex-wrap my-2 bg-white max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full md:w-1/3 px-3">
-        <img src="images/gift_icon.png" class="w-40 h-40"/>
-        <h3 class="text-2xl font-bold my-2 w-full text-center">3.實現願望<h3>
-        <p class="text-xl font-bold text-theme_text3">那些被邀請到您的願望清單的人將保留他們想要實現的願望。<p>
-      </div>
+
+<section id="step" class="w-full relative p-6">
+  <h2 class="text-center text-3xl my-6 font-bold">RubyJoy 分三步</h2>
+  <div class="w-full flex justify-center w-full flex-wrap">
+    <div class= "flex justify-center flex-wrap my-2 bg-white max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full md:w-1/3 px-3">
+      <img src="images/creat_icon.png" class="w-40 h-40"/>
+      <h3 class="text-2xl font-bold my-6 w-full text-center">1.創建願望清單<h3>
+      <p class="text-xl font-bold text-theme_text3">註冊即可創建您自己的願望清單。您可以從在線商店使用我們的合作夥伴商店。<p>
     </div>
+    <div class= "flex justify-center flex-wrap my-2 bg-white max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full md:w-1/3 px-3">
+      <img src="images/share_icon.png" class="w-40 h-40"/>
+      <h3 class="text-2xl font-bold my-6 w-full text-center">2.分享願望清單<h3>
+      <p class="text-xl font-bold text-theme_text3">您可以與您的朋友和家人分享您的願望清單，請朋友和家人幫您完成。<p>
+    </div>
+    <div class= "flex justify-center flex-wrap my-2 bg-white max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full md:w-1/3 px-3">
+      <img src="images/gift_icon.png" class="w-40 h-40"/>
+      <h3 class="text-2xl font-bold my-6 w-full text-center">3.實現願望<h3>
+      <p class="text-xl font-bold text-theme_text3">那些被邀請到您的願望清單的人將保留他們想要實現的願望。<p>
+    </div>
+  </div>
 </section>
+
+<section id="description" class="bg-gradient-450 md-bg-gradient-450">
+  <div class="flex flex-col justify-center h-full">
+    <p class="w-80 text-2xl font-black md:font-bold mx-auto md:mx-20 leading-normal text-align" >憑藉大量的功能和直觀的設計，RubyJoy 是一個一站式商店，可以組織每個婚禮細節</p>
+  </div>
+</section>
+
+<section id="about" class="w-full">
+  <h2 class="text-center text-3xl my-6 font-bold">關於 RubyJoy</h2>
+  <article class="flex flex-wrap text-lg font-bold justify-center py-4">
+    <p class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full hover:bg-theme_beige hover:text-theme_dark_red">RubyJoy 是一個將在線願望清單的所有優點結合在一個地方的在線願望清單。而且一切都是免費的。</p>
+    <p class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full hover:bg-theme_beige hover:text-theme_dark_red">RubyJoy 是生日、婚禮、聖誕節、派對等場合的最佳選擇。</p>
+    <p class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full hover:bg-theme_beige hover:text-theme_dark_red">只需點擊幾下即可創建您自己的願望清單。</p>
+    <p class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full hover:bg-theme_beige hover:text-theme_dark_red">當創建好自己的活動後，可以到查看活動頁面選擇自己要的禮物。</p>
+    <p class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full hover:bg-theme_beige hover:text-theme_dark_red">您也可以創建自己店鋪，成為禮物的提供者。</p>
+    <p class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full hover:bg-theme_beige hover:text-theme_dark_red">整理好您的願望後，您可以通過電子郵件輕鬆地將指向您願望清單的鏈接發送給您的朋友和家人。</p>
+  </article>
+</section>
+
+<section id="slideshow" class="w-full bg-theme_beige flex justify-center flex-wrap">
+  <h2 class="text-center text-3xl py-6 font-bold w-full">使用 RubyJoy，大家都Joy</h2>
+  <div class="flex pb-4">
+    <div class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg w-52">
+      <img class="rounded-lg" src="images/description_img.png">
+      <p class="w-full break-all py-2 font-bold">謝謝RubyJoy這個平台，我非常滿意，絕對推薦。這網站是首屈一指的！</p>
+      <p class="w-full break-all font-bold  text-theme_text3 text-right">wayne</p>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-theme_dark_red flex flex-wrap">
+  <div class="p-10 w-full md:w-1/3">
+    <div class="flex justify-center">
+      <img class="w-52" src="/assets/RubyJoy_logo.png">
+    </div>
+    <p class="font-bold text-theme_text1 px-5 text-lg text-center md:text-left">電話 : </p>
+    <p class="font-bold text-theme_text1 px-5 text-lg text-center md:text-left">信箱 : </p>
+    <p class="font-bold text-theme_text1 px-5 text-lg text-center md:text-left">地址 : </p>
+  </div>
+  <div class="pt-14 w-full md:w-1/3 pb-6">
+    <a href="#" class="text-xl font-bold text-theme_text1 px-5 text-center block"> 幫助與政策 </a>
+    <a href="#" class="text-theme_text1 text-lg px-5 py-2 block font-bold text-center"> 常見問題 </a>
+    <a href="#" class="text-theme_text1 text-lg px-5 py-2 block font-bold text-center"> 隱私權政策 </a>
+    <a href="#" class="text-theme_text1 text-lg px-5 py-2 block font-bold text-center"> 服務條款 </a>
+  </div>
+  <div class="pt-14 w-full md:w-1/3 pb-6">
+  <a href="#" class="text-xl font-bold text-theme_text1 px-5 text-center block"> 合作商家 </a>
+  <a href="#" class="text-theme_text1 text-lg px-5 py-2 block font-bold text-center"> 招商專區 </a>
+  <a href="#" class="text-theme_text1 text-lg px-5 py-2 block font-bold text-center"> 媒體連繫 </a>
+  <a href="#" class="text-theme_text1 text-lg px-5 py-2 block font-bold text-center"> 大事記 </a>
+  </div>
+</footer>
+
+<div class="bg-theme_blue flex justify-center">
+ <p class="font-bold text-theme_text1 py-3 text-center">© 2022 All rights reserved. And Design by RubyJoy </p>
+</div>
