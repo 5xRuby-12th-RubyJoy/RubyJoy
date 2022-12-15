@@ -6,7 +6,7 @@
      <%= f.submit %>
   <% end %>
   <% @store.each do |store| %>
-    <%= link_to event_store_products_path(@event, store), class: 'bg-red-500' do %>
+    <%= link_to event_store_products_path(@event, store) do %>
       <%if store.avatar.attached?%>
           <img src="<%=(url_for(store.avatar))%>">
       <%end%>
