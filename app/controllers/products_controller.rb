@@ -36,7 +36,9 @@ class ProductsController < ApplicationController
     end
   end
 
-  def buy; end
+  def buy
+    render html: params
+  end
 
   private
 
@@ -49,6 +51,7 @@ class ProductsController < ApplicationController
   end
 
   def find_store
-    @store = Store.find_by(id: params[:store_id])
+    @store = Store.find(params[:store_id])
+   
   end
 end
