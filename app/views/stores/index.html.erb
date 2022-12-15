@@ -1,25 +1,26 @@
 
 <h1 class="pt-20">商店總覽</h1>
 <div class="max-w-sm rounded overflow-hidden shadow-lg">
-   <%= search_form_for @q do |f| %>
-      <%= f.search_field :title_cont %>
-      <%= f.submit %>
-    <%end%>
-<%@store.each do |store| %>
-  <a href="/events/<%= @event.id %>/stores/<%= store.id %>/products">
-    <%if store.avatar.attached?%>
-        <img src="<%=(url_for(store.avatar))%>">
-    <%end%>
-  <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">
-    <%=store.title%>
-    </div>
+  <%= search_form_for @q do |f| %>
+     <%= f.search_field :title_cont %>
+     <%= f.submit %>
+  <% end %>
+  <% @store.each do |store| %>
+    <%= link_to event_store_products_path(@event, store), class: 'bg-red-500' do %>
+      <%if store.avatar.attached?%>
+          <img src="<%=(url_for(store.avatar))%>">
+      <%end%>
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">
+      <%=store.title%>
+      </div>
 
-    <p class="text-gray-700 text-base">
-       &nbsp; &nbsp;<%=store.description%>
-    </p>
-  </div>
-<% end %>
+      <p class="text-gray-700 text-base">
+        &nbsp; &nbsp;<%=store.description%>
+      </p>
+    </div>
+      <% end %>
+  <% end %>
 </div>
  
 
