@@ -6,8 +6,8 @@ class Event < ApplicationRecord
   validates :description, presence: true
   validates :venue, presence: true
 
-  # has_many :products,through :event_product
-
   # relation
   has_one_attached :avatar
+  has_many :event_products
+  has_many :products, through: :event_products
 end
