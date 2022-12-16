@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   def remove_gift
     @gift = @event.event_products.find_by(product_id: params[:id])
     @gift.destroy
-    redirect_to root_path, notice: "成功"
+    redirect_to root_path, notice: "禮物新增成功"
   end
 
   def new
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params) if current_user?
     if @event.save
-      redirect_to events_path, notice: "活動建立成功!!"
+      redirect_to events_path, notice: "活動建立成功!"
     else
       render :new
     end
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to events_path, notice: "活動更新成功!!"
+      redirect_to events_path, notice: "活動更新成功!"
     else
       render :edit
     end
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_path, notice: "刪除活動成功!!"
+    redirect_to events_path, notice: "成功刪除活動!"
   end
 
   private
