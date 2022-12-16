@@ -1,13 +1,12 @@
 class StoresController < ApplicationController
-  before_action :find_store, only: %i[index update edit destroy show]
+  before_action :find_store, only: %i[ update edit destroy show]
   
 
 
   def index
     if current_user?
       @q =Store.ransack(params[:q])
-      @store=@q.result
-
+      @store = @q.result
       @event = Event.find(params[:id])
 
     elsif current_user_store?

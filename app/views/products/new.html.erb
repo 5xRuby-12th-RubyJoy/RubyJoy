@@ -2,7 +2,7 @@
 <section class="h-screen pt-20">
   <div class="container px-6 py-12 h-full flex justify-center">
     <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-      <%=form_with(model: @product, url: store_products_path, method: 'post') do |f| %>
+      <%=form_with(model: @product, url: store_products_path(@store.id), method: 'post') do |f| %>
         <div class="mb-3">
           <h1
             class="text-3xl font-bold leading-tight tracking-tight text-center text-black md:text-3xl dark:text-white mb-5"
