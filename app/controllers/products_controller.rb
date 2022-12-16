@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = current_user.store.products.new(product_params)
+    @product = current_user.store.products.new(product_params) 
     if @product.save
       redirect_to store_products_path, notice: "成功新增商品"
     else
@@ -25,19 +25,23 @@ class ProductsController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+      @product = Product.find(params[:id])
+  end
 
   def destroy
+    @product = Product.find(params[:id])
     @product.destroy
     redirect_to store_products_path, notice: "已刪除商品"
   end
 
   def update
-    if @product.update(product_params)
-      redirect_to store_products_path, notice: "成功更新商品"
-    else
-      render :edit
-    end
+    @product = Product.find(params[:id])
+      if @product.update(product_params)
+        redirect_to store_products_path, notice: "成功更新商品"
+      else
+        render :edit
+      end
   end
 
   def buy
@@ -46,7 +50,7 @@ class ProductsController < ApplicationController
   private
 
   def find_product
-    @product = Product.find(params[:id])
+    @product = Product.find_by(id: params[:product_id])
   end
 
   def product_params
@@ -56,6 +60,6 @@ class ProductsController < ApplicationController
   def find_store
     @store = Store.find_by(id: params[:store_id])
   end
-
+  
   
 end

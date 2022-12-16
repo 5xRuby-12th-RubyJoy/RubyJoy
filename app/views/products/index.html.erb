@@ -1,7 +1,6 @@
 <div class="pt-28">
   <!-- 商店資訊 -->
   <section>
-   
     <div class="flex flex-col items-center justify-center">
       <div>
         <%if @store.avatar.attached?%>
@@ -25,10 +24,7 @@
   </section>
   
   <!-- 功能列按鈕 -->
- <div class="flex space-x-10 bg-gray-100 p-2 w-full justify-center">
-
  <% if current_user.role == 'vendor' %>
-
   <div class="flex space-x-10 bg-gray-100 p-2 w-full justify-center">
   <button
     class="min-w-auto w-32 h-10 bg-theme_blue p-2 rounded-xl hover:bg-red-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold">
@@ -43,13 +39,11 @@
     <%= link_to '新增商品' , new_store_product_path(@store.id) %>
   </button>
   </div>
-
 <% end %>
 
 
 <!-- 商品列表 -->
-  <div class="px-3 pt-16">
-  <div class=" mx-auto display: flex gap-10 flex-wrap justify-center">
+  <div class=" mx-auto display: flex gap-10 flex-wrap justify-center px-3 pt-16 bg-theme_beige">
     <% @products.each do |product| %>
       <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-lg mb-5">
         <div>
@@ -94,21 +88,20 @@
           </div>
           <% end %>
           <% if current_user.role == 'user'  %>
-          <div class="flex justify-center mb-3">
-          <button
-          data-controller="add-gift"
-          data-action="click->add-gift#toggle"
-          data-event-id="<%= @event.id%>"
-          data-product-id="<%= product.id %>"
-          class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center">
-          <%= @event.products.include?(product) ? '已加入禮物' : '加入禮物'%>
-        </button>
-      </div>
+            <div class="flex justify-center mb-3">
+              <button
+              data-controller="add-gift"
+              data-action="click->add-gift#toggle"
+              data-event-id="<%= @event.id%>"
+              data-product-id="<%= product.id %>"
+              class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center">
+              <%= @event.products.include?(product) ? '已加入禮物' : '加入禮物'%>
+              </button>
+            </div>
           <% end %>
         </div>
       </div>
       <% end %>
     </div>
   </div>
-</div>
 
