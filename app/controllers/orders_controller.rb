@@ -35,9 +35,6 @@ class OrdersController < ApplicationController
     if order.may_pay?
       result = Newebpay::MpgResponse.new(params[:TradeInfo])
       if result.success?
-        p =*100
-        123
-        p =*100
         order.pay!
         @product.stock.with_lock
         @product.stock.update(count_stock)
