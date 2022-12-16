@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
   def index
     if current_user?
      @event = Event.find(params[:event_id])
-    p @event
     end
     @products = @store.products
   end
