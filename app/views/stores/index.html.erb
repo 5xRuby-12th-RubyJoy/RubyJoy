@@ -6,12 +6,12 @@
 
 <!-- search bar -->
 <div class="md:w-1/4 sm:w-3/4 mx-auto">
-  <%= search_form_for @q do |f| %>
+  <%= search_form_for @q  do |f| %>
   <div class="relative">
     <div
       class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
     ></div>
-
+    <%= f.hidden_field :event, value: @event.id%>
     <%= f.search_field :title_cont, class: "block w-full p-4 pl-10 text-sm
     text-gray-900 border border-gray-300 rounded-lg bg-gray-50
     focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700
@@ -36,7 +36,7 @@
 
   <div class="mx-auto display: flex gap-10 flex-wrap justify-center">
     <%@store.each do |store| %>
-      <%=link_to do%> 
+      <%=link_to event_store_products_path(@event,store) do%> 
         <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-lg mb-5">
         <div>
         <%if store.avatar.attached?%>

@@ -7,7 +7,11 @@ class StoresController < ApplicationController
     if current_user?
       @q =Store.ransack(params[:q])
       @store = @q.result
-      @event = Event.find(params[:id])
+      if params[:id]
+        @event = Event.find(params[:id])
+      elsif params[:q]
+        @event = Event.find(params[:q][:event].to_i)
+      end
 
     elsif current_user_store?
       @store = current_user.store
