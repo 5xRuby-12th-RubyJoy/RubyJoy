@@ -1,6 +1,9 @@
-<h1><%= @product.name %></h1>
+<h1 class="pt-40"><%= @product.name %></h1>
 <article>
-  <%= @product.description %>
+<ul>
+ <li> <%= @product.description %></li>
+  <li><%=@product.stock%></li>
+</ul>
 </article>
 
 <%= form_with(url: orders_path, method: 'post', data: { controller: "order-quantity" }) do |f| %>
