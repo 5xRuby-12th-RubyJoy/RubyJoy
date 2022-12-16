@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   resources :events do
     member do
-      resources :stores
+      get :stores, to: 'stores#index', as: 'stores'
     end
   end
 
@@ -39,6 +39,8 @@ Rails.application.routes.draw do
       resources :products
     end
   end
+
+
 
   resources :stores do
     resources :products
