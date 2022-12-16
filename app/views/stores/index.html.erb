@@ -1,27 +1,68 @@
+<h1
+  class="pt-24 text-3xl font-bold leading-tight tracking-tight text-center text-black md:text-3xl dark:text-white mb-5"
+>
+  商 店 總 覽
+</h1>
 
-<h1 class="pt-20">商店總覽</h1>
-<div class="max-w-sm rounded overflow-hidden shadow-lg">
+<!-- search bar -->
+<div class="md:w-1/4 sm:w-3/4 mx-auto">
   <%= search_form_for @q do |f| %>
-     <%= f.search_field :title_cont %>
-     <%= f.submit %>
-  <% end %>
-  <% @store.each do |store| %>
-    <%= link_to event_store_products_path(@event, store) do %>
-      <%if store.avatar.attached?%>
-          <img src="<%=(url_for(store.avatar))%>">
-      <%end%>
-    <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">
-      <%=store.title%>
-      </div>
+  <div class="relative">
+    <div
+      class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+    ></div>
 
-      <p class="text-gray-700 text-base">
+    <%= f.search_field :title_cont, class: "block w-full p-4 pl-10 text-sm
+    text-gray-900 border border-gray-300 rounded-lg bg-gray-50
+    focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700
+    dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+    dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder:
+    "搜尋商店", autofocus: true%>
+    <button
+      type="submit"
+      class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    >
+      搜 尋
+    </button>
+  </div>
+  <% end %>
+</div>
+
+<div class="mx-auto border-gray-300 mt-5 w-1/12 border-b-2 mb-10"></div>
+
+<!-- store card list -->
+
+<div class="px-3  pt-16">
+
+  <div class="mx-auto display: flex gap-10 flex-wrap justify-center">
+    <%@store.each do |store| %>
+    <a href="/events/<%= @event.id %>/stores/<%= store.id %>/products">
+      <div
+      class="bg-white shadow-md border border-gray-200 rounded-lg max-w-lg mb-5"
+    >
+      <div>
+        <%if store.avatar.attached?%>
+        <img
+          class="rounded align-center h-1/4 w-80"
+          src="<%=(url_for(store.avatar))%>"
+        />
+        <%end%>
+      </div>
+      <h1
+        class="text-center text-theme_text5 font-bold text-2xl tracking-tight mb-2"
+      >
+        <%=store.title%>
+      </h1>
+
+      <p class="text-lg text-theme_text5 mb-3">
         &nbsp; &nbsp;<%=store.description%>
       </p>
     </div>
-      <% end %>
-  <% end %>
+    </a>
+
+    <% end  %>
+  </div>
+  </a>
 </div>
- 
 
 
