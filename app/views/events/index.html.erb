@@ -4,10 +4,10 @@
       <%= link_to "新增活動", new_event_path , class:' text-center font-bold px-4 py-2 bg-indigo-500 outline-none rounded text-white shadow-indigo-200 shadow-lg font-medium active:shadow-none active:scale-95 hover:bg-indigo-600 focus:bg-indigo-600 focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200' %>
     </div>
       <% @events.each do |event| %>
-        <div class='flex justify-center content-center flex-wrap mx-2 my-2 bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full px-3 '>
+        <div class='flex justify-center content-center flex-wrap m-2 bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full px-3 max-w-xs min-w-xs max-h-96'>
           <div>
             <%if event.avatar.attached?%>
-              <img class="rounded align-center mt-5 max-w-xs max-h-80" src="<%=(url_for(event.avatar))%>"/>
+              <img class="rounded align-center mt-5 max-w-full min-w-full max-h-52 min-h-52" src="<%=(url_for(event.avatar))%>"/>
             <%end%>
           </div>
           <div class='w-full text-center text-xl font-bold my-3'><%= event.title %></div>

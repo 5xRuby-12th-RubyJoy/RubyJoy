@@ -29,6 +29,10 @@
         background-image:url(images/description_img.png);
     }
   }
+
+  .min-h-52{
+    min-height: 208px;
+  }
   .slide-box{
     width:98%;
     margin: auto;
