@@ -3,9 +3,9 @@ module Newebpay
     attr_accessor :info
 
     def initialize(params)
-      @key = "PYYg326pE9RTfRTbS1ZDwxldcsr7mrsQ"
-      @iv = "CAPicv35VynXl0FP"
-      @merchant_id = "MS345887283"
+      @key = 
+      @iv = 
+      @merchant_id =
       @info = {}
       set_info(params)
     end
@@ -38,7 +38,7 @@ module Newebpay
       info[:TimeStamp] = Time.now.to_i
       info[:RespondType] = 'JSON'
       info[:Version] = '1.6'
-      info[:ReturnURL] = "https://a50a-61-220-182-115.jp.ngrok.io/orders/#{order.serial}/pay"
+      info[:ReturnURL] = "/order/#{order.serial}/pay"
       info[:LoginType] = 0
       info[:CREDIT] =  1
       info[:VACC] = 1
