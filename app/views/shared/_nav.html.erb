@@ -1,77 +1,60 @@
-<div>
-<nav data-controller="nav-burger"
-  class="md:fixed flex bg-theme_blue flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 z-10">
-  <div>
-    <a href="/home" class="flex items-center">
-      <img src="/assets/RubyJoy_logo.png" alt="RubyJoy Logo" width="150" />
-    </a>
-  </div>
-
-  <svg xmlns="http://www.w3.org/2000/svg" data-action="click->nav-burger#toggle"
-    class="h-6 w-6 cursor-pointer md:hidden block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path class="text-white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-      d="M4 6h16M4 12h16M4 18h16" />
-  </svg>
-
-  <div class="hidden w-full md:flex md:items-center md:w-auto" data-nav-burger-target="show">
-    <ul class="pt-4 text-base text-white md:flex md:justify-between md:pt-0">
-      <li>
-        <a href="/home"
-          class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
-          aria-current="page">首頁</a>
+<style>
+  .hover-bg-sky-700:hover{
+    background:#075985;
+  }
+  .rotate-135{
+    transform: rotate(135deg);
+  }
+  .rotate-45{
+    transform: rotate(45deg);
+  }
+</style>
+<nav class="fixed flex items-center justify-between w-full md:px-3 z-10 bg-theme_blue h-16 pr-3">
+      <a href="/home">
+        <img src="/assets/RubyJoy_logo.png" alt="RubyJoy Logo" class="h-16 lg:h-20 md:w-60" />
+      </a>
+      <div class="hamburger cursor-pointer h-10 w-10 relative flex justify-center flex-wrap content-center md:hidden z-20">
+        <span class="hb1 bg-white h-1 w-8 absolute top-2"></span>
+        <span class="hb2 bg-white h-1 w-8 absolute top-5"></span>
+        <span class="hb3 bg-white h-1 w-8 absolute top-8"></span>
+      </div>
+    <ul id="navlist" class="hidden absolute md:static md:flex md:mx-2 md:justify-end w-full top-full">
+      <li class="bg-theme_blue hover-bg-sky-700">
+        <a href="/home" aria-current="page" class="text-2xl md:text-xl font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-t-2 border-b-2 md:border-0 ">首頁</a>
       </li>
-      <% if current_user && current_user.role == "user" %>
-      <li>
-        <a
-          href="/events"
-          class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
-          aria-current="page"
-          >我的活動</a
-        >
+    <% if current_user && current_user.role == "user" %>
+      <li class="bg-theme_blue hover-bg-sky-700">
+        <a href="/events" aria-current="page" class="text-2xl md:text-xl font-bold text-white md:px-3  text-center block w-full py-2 md:py-3 border-b-2 md:border-0 ">我的活動</a>
       </li>
-      <% elsif current_user && current_user.role == "vendor" %>
-      <li>
-        <a
-
-          href="/stores"
-
-          class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
-          aria-current="page"
-          >進入店鋪</a
-        >
+    <% elsif current_user && current_user.role == "vendor" %>
+      <li class="bg-theme_blue hover-bg-sky-700">
+        <a href="/stores" aria-current="page" class="text-2xl md:text-xl font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-b-2 md:border-0 ">進入店鋪</a>
+        </li>
+    <% end %> 
+    <% if current_user %>
+      <li class="bg-theme_blue hover-bg-sky-700">
+        <a href="/users/sign_out" rel="nofollow" data-method="delete" aria-current="page" class="text-2xl md:text-xl font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-b-2 md:border-0 ">登出</a>
       </li>
-      <% end %> <% if current_user %>
-      <li>
-        <a
-          rel="nofollow"
-          data-method="delete"
-          href="/users/sign_out"
-          class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
-          aria-current="page"
-          >登出</a
-        >
+    <% else %>
+      <li class="bg-theme_blue hover-bg-sky-700">
+        <a href="/users/sign_up" aria-current="page" class="text-2xl md:text-xl font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-b-2 md:border-0 ">註冊</a>
       </li>
-      <% else %>
-      <li>
-        <a
-          href="/users/sign_up"
-          class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
-          aria-current="page"
-          >註冊</a
-        >
+      <li class="bg-theme_blue hover-bg-sky-700">
+        <a href="/sign_in_session" aria-current="page" class="text-2xl md:text-xl font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-b-2 md:border-0 ">登入</a>
       </li>
-      <li>
-        <a
-          href="/sign_in_session"
-          class="text-base my-3 bg-white font-bold block py-2 pl-3 pr-4 rounded md:bg-transparent text-theme_blue md:px-5 md:text-white"
-          aria-current="page"
-          >登入</a
-        >
-      </li>
-      <% end %>
-    </ul>
-  </div>
+    <% end %>
+  </ul>
 </nav>
-
-</div>
-
+<script>
+    document.querySelector(".hamburger").addEventListener("click",toggle);
+    function toggle(){
+      document.querySelector("#navlist").classList.toggle("hidden");
+      document.querySelector(".hb1").classList.toggle("rotate-45");
+      document.querySelector(".hb1").classList.toggle("top-2");
+      document.querySelector(".hb1").classList.toggle("top-5");
+      document.querySelector(".hb2").classList.toggle("hidden");
+      document.querySelector(".hb3").classList.toggle("rotate-135");
+      document.querySelector(".hb3").classList.toggle("top-8");
+      document.querySelector(".hb3").classList.toggle("top-5");
+    }
+</script>
