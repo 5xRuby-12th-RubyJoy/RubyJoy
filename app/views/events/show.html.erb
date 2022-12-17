@@ -57,7 +57,11 @@
               href="/events/<%= @event.id %>/edit"
               >編輯活動</a
             >
-
+            <a id="copybtn"
+              class="inline-block px-7 py-3 mr-2 bg-green-700 hover:bg-green-800 text-white font-medium text-base leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              href="#"
+              >複製活動網址</a
+            >
             <% end %>
           </div>
         </div>
@@ -99,4 +103,9 @@
   <% end %>
 </div>
 
-
+<script>
+    document.querySelector("#copybtn").addEventListener("click",copy);
+    function copy(){
+      navigator.clipboard.writeText(window.location.href);
+    }
+</script>
