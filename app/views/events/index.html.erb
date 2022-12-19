@@ -1,22 +1,24 @@
 <div class='container mx-auto flex justify-center flex-wrap pt-32 '>
     <h1 class='w-full text-center text-3xl font-bold'>我的活動清單</h1>
     <div class='w-full flex justify-center my-3'>
-      <%= link_to "新增活動", new_event_path , class:' text-center font-bold px-4 py-2 bg-indigo-500 outline-none rounded text-white shadow-indigo-200 shadow-lg font-medium active:shadow-none active:scale-95 hover:bg-indigo-600 focus:bg-indigo-600 focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200' %>
+      <%= link_to "新增活動", new_event_path , class:'new-btn' %>
     </div>
-      <% @events.each do |event| %>
-        <div class='flex justify-center content-center flex-wrap m-2 bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full px-3 max-w-xs min-w-xs max-h-96'>
-          <div>
-            <%if event.avatar.attached?%>
-              <img class="rounded align-center mt-5 max-w-full min-w-full max-h-52 min-h-52" src="<%=(url_for(event.avatar))%>"/>
-            <%end%>
+    <% @events.each do |event| %>
+      <div class='flex justify-center content-center flex-wrap m-2 bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full px-3 max-w-xs min-w-xs max-h-96'>
+        <div>
+          <%if event.avatar.attached?%>
+            <img class="rounded align-center mt-5 max-w-full min-w-full max-h-52 min-h-52" src="<%=(url_for(event.avatar))%>"/>
+          <%end%>
+        </div>
+          <div class='w-full text-center text-xl font-bold my-3'>
+            <%= event.title %>
           </div>
-          <div class='w-full text-center text-xl font-bold my-3'><%= event.title %></div>
           <div class='w-full break-all'>
             <%= event.description %>
           </div>
-          <div class='w-full justify-center flex px-2'>
-            <%= link_to '查看活動', event_path(event.id), class:'text-center font-bold px-4 py-2 bg-indigo-500 outline-none rounded text-white shadow-indigo-200 shadow-lg font-medium active:shadow-none active:scale-95 hover:bg-indigo-600 focus:bg-indigo-600 focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200 my-4 mx-3 max-h-10'%>
-            <%= link_to '刪除活動' , event_path(event.id), method: 'DELETE' , data: {confirm: "你確定要刪除活動嗎?" } , class:'text-center font-bold px-4 py-2 bg-theme_red outline-none rounded text-white shadow-indigo-200 shadow-lg font-medium active:shadow-none active:scale-95 hover:bg-theme_dark_red focus:bg-indigo-600 focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200 my-4 mx-3 max-h-10'%>
+          <div class='w-full justify-center flex p-2'>
+            <%= link_to '查看活動', event_path(event.id), class:'show-btn'%>
+            <%= link_to '刪除活動' , event_path(event.id), method: 'DELETE' , data: {confirm: "你確定要刪除活動嗎?" } , class:'destroy-btn'%>
           </div>  
         </div>
       <% end %>

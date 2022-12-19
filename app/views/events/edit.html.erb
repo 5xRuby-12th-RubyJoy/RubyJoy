@@ -1,12 +1,9 @@
 <section class="h-screen pt-20">
         <div class="container px-6 py-12 h-full flex justify-center">
           <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-
             <%= form_for @event  do |form| %>
               <div class="mb-3">
-                <h1
-                  class="text-3xl font-bold leading-tight tracking-tight text-center text-black md:text-3xl dark:text-white mb-5"
-                >
+                <h1 class="text-3xl font-bold leading-tight tracking-tight text-center text-black md:text-3xl dark:text-white mb-5">
                   編 輯 活 動
                 </h1>
                 <%= form.label :title, '活動名稱', autofocus: true, 
@@ -14,39 +11,28 @@
                 <%= form.text_field :title, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
                 required: true %>
               </div>
-
               <div class="mb-3">
                 <%= form.label :subtitle, '副標題', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"  %>
                 <%= form.text_field :subtitle, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
                 required: true %>
               </div>
-
               <div class="mb-3">
-
-                <%= form.label :description, '活動簡述' , 
-                class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                <%= form.label :description, '活動簡述' , class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                 <%= form.text_area :description, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
                 required: true %>
               </div>
-
               <div class="mb-3">
-
-                <%= form.label :venue, '活動場地', 
-                class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                <%= form.label :venue, '活動場地', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                 <%= form.text_field :venue, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
                 required: true %>
               </div>
-
-
               <div class="mb-3">
-                <%= form.label :start_at, '活動開始日期', 
-                class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                <%= form.label :start_at, '活動開始日期', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                 <%= form.datetime_field :start_at , class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
                 required: true %>
               </div>
               <div class="mb-3">
-                <%= form.label :end_at, '活動結束日期', 
-                class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                <%= form.label :end_at, '活動結束日期', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                 <%= form.datetime_field :end_at, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
                 required: true %>
               </div>
@@ -54,17 +40,12 @@
                 <%=form.label :avatar,"活動封面照片", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                 <%=form.file_field :avatar, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", required: true%>
               </div>
-              <div class="flex justify-center mt-10">
-                <button
-                  type="submit"
-                  class="mb-5 inline-block px-7 py-3 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium text-base leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
-                  data-mdb-ripple="true"
-                  data-mdb-ripple-color="light"
-                >
-                  新 增 活 動
+              <div class="flex justify-center">
+                <button type="submit" data-mdb-ripple="true" data-mdb-ripple-color="light" class="new-btn mb-5">
+                  編輯活動
                 </button>
               </div>
-            <% end  %>
+            <% end %>
           </div>
         </div>
       </section>
