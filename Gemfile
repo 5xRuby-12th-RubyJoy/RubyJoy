@@ -69,3 +69,6 @@ gem 'aasm', '~> 5.4'
 gem "aws-sdk-s3", require: false
 gem 'ransack'
 
+gem 'net-smtp', require: false
+gem 'net-imap', require: false
+gem 'net-pop', require: false
