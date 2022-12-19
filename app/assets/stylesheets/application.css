@@ -64,7 +64,7 @@
     background: #2a6992;
     border: 3px solid #0a3959;
     border-radius: 5px;
-    box-shadow: 3px 3px 4px rgb(0,0,0,.5);
+    box-shadow: 3px 3px 4px rgba(0,0,0,.5);
     transition: all .6s;
     max-height: 40px;
   }
@@ -80,7 +80,7 @@
     background: #cc0f16;
     border: 3px solid #9b070b;
     border-radius: 5px;
-    box-shadow: 3px 3px 4px rgb(0,0,0,.5);
+    box-shadow: 3px 3px 4px rgba(0,0,0,.5);
     transition: all .6s;
     max-height: 40px;
   }
@@ -88,11 +88,11 @@
     color:#fff;
     background:#0a3959;
     border: 3px solid #000;
-    box-shadow: 2px 2px 1px rgb(0,0,0,.5);
+    box-shadow: 2px 2px 1px rgba(0,0,0,.5);
   }
   .destroy-btn:hover{
     color:#fff;
     background:#a10e01;
     border: 3px solid #5c0800;
-    box-shadow: 2px 2px 1px rgb(0,0,0,.5);
+    box-shadow: 2px 2px 1px rgba(0,0,0,.5);
   }
