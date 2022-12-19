@@ -29,6 +29,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem "dotenv-rails", "~> 2.8"
 end
 
 group :development do
@@ -64,8 +65,7 @@ gem 'rails-i18n', '~> 7.0'
 gem 'pg', '~> 1.4', '>= 1.4.5'
 gem 'stimulus-rails', '~> 1.2'
 
-gem 'dotenv-rails', '~> 2.8'
-
 gem 'aasm', '~> 5.4'
 gem "aws-sdk-s3", require: false
 gem 'ransack'
+
