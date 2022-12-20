@@ -37,7 +37,6 @@ class OrdersController < ApplicationController
       result = Newebpay::MpgResponse.new(params[:TradeInfo])
       if result.success?
         order.pay!
-      
         redirect_to root_path, notice: '付款成功'
       else
         redirect_to root_path, alert: '付款發生問題'
