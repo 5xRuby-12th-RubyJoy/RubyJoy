@@ -3,9 +3,10 @@ module Newebpay
     attr_accessor :info
 
     def initialize(params)
-      @key = ''
-      @iv = ''
-      @merchant_id = ''
+
+      @key = ENV["MERCHANT_HASH_KEY"]
+      @iv = ENV["MERCHANT_HASH_IV"]
+      @merchant_id = ENV["MERCHANT_ID"]
       @info = {}
       set_info(params)
     end
@@ -38,7 +39,7 @@ module Newebpay
       info[:TimeStamp] = Time.now.to_i
       info[:RespondType] = 'JSON'
       info[:Version] = '1.6'
-      info[:ReturnURL] = "/order/#{order.serial}/pay"
+      info[:ReturnURL] = "https://rubyjoy-5xruby.herokuapp.com/orders/#{order.serial}/pay"
       info[:LoginType] = 0
       info[:CREDIT] =  1
       info[:VACC] = 1
