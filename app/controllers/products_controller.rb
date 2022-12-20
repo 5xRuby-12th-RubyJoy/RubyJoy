@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: %i[index show edit destroy update buy]
+  before_action :find_product, only: %i[index show edit destroy update]
   before_action :find_store, only: %i[index create edit update new]
 
   def index
