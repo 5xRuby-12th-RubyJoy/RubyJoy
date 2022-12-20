@@ -44,6 +44,7 @@ class ProductsController < ApplicationController
   end
 
   def buy
+    @product = Product.find(params[:id])
   end
 
   private

@@ -3,9 +3,9 @@ module Newebpay
     attr_accessor :info
 
     def initialize(params)
-      @key = 
-      @iv = 
-      @merchant_id =
+      @key = ''
+      @iv = ''
+      @merchant_id = ''
       @info = {}
       set_info(params)
     end
