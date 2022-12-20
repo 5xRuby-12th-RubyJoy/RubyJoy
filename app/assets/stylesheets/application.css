@@ -26,7 +26,7 @@
   @media screen and (max-width: 768px) {
     .bg-gradient-450{
         height:450px;
-        background-image:url(images/description_img.png);
+        background-image:url(images/description_opacity50_img.png);
     }
   }
 
@@ -95,4 +95,3 @@
     background:#a10e01;
     border: 3px solid #5c0800;
     box-shadow: 2px 2px 1px rgba(0,0,0,.5);
-  }

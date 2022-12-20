@@ -1,75 +1,33 @@
 <section class="h-screen pt-16">
   <div class="container px-6 py-12 h-full flex justify-center">
     <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-      <form
-        form
-        enctype="multipart/form-data"
-        action="/stores"
-        accept-charset="UTF-8"
-        method="post"
-      >
-        <input
-          type="hidden"
-          name="authenticity_token"
-          value="<%= form_authenticity_token %>"
-        />
+      <form action="/stores" enctype="multipart/form-data" accept-charset="UTF-8" method="post">
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>"/>
         <div class="mb-3">
-          <h1
-            class="text-3xl font-bold leading-tight tracking-tight text-center text-black md:text-3xl dark:text-white mb-5"
-          >
+          <h1 class="text-3xl font-bold leading-tight tracking-tight text-center text-black md:text-3xl dark:text-white mb-5">
             新增商店
           </h1>
-          <label
-            for="store_title"
-            autofocus="autofocus"
-            class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
-            >商店名稱</label
-          >
-          <input
-            name="store[title]"
-            id="store_title"
-            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required=""
-          />
+          <label for="store_title" autofocus="autofocus" class="block mb-2 text-base font-bold text-gray-900 dark:text-white">
+            商店名稱
+          </label>
+          <input name="store[title]" id="store_title" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
         </div>
-
         <div class="mb-3">
-          <label
-            for="store_description"
-            class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
-            >商店描述</label
-          >
-          <textarea
-            name="store[description]"
-            id="store_description"
-            class="h-20 resize-none bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="寫下商店描述，讓大家更認識你的商店吧！"
-            required=""
-          >
+          <label for="store_description" class="block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold">
+            商店描述
+          </label>
+          <textarea name="store[description]" id="store_description" class="h-20 resize-none bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="寫下商店描述，讓大家更認識你的商店吧！"required>
           </textarea>
         </div>
         <div class="mb-3">
-          <label
-            for="store_avatar"
-            class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
-            >商店封面照片</label
-          >
-          <input
-            type="file"
-            name="store[avatar]"
-            id="store_avatar"
-            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required=""
-          />
+          <label for="store_avatar" class="block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold">
+            商店封面照片
+          </label>
+          <input type="file" name="store[avatar]" id="store_avatar" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
         </div>
         <div class="flex justify-center mt-10">
-          <button
-            type="submit"
-            class="inline-block px-7 py-3 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium text-base leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
-            data-mdb-ripple="true"
-            data-mdb-ripple-color="light"
-          >
-            新 增 商 店
+          <button type="submit" data-mdb-ripple="true" data-mdb-ripple-color="light" class="creat-btn w-full">
+            新增商店
           </button>
         </div>
       </form>

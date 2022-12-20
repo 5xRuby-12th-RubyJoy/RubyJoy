@@ -1,49 +1,42 @@
-<h1 class="pt-40"><%= @product.name %></h1>
-<article>
-<ul>
- <li> <%= @product.description %></li>
-  <li><%=@product.stock%></li>
-</ul>
-</article>
+<div class="flex justify-center flex-wrap pt-20 w-full">
+<h1 class="w-full text-center text-3xl font-bold my-4"><%= @product.name %></h1>
+  <ul class="text-center">
+    <li><%=@product.description %></li>
+    <li><%=@product.stock%></li>
+  </ul>
+</div>
 
 <%= form_with(url: orders_path, method: 'post', data: { controller: "order-quantity" }) do |f| %>
- 
-
-  <input type="hidden" name="product_id" value="<%= @product.id %>">
-  <button data-action="click->order-quantity#decrement">-</button>
-  <input data-order-quantity-target="quantity" type="number" name="quantity" value="1" min="1" max="<%= @product.stock %>">
-  <button data-action="click->order-quantity#increment">+</button>
-
-  <hr>
-
+  <div class="flex justify-center">
+    <!--<input type="hidden" name="product_id" value="<%= @product.id %>">-->
+    <button data-action="click->order-quantity#decrement" class="text-5xl font-bold px-5">-</button>
+    <input data-order-quantity-target="quantity" type="number" name="quantity" value="1" min="1" max="<%= @product.stock %>">
+    <button data-action="click->order-quantity#increment" class="text-5xl font-bold px-5">+</button>
+  </div>
   <div data-controller="order-amount"
      data-price="<%= @product.price %>"
      data-action="update-quantity@document->order-amount#updateQuantity"
      >
-    <div>
+    <div class="text-center my-4 text-2xl font-bold">
       單價：<%= @product.price %>元
     </div>
-    <div>
+    <div class="text-center my-4 text-2xl font-bold">
       小計：<span data-order-amount-target="amount"></span>元
     </div>
   </div>
-
-  <hr>
-
-  <div>
+  <div class="text-center flex justify-center">
     <%= f.label :receiver, "收件人姓名："%><br>
     <%= f.text_field :receiver %>
   </div>
-  <div>
+  <div class="text-center flex justify-center">
     <%= f.label :phone, "收件人電話：" %><br>
     <%= f.telephone_field :phone %>
   </div>
-  <div>
+  <div class="text-center flex justify-center">
     <%= f.label :address, "收件人地址：" %><br>
     <%= f.text_field :address %>
   </div>
-
-  <hr>
-
-  <button>結帳</button>
+  <div class="text-center flex justify-center my-4">
+    <button class="creat-btn w-40">結帳</button>
+  </div>
 <% end %>

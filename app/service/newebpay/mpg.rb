@@ -3,6 +3,7 @@ module Newebpay
     attr_accessor :info
 
     def initialize(params)
+
       @key = ENV["MERCHANT_HASH_KEY"]
       @iv = ENV["MERCHANT_HASH_IV"]
       @merchant_id = ENV["MERCHANT_ID"]
