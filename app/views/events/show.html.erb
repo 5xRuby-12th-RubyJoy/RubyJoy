@@ -43,7 +43,7 @@
             <a href="/events/<%= @event.id %>/edit" class="new-btn">
               編輯活動
             </a>
-            <a id="copybtn" href="#" class="creat-btn">複製活動網址</a>
+            <a id="copybtn" class="creat-btn cursor-pointer">複製活動網址</a>
             <% end %>
           </div>
         </div>
@@ -81,6 +81,7 @@
 <script>
     document.querySelector("#copybtn").addEventListener("click",copy);
     function copy(){
-      navigator.clipboard.writeText(window.location.href);
+      navigator.clipboard.writeText((window.location.href));
+      alert("您已成功複製此頁面網址!!")
     }
 </script>
