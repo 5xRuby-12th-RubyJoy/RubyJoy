@@ -45,6 +45,7 @@ class ProductsController < ApplicationController
 
   def buy
     @product = Product.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   private
@@ -54,7 +55,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :stock, :avatar, :store_id)
+    params.require(:product).permit(:name, :description, :price, :stock, :avatar, :store_id,)
   end
 
   def find_store
