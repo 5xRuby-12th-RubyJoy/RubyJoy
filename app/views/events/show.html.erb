@@ -37,13 +37,15 @@
           </div>
           <div class="mt-5">
             <% if @event.user == current_user %>
-            <a href="/events/<%= @event.id %>/stores" class="new-btn">
+            <a href="/events/<%= @event.id %>/stores" class="theme-button">
               前往選擇禮物
             </a>
-            <a href="/events/<%= @event.id %>/edit" class="new-btn">
+            <a href="/events/<%= @event.id %>/edit" class="success-button">
               編輯活動
             </a>
-            <a id="copybtn" class="creat-btn cursor-pointer">複製活動網址</a>
+            <a id="copybtn" class="block cursor-pointer mt-3 ml-2 font-medium text-primary-600 dark:text-primary-500 hover:underline">
+              複製活動網址
+            </a>
             <% end %>
           </div>
         </div>
