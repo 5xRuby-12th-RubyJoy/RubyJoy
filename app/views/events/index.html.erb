@@ -4,17 +4,18 @@
       <%= link_to "新增活動", new_event_path , class:'theme-button' %>
     </div>
     <% @events.each do |event| %>
-      <div class='flex justify-center content-center flex-wrap m-2 bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full px-3 max-w-xs min-w-xs max-h-96'>
+      <div class='flex justify-center content-center flex-wrap m-2 bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full md:max-w-xs min-w-xs pt-3'>
+        
         <div>
           <%if event.avatar.attached?%>
-            <img class="rounded align-center mt-5 max-w-full min-w-full max-h-52 min-h-52 img-fixed" src="<%=(url_for(event.avatar))%>"/>
+            <img class="rounded align-center img-fixed" src="<%=(url_for(event.avatar))%>"/>
           <%end%>
         </div>
           <div class='w-full text-center text-xl font-bold my-3'>
             <%= event.title %>
           </div>
-          <div class='w-full break-all'>
-            <%= event.description %>
+          <div class='w-full break-all mx-5'>
+            &nbsp;<%= event.subtitle %>
           </div>
           <div class='w-full justify-center flex p-2'>
             <%= link_to '查看活動', event_path(event.id), class:'theme-button'%>
