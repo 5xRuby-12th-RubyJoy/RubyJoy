@@ -1,42 +1,73 @@
-<section class="h-screen pt-14 ">
-  <div class="container px-6 py-12 h-full flex justify-center mx-auto">
-    <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-      <%=form_with(model: @product, url: store_product_path, method: 'patch') do |f| %>
-        <div class="mb-3">
-          <h1 class="text-3xl font-bold leading-tight tracking-tight text-center text-black dark:text-white mb-5">
-            修改商品
-          </h1>
-          <div>
-            <%=f.label :name,"商品名稱", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold" %>
-            <%=f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ,
-            required: true, autofocus: true%>
+<section class="h-full ">
+  <div class="container px-6 mb-3 pt-14 mx-auto flex items-center justify-center lg:h-full ">
+    <div class="flex justify-center items-center flex-wrap g-6 text-gray-800 ">
+      <div class="mt-5 md:mt-0 md:col-span-2 ">
+        <%=form_with(model: @product, url: store_product_path, method: 'patch') do |f| %>
+          <div class="shadow-xl overflow-hidden rounded-md ">
+            <div class="px-4 py-3 bg-theme_light_purple text-right sm:px-6 flex justify-center rounded-t">
+              <h1 class=" text-white text-2xl font-bold leading-tight tracking-tight text-center  md:text-3xl dark:text-white ">
+                編 輯 商 品
+              </h1>
+            </div>
+            <div class="px-4 py-5 bg-white sm:p-6">
+              <div class="grid grid-cols-6 gap-6 ">
+                <div class="col-span-6 sm:col-span-3">
+                  <%= f.label :name, '商品名稱', autofocus: true, 
+                  class:"block mb-2 text-base font-medium text-gray-900 dark:text-white" %>
+                  <%=f.text_area :name, class: "resize-none bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ,
+                  required: true%>
+                </div>
+  
+                <div class=" col-span-6 sm:col-span-3">
+
+                  <div class="mb-3">
+                    <%=f.label :description, "商品敘述", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold" %>
+                    <%=f.text_area :description, class: " resize-none bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"%>
+                  </div>
+                </div>
+  
+                <div class=" col-span-6 sm:col-span-3">
+
+                  <div class="mb-3">
+                    <%= f.label :price, '商品價格', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                    <%=f.text_field :price, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ,
+                    required: true%>
+                  </div>
+                </div>
+
+                <div class=" col-span-6 sm:col-span-3">
+
+                  <div class="mb-3">
+                    <%= f.label :stock, '庫存量', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"  %>
+                    <%=f.text_field :stock, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ,
+                    required: true%>
+                  </div>
+                </div>
+                <div class="col-span-6 sm:col-span-3 pt-5">
+                  <%=f.label :avatar,"更換圖片（無需更換請點擊完成編輯）", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold"%>
+                  <%=f.file_field :avatar, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-5"%>
+                </div>   
+                <div class="col-span-6 sm:col-span-3">
+                  <%if @product.avatar.attached?%>
+                  <img src="<%=(url_for(@product.avatar))%>"  class="rounded mx-auto img-fixed">
+                <%end%>
+                </div>                 
+              </div>
+            </div>
+            <div class="px-4 pb-3 py-3 bg-gray-50 text-right sm:px-6 flex justify-center">
+              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-theme_light_purple hover:bg-theme_dark_purple">
+                完 成 編 輯
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div class="mb-3">
-          <%=f.label :description, "商品敘述", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold" %>
-          <%=f.text_area :description, class: "h-20 resize-none bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"%>
-        </div>
-
-        <div class="mb-3">
-          <%=f.label :price,"商品價格", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold"  %>
-          <%=f.text_field :price, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ,
-          required: true%>
-        </div>
-        <div class="mb-3">
-          <%=f.label :stock,"庫存量", class:"block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold" %>
-          <%=f.text_field :stock, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ,
-          required: true%>
-        </div>
-
-        <div class="mb-3">
-          <%=f.label :avatar,"產品照片", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold"%>
-          <%=f.file_field :avatar, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", required: true%>
-        </div>
-        <div class="flex justify-center mt-10">
-          <%=f.submit "完成修改", class:"edit-btn w-40 mb-10" %>
-        </div>
-        <% end %>
+        <% end  %>
+      </div>
     </div>
+
   </div>
 </section>
+
+
+
+
+

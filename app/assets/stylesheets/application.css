@@ -66,3 +66,9 @@
     width: 300px;
     object-fit: cover;
   }
+
+  .big_cover_img{
+    height:300px;
+    width: 300px;
+    object-fit: cover;
+  }
