@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2022_12_22_035423) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +66,9 @@ ActiveRecord::Schema.define(version: 2022_12_22_035423) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "address"
+    t.integer "phone"
+    t.text "receiver"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -80,7 +85,12 @@ ActiveRecord::Schema.define(version: 2022_12_22_035423) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+
     t.bigint "store_id"
+
+    t.bigint "event_id", null: false
+    t.index ["event_id"], name: "index_orders_on_event_id"
+
     t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["store_id"], name: "index_orders_on_store_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -146,6 +156,7 @@ ActiveRecord::Schema.define(version: 2022_12_22_035423) do
   add_foreign_key "event_products", "events"
   add_foreign_key "event_products", "products"
   add_foreign_key "events", "users"
+  add_foreign_key "orders", "events"
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "stores"
   add_foreign_key "orders", "users"

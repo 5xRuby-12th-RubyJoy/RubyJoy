@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :orders, only: [:create] do
     member do
       get :checkout
+    end
+    collection do
       post :pay
     end
   end

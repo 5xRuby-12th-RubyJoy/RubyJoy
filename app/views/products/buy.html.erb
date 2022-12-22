@@ -8,7 +8,7 @@
 
 <%= form_with(url: orders_path, method: 'post', data: { controller: "order-quantity" }) do |f| %>
   <div class="flex justify-center">
-    <!--<input type="hidden" name="product_id" value="<%= @product.id %>">-->
+    <input type="hidden" name="product_id" value="<%= @product.id%>">
     <button data-action="click->order-quantity#decrement" class="text-5xl font-bold px-5">-</button>
     <input data-order-quantity-target="quantity" type="number" name="quantity" value="1" min="1" max="<%= @product.stock %>">
     <button data-action="click->order-quantity#increment" class="text-5xl font-bold px-5">+</button>
@@ -24,18 +24,15 @@
       小計：<span data-order-amount-target="amount"></span>元
     </div>
   </div>
-  <div class="text-center flex justify-center">
-    <%= f.label :receiver, "收件人姓名："%><br>
-    <%= f.text_field :receiver %>
-  </div>
-  <div class="text-center flex justify-center">
-    <%= f.label :phone, "收件人電話：" %><br>
-    <%= f.telephone_field :phone %>
-  </div>
-  <div class="text-center flex justify-center">
-    <%= f.label :address, "收件人地址：" %><br>
-    <%= f.text_field :address %>
-  </div>
+
+ 
+    <ul>
+      <li> 收件人姓名:<%= @event.receiver%></li>
+      <li> 收件人地址:<%= @event.address%></li>
+      <li> 收件人電話:<%= @event.phone%></li>
+    </ul>  
+
+  
   <div class="text-center flex justify-center my-4">
     <button class="creat-btn w-40">結帳</button>
   </div>
