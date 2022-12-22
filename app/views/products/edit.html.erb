@@ -61,30 +61,6 @@
             </div>
           </div>
         </div>
-
-        <div class="mb-3">
-          <%=f.label :description, "商品敘述", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold" %>
-          <%=f.text_area :description, class: "h-20 resize-none bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"%>
-        </div>
-
-        <div class="mb-3">
-          <%=f.label :price,"商品價格", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold"  %>
-          <%=f.text_field :price, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ,
-          required: true%>
-        </div>
-        <div class="mb-3">
-          <%=f.label :stock,"庫存量", class:"block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold" %>
-          <%=f.text_field :stock, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ,
-          required: true%>
-        </div>
-
-        <div class="mb-3">
-          <%=f.label :avatar,"產品照片", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white font-bold"%>
-          <%=f.file_field :avatar, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", required: true%>
-        </div>
-        <div class="flex justify-center mt-10">
-          <%=f.submit "完成修改", class:"theme-button w-40 mb-10" %>
-        </div>
         <% end %>
     </div>
 
