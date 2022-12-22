@@ -37,6 +37,7 @@ class EventsController < ApplicationController
 
   def show
     @event_products = @event.products.all
+  
   end
 
   def edit; end
@@ -57,7 +58,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :subtitle, :description, :start_at, :end_at, :venue, :avatar)
+    params.require(:event).permit(:title, :subtitle, :description, :start_at, :end_at, :venue, :avatar, :address, :phone, :receiver)
   end
 
   def find_event

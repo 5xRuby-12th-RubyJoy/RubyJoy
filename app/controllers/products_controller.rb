@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: %i[index show edit destroy update buy]
+  before_action :find_product, only: %i[index show edit destroy update]
   before_action :find_store, only: %i[index create edit update new]
 
   def index
@@ -45,6 +45,7 @@ class ProductsController < ApplicationController
 
   def buy
     @product = Product.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   private
@@ -54,7 +55,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :stock, :avatar, :store_id)
+    params.require(:product).permit(:name, :description, :price, :stock, :avatar, :store_id,)
   end
 
   def find_store
