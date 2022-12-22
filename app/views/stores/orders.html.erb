@@ -1,0 +1,40 @@
+<h1 class="pt-5">訂單確認頁面</h1>
+
+<table class="mt-5">
+  <tr>
+    <td>訂單編號</td>
+    <td>訂單金額</td>
+    <td>訂單狀態</td>
+    <td>商品數量</td>
+    <td>寄送地址</td>
+    <td>收貨人</td>
+    <td>收貨人聯絡電話</td>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td class="text-center">
+      <%= order.serial%>
+    </td>
+    <td class="text-center">
+      <%= order.price %>
+    </td>
+    <td class="text-center">
+      <%= order.state %>
+    </td>
+    <td class="text-center">
+      <%= order.sold_quantity %>
+    </td>
+    <td class="text-center">
+      <%= order.address %>
+    </td>
+    <td class="text-center">
+      <%= order.receiver %>
+    </td>
+    <td class="text-center">
+      <%= order.phone %>
+    </td>
+  </tr>
+<% end %>
+</table>
+        

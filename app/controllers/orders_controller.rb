@@ -13,7 +13,9 @@ class OrdersController < ApplicationController
       product_id: params[:product_id],
       address: params[:address],
       receiver: params[:receiver],
-      phone: params[:phone]
+      phone: params[:phone],
+      event_id: params[:event_id],
+      store_id: @product.store_id
     )
 
     if order.save
@@ -31,9 +33,6 @@ class OrdersController < ApplicationController
 
 
   def pay
-   
-    # @product=order.product
-   
     
       response = Newebpay::MpgResponse.new(params[:TradeInfo])
       

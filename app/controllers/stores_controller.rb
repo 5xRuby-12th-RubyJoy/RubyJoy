@@ -60,8 +60,8 @@ class StoresController < ApplicationController
     redirect_to stores_path, alert: '商店已刪除'
   end
 
-  def checkout_order
-
+  def orders
+    @orders = current_user.store.orders
   end
 
   private
