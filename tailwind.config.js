@@ -10,9 +10,9 @@ module.exports = {
     extend: {
       colors: {
         theme_dark_red: "#8f0c00",
-        theme_pink: "#ff998b",
+        theme_dark_purple: "#5f269b",
         theme_beige: "#f8eece",
-        theme_blue: "#0a3959",
+        theme_light_purple: "#4a437c",
         theme_red: "#cc0f16",
         theme_text1: "#f2f2f2",
         theme_text2: "#bfbfbf",
