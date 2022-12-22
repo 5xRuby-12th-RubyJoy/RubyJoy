@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: [:checkout]
+  # before_action :authenticate_user!, only: [:checkout]
   before_action :find_product, only: [:create]
   skip_before_action :verify_authenticity_token, only: [:pay]
   protect_from_forgery with: :null_session, only: [:pay]
@@ -38,11 +38,8 @@ class OrdersController < ApplicationController
       order = Order.find_by!(serial: response.result['MerchantOrderNo'])    
       if response.success?
         order.pay!
-        @product= order.product.stock
-        @sold_quantity = order.sold_quantity
-        quantity =@product-@sold_quantity
-        @product=order.product
-        @product.update(stock: quantity)
+        quantity = order.product.stock - order.sold_quantity
+        order.product.update(stock: quantity)
         redirect_to root_path, notice: '付款成功'
       else
         redirect_to root_path, alert: '付款發生問題'
