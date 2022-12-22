@@ -19,10 +19,17 @@ class OrdersController < ApplicationController
     )
 
     if order.save
-      
-      redirect_to checkout_order_path(id: order.serial)
-    else
-      redirect_to buy_product_path(@product), alert: '訂單建立失敗'
+      order.product.with_lock do
+        quantity = order.product.stock - order.sold_quantity
+        order.product.update(stock: quantity)
+      end
+        if order.product.stock >=0
+          redirect_to checkout_order_path(id: order.serial)
+        else
+          redirect_to buy_product_path(@product), alert: '商品庫存不足'
+        end
+      else
+        redirect_to buy_product_path(@product), alert: '訂單建立失敗'
     end
   end
 
@@ -38,8 +45,7 @@ class OrdersController < ApplicationController
       order = Order.find_by!(serial: response.result['MerchantOrderNo'])    
       if response.success?
         order.pay!
-        quantity = order.product.stock - order.sold_quantity
-        order.product.update(stock: quantity)
+        
         redirect_to root_path, notice: '付款成功'
       else
         redirect_to root_path, alert: '付款發生問題'
