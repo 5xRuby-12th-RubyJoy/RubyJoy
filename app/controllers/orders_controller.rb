@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
         @quantity = order.product.stock - order.sold_quantity
       end
         if @quantity >=0
+          order.product.update(stock: @quantity)
           redirect_to checkout_order_path(id: order.serial)
         else
           redirect_to buy_product_path(@product), alert: '商品庫存不足'
@@ -41,16 +42,17 @@ class OrdersController < ApplicationController
 
   def pay    
       response = Newebpay::MpgResponse.new(params[:TradeInfo])   
-      order = Order.find_by!(serial: response.result['MerchantOrderNo'])   
+      order = Order.find_by!(serial: response.result['MerchantOrderNo'])
+      @old_stock = order.product   
       order.product.with_lock do
         @quantity = order.product.stock - order.sold_quantity
       end
       if @quantity>=0 
         if response.success?
           order.pay!
-          order.product.update(stock: @quantity)
           redirect_to root_path, notice: '付款成功'
         else
+          order.product.update(stock: @old_stock)
           redirect_to root_path, alert: '付款發生問題'
         end
       else
