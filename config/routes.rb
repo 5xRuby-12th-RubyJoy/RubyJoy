@@ -40,21 +40,11 @@ Rails.application.routes.draw do
     end
   end
 
-<<<<<<< Updated upstream
-
-
-  resources :stores do
-    resources :products
-     member do
-       get :checkout_order
-     end
-=======
   resources :stores do
     resources :products 
   end
   
   resources :stores do
-      get :show_order, to: 'stores#show_order'
->>>>>>> Stashed changes
+      get :orders, to: 'stores#orders'
   end
 end

@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   before_validation :generate_serial
   belongs_to :product
   belongs_to :user
+  belongs_to :store
   validates :price, :sold_quantity, presence: true
   has_many :product_orders
   has_many :products , through: :product_orders

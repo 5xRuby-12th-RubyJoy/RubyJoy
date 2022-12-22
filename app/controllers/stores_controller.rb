@@ -1,11 +1,5 @@
 class StoresController < ApplicationController
-<<<<<<< Updated upstream
-  before_action :find_store, only: %i[ update edit destroy show]
-  
-
-=======
   before_action :find_store, only: %i[ update edit destroy show show_order]
->>>>>>> Stashed changes
 
   def index
     if current_user?
@@ -58,13 +52,8 @@ class StoresController < ApplicationController
     redirect_to stores_path, alert: '商店已刪除'
   end
 
-<<<<<<< Updated upstream
-  def checkout_order
-
-=======
-  def show_order
+  def orders
     @paid_orders = Order.joins(:product).where("store_id = ? AND state = ?", params[:store_id], 'paid')
->>>>>>> Stashed changes
   end
 
   private
@@ -83,9 +72,4 @@ class StoresController < ApplicationController
   def current_user_store?
     @store = current_user.store
   end
-<<<<<<< Updated upstream
-
-=======
-  
->>>>>>> Stashed changes
 end

@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
-ActiveRecord::Schema.define(version: 2022_12_13_095913) do
-=======
-ActiveRecord::Schema.define(version: 2022_12_21_132923) do
->>>>>>> Stashed changes
+ActiveRecord::Schema.define(version: 2022_12_22_035423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,7 +80,9 @@ ActiveRecord::Schema.define(version: 2022_12_21_132923) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "store_id"
     t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index ["store_id"], name: "index_orders_on_store_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -109,6 +107,15 @@ ActiveRecord::Schema.define(version: 2022_12_21_132923) do
     t.bigint "user_id"
     t.index ["store_id"], name: "index_products_on_store_id"
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "store_orders", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "store_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_store_orders_on_order_id"
+    t.index ["store_id"], name: "index_store_orders_on_store_id"
   end
 
   create_table "stores", force: :cascade do |t|
@@ -140,9 +147,12 @@ ActiveRecord::Schema.define(version: 2022_12_21_132923) do
   add_foreign_key "event_products", "products"
   add_foreign_key "events", "users"
   add_foreign_key "orders", "products"
+  add_foreign_key "orders", "stores"
   add_foreign_key "orders", "users"
   add_foreign_key "product_orders", "orders"
   add_foreign_key "product_orders", "products"
   add_foreign_key "products", "stores"
+  add_foreign_key "store_orders", "orders"
+  add_foreign_key "store_orders", "stores"
   add_foreign_key "stores", "users"
 end

@@ -10,12 +10,9 @@ class Product < ApplicationRecord
   has_one_attached :avatar
   has_many :event_products, :dependent => :destroy
   has_many :events, through: :event_products
-<<<<<<< Updated upstream
   has_many :product_orders, :dependent => :destroy
   has_many :orders, through: :product_orders
-=======
   has_many :product_orders
   has_many :orders
->>>>>>> Stashed changes
   belongs_to :store
 end
