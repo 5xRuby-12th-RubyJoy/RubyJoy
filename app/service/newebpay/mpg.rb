@@ -39,7 +39,7 @@ module Newebpay
       info[:TimeStamp] = Time.now.to_i
       info[:RespondType] = 'JSON'
       info[:Version] = '1.6'
-      info[:ReturnURL] = "https://git.heroku.com/rubyjoy-5xruby/orders/pay"
+      info[:ReturnURL] = "https://https://rubyjoy-5xruby.herokuapp.com//orders/pay"
       info[:LoginType] = 0
       info[:CREDIT] =  1
       info[:VACC] = 1
