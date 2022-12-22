@@ -1,7 +1,7 @@
 <div class='container mx-auto flex justify-center flex-wrap pt-32 '>
     <h1 class='w-full text-center text-3xl font-bold'>我的活動清單</h1>
     <div class='w-full flex justify-center my-3'>
-      <%= link_to "新增活動", new_event_path , class:'new-btn' %>
+      <%= link_to "新增活動", new_event_path , class:'theme-button' %>
     </div>
     <% @events.each do |event| %>
       <div class='flex justify-center content-center flex-wrap m-2 bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full px-3 max-w-xs min-w-xs max-h-96'>
@@ -17,7 +17,7 @@
             <%= event.description %>
           </div>
           <div class='w-full justify-center flex p-2'>
-            <%= link_to '查看活動', event_path(event.id), class:'show-btn'%>
+            <%= link_to '查看活動', event_path(event.id), class:'theme-button'%>
             <%= link_to '刪除活動' , event_path(event.id), method: 'DELETE' , data: {confirm: "你確定要刪除活動嗎?" } , class:'destroy-btn'%>
           </div>  
         </div>
