@@ -41,18 +41,21 @@ class OrdersController < ApplicationController
 
   def pay    
       response = Newebpay::MpgResponse.new(params[:TradeInfo])   
-      order = Order.find_by!(serial: response.result['MerchantOrderNo'])    
-      if response.success?
-        order.pay!
-        order.product.with_lock do
-          @quantity = order.product.stock - order.sold_quantity
-        end
-        order.product.update(stock: @quantity)
-        redirect_to root_path, notice: '付款成功'
-      else
-        redirect_to root_path, alert: '付款發生問題'
+      order = Order.find_by!(serial: response.result['MerchantOrderNo'])   
+      order.product.with_lock do
+        @quantity = order.product.stock - order.sold_quantity
       end
-   
+      if @quantity>=0 
+        if response.success?
+          order.pay!
+          order.product.update(stock: @quantity)
+          redirect_to root_path, notice: '付款成功'
+        else
+          redirect_to root_path, alert: '付款發生問題'
+        end
+      else
+        redirect_to root_path, notice: "庫存數量不足"
+      end
   end
 
   private
