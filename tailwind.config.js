@@ -19,6 +19,8 @@ module.exports = {
         theme_text3: "#8c8c8c",
         theme_text4: "#404040",
         theme_text5: "#0d0d0d",
+        theme_dark_purple: "#5f269b",
+        theme_light_purple: "#4a437c",
       },
       backgroundImage: {
         log_in_page_background_img: "url('/assets/log_in_page_background.jpg')",

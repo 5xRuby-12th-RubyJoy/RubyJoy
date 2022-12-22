@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :find_product, only: [:create ,:pay]
+  before_action :authenticate_user!, only: [:checkout]
+  before_action :find_product, only: [:create]
   skip_before_action :verify_authenticity_token, only: [:pay]
 
   def create
@@ -31,20 +31,21 @@ class OrdersController < ApplicationController
 
 
   def pay
-    order = Order.find_by!(serial: params[:id])
-    if order.may_pay?
-      result = Newebpay::MpgResponse.new(params[:TradeInfo])
-      if result.success?
+   
+    # @product=order.product
+   
+    
+      response = Newebpay::MpgResponse.new(params[:TradeInfo])
+      
+      order = Order.find_by!(serial: response.result['MerchantOrderNo'])
+      
+      if response.success?
         order.pay!
-        @product.stock.with_lock
-        @product.stock.update(count_stock)
         redirect_to root_path, notice: '付款成功'
       else
         redirect_to root_path, alert: '付款發生問題'
       end
-    else
-      redirect_to root_path, alert: '訂單查詢錯誤'
-    end
+   
   end
 
   private

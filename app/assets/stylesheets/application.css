@@ -17,19 +17,35 @@
     padding:1em;
     text-align:justify;
   }
-  .new-btn, .creat-btn, .show-btn, .edit-btn{
+  .theme-button{
     display: inline-block;
     color:#f2f2f2;
     text-align: center;
     text-decoration:none;
-    font-size: 20px;
+    font-size: 1rem;
+    line-height: 1.5rem;
     font-weight: 900;
-    padding: 2px 6px;
+    padding: 6px 20px;
     margin: 5px 7px;
-    background: #2a6992;
-    border: 3px solid #0a3959;
+    background: rgb(74,67,124);
     border-radius: 5px;
-    box-shadow: 3px 3px 4px rgba(0,0,0,.5);
+    box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+    transition: all .6s;
+    max-height: 40px;
+  }
+  .success-button{
+    display: inline-block;
+    color:#f2f2f2;
+    text-align: center;
+    text-decoration:none;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 900;
+    padding: 6px 20px;
+    margin: 5px 7px;
+    background: #17341E;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,.3);
     transition: all .6s;
     max-height: 40px;
   }
@@ -38,28 +54,31 @@
     color:#f2f2f2;
     text-align: center;
     text-decoration:none;
-    font-size: 20px;
+    font-size: 1rem;
+    line-height: 1.5rem;
     font-weight: 900;
-    padding: 2px 6px;
+    padding: 6px 20px;
     margin: 5px 7px;
-    background: #cc0f16;
-    border: 3px solid #9b070b;
+    background: #CC5F5A;
     border-radius: 5px;
-    box-shadow: 3px 3px 4px rgba(0,0,0,.5);
+    box-shadow: 2px 2px 2px rgba(0,0,0,.3);
     transition: all .6s;
     max-height: 40px;
   }
-  .new-btn:hover, .creat-btn:hover, .show-btn:hover, .edit-btn:hover{
+  .theme-button:hover{
     color:#fff;
-    background:#0a3959;
-    border: 3px solid #000;
-    box-shadow: 2px 2px 1px rgba(0,0,0,.5);
+    background:rgb(95,38,155);
+    box-shadow: 0px 0px 1px rgba(0,0,0,.5);
   }
-  .destroy-btn:hover{
+  .success-button:hover{
     color:#fff;
-    background:#a10e01;
-    border: 3px solid #5c0800;
-    box-shadow: 2px 2px 1px rgba(0,0,0,.5);
+    background:#0F2C18;
+    box-shadow: 0px 0px 1px rgba(0,0,0,.5);
+  }
+  .destroy-button:hover{
+    color:#fff;
+    background:#B95756;
+    box-shadow: 0px 0px 1px rgba(0,0,0,.5);
   }
   .img-fixed{
     height:250px;
