@@ -1,0 +1,38 @@
+<h1 class="pt-20">訂單確認頁面</h1>
+<table class="mt-3">
+  <tr>
+    <td>訂單編號</td>
+    <td>商品名稱</td>
+    <td>購買數量</td>
+    <td>銷售金額</td>
+    <td>收件地址</td>
+    <td>收件人</td>
+    <td>收件聯絡人電話</td>
+  </tr>
+    <% @paid_orders.each do |paid_order| %>
+    <tr>
+      <td class="text-center">
+        <%= paid_order.serial %>
+      </td>
+      <td class="text-center">
+        <%= paid_order.product.name %>
+      </td>
+      <td class="text-center">
+        <%= paid_order.sold_quantity %>
+      </td>
+      <td class="text-center">
+        <%= paid_order.price %>
+      </td>
+      <td class="text-center">
+        <%= paid_order.address %>
+      </td>
+      <td class="text-center">
+        <%= paid_order.receiver %>
+      </td>
+      <td class="text-center">
+        <%= paid_order.phone %>
+      </td>
+    </tr>
+    <% end %>
+
+</table>

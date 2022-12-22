@@ -1,18 +1,25 @@
-<h1>產品資料</h1>
-<h2>
-  <%= @product.name %>
-</h2>
+<h1 class="pt-20">訂單確認頁面</h1>
 
-<ul>
-  <li>產品描述:<%=@product.description%>
-  </li>
-  <li>產品價格:<%=@product.price%>
-  </li>
-  <li>庫存<%=@product.stock%>
-  </li>
-</ul>
-<%=link_to "產品資訊", products_path %>
+<table>
+  <tr>
+    <td></td>
+    <td>訂單編號</td>
+    <td>商品項目</td>
+    <td>購買數量</td>
+    <td>銷售金額</td>
+  </tr>
 
-<button>
-  <%= link_to '上一頁' , stores_path %>
-</button>
+  <tr>
+    <% @paid_orders.each do |paid_order| %>
+      <td>
+        <%= paid_order.serial %>
+      </td>
+      <td>
+        <%= paid_order.price %>
+      </td>
+      <td>
+        <%= paid_order.sold_quantity %>
+      </td>
+      <% end %>
+  </tr>
+</table>

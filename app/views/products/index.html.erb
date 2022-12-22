@@ -17,6 +17,7 @@
   </section>
   
   <!-- 功能列按鈕 -->
+<<<<<<< Updated upstream
   <% if current_user.role == 'vendor' %>
     <div class="flex space-x-10 bg-gray-100 p-2 w-full justify-center">
       <%= link_to '編輯商店資訊' , edit_store_path(@store.id) ,class:"edit-btn"%>
@@ -24,6 +25,25 @@
       <%= link_to '新增商品' , new_store_product_path(@store.id) ,class:"new-btn" %>
     </div>
   <% end %>
+=======
+ <% if current_user.role == 'vendor' %>
+  <div class="flex space-x-10 bg-gray-100 p-2 w-full justify-center">
+  <button
+    class="min-w-auto w-32 h-10 bg-theme_blue p-2 rounded-xl hover:bg-red-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold">
+    <%= link_to '編輯商店資訊' , edit_store_path(@store.id) %>
+  </button>
+  <button
+    class="min-w-auto w-40 h-10 bg-theme_dark_red p-2 rounded-xl hover:bg-green-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold">
+    <%= link_to '訂單查詢', store_show_order_path(@store.id) %>
+  </button>
+  <button
+    class="min-w-auto w-32 h-10 bg-theme_pink p-2 rounded-xl hover:bg-blue-500 transition-colors duration-50 hover:animate-pulse ease-out text-white font-semibold">
+    <%= link_to '新增商品' , new_store_product_path(@store.id) %>
+  </button>
+  </div>
+<% end %>
+
+>>>>>>> Stashed changes
 
 <!-- 商品列表 -->
   <div class=" mx-auto flex gap-10 flex-wrap justify-center px-3 pt-8 bg-theme_beige">
