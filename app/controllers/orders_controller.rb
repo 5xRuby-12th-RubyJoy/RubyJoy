@@ -43,10 +43,10 @@ class OrdersController < ApplicationController
   def pay    
       response = Newebpay::MpgResponse.new(params[:TradeInfo])   
       order = Order.find_by!(serial: response.result['MerchantOrderNo'])
-      @old_stock = order.product   
       order.product.with_lock do
         @quantity = order.product.stock - order.sold_quantity
       end
+      @old_stock = order.product.stock + order.sold_quantity   
       if @quantity>=0 
         if response.success?
           order.pay!
