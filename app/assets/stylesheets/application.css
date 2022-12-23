@@ -85,3 +85,15 @@
     width: 300px;
     object-fit: cover;
   }
+
+  .big_cover_img{
+    height:300px;
+    width: 300px;
+    object-fit: cover;
+  }
+
+.good_review_img{
+  height:150px;
+  width: 150px;
+  object-fit: cover;
+}

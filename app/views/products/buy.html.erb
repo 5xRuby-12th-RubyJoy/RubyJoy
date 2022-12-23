@@ -1,8 +1,8 @@
 <div class="flex justify-center flex-wrap pt-20 w-full">
-<h1 class="w-full text-center text-3xl font-bold my-4"><%= @product.name %></h1>
+<h1 class="w-full text-center text-3xl font-bold my-4">產品名稱：<%= @product.name %></h1>
   <ul class="text-center">
-    <li><%=@product.description %></li>
-    <li><%=@product.stock%></li>
+    <li>描述：<%=@product.description %></li>
+    <li>庫存：<%=@product.stock%></li>
   </ul>
 </div>
 
@@ -10,6 +10,7 @@
   <div class="flex justify-center">
     <input type="hidden" name="event_id" value="<%= @event.id%>">
     <input type="hidden" name="product_id" value="<%= @product.id%>">
+    <input type="hidden" name="event_id" value="<%= @event.id%>">
     <button data-action="click->order-quantity#decrement" class="text-5xl font-bold px-5">-</button>
     <input data-order-quantity-target="quantity" type="number" name="quantity" value="1" min="1" max="<%= @product.stock %>">
     <button data-action="click->order-quantity#increment" class="text-5xl font-bold px-5">+</button>
@@ -35,6 +36,6 @@
 
   
   <div class="text-center flex justify-center my-4">
-    <button class="creat-btn w-40">結帳</button>
+    <button class="theme-button w-40">結帳</button>
   </div>
 <% end %>

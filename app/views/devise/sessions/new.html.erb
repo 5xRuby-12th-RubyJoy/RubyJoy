@@ -1,33 +1,83 @@
-<section class="h-screen">
-  <div class="container px-6 pt-14 ">
-    <div class="flex justify-center items-center flex-wrap g-6 text-gray-800">
-      <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0 mt-10">
-        <h1 class="text-3xl font-bold leading-tight tracking-tight text-center text-black md:text-3xl dark:text-white mb-5">
+<section class="h-screen -mt-16 pt-20  ">
+  <div class="container h-full flex items-center px-6 mx-auto">
+    <div
+      class="flex-1 flex justify-center my-atuo items-center my-auto flex-wrap g-6 text-gray-800"
+    >
+      <div class="md:w-8/12 lg:w-6/12">
+        <h1
+          class="text-3xl font-bold leading-tight tracking-tight text-center text-theme_text4 md:text-3xl dark:text-white mb-5"
+        >
           登 入
         </h1>
-        <img src="/assets/log_in_page.jpg" alt="image" class="w-full rounded-lg shadow-2xl"/>
+        <img
+          src="/assets/log_in_page.jpg"
+          alt="image"
+          class="w-full rounded-lg shadow-2xl big_cover_img"
+        />
       </div>
       <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-        <form id="new_user"  action="/users/sign_in" method="post" accept-charset="UTF-8" class="space-y-4 md:space-y-6 new_user">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+        <form
+          id="new_user"
+          action="/users/sign_in"
+          method="post"
+          accept-charset="UTF-8"
+          class="space-y-4 md:space-y-6 new_user"
+        >
+          <input
+            type="hidden"
+            name="authenticity_token"
+            value="<%= form_authenticity_token %>"
+          />
           <div class="mb-3">
-            <label for="user_email" autofocus="autofocus" class="block mb-2 text-base font-medium text-gray-900 dark:text-white text-center md:text-left text-2xl font-bold">
+            <label
+              for="user_email"
+              autofocus="autofocus"
+              class="block mb-2 text-base text-gray-900 dark:text-white text-center md:text-left font-bold"
+            >
               信箱
             </label>
-            <input id="user_email" name="user[email]" autocomplete="email" type="email" placeholder="name@example.com" required class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+            <input
+              id="user_email"
+              name="user[email]"
+              autocomplete="email"
+              type="email"
+              placeholder="name@example.com"
+              required
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
           </div>
           <div class="mb-3">
-            <label for="user_password" class="block mb-2 text-base font-medium text-gray-900 dark:text-white text-center md:text-left text-2xl font-bold">
+            <label
+              for="user_password"
+              class="block mb-2 text-base text-gray-900 dark:text-white text-center md:text-left font-bold"
+            >
               密碼
             </label>
-            <input id="user_password" name="user[password]" autocomplete="current-password" type="password" placeholder="密碼需要至少6個字元" required class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+            <input
+              id="user_password"
+              name="user[password]"
+              autocomplete="current-password"
+              type="password"
+              placeholder="密碼需要至少6個字元"
+              required
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
           </div>
-          <button type="submit" data-mdb-ripple="true" data-mdb-ripple-color="light" class="new-btn w-full ml-0">
+          <button
+            type="submit"
+            data-mdb-ripple="true"
+            data-mdb-ripple-color="light"
+            class="theme-button w-full ml-0"
+          >
             登 入
           </button>
           <div class="mx-3">
-            <p class="text-sm font-light text-gray-500 dark:text-gray-400 mb-8">還沒有帳號嗎?
-              <a href=" /users/sign_up" class="font-medium text-primary-600 hover:underline dark:text-primary-500">
+            <p class="text-sm font-light text-gray-500 dark:text-gray-400 mb-8">
+              還沒有帳號嗎?
+              <a
+                href=" /users/sign_up"
+                class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+              >
                 註冊
               </a>
             </p>

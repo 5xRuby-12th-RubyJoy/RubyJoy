@@ -1,10 +1,10 @@
-<div class="pt-28">
+<div class="pt-10">
   <!-- 商店資訊 -->
   <section>
     <div class="flex flex-col items-center justify-center">
       <div>
         <%if @store.avatar.attached?%>
-          <img src="<%=(url_for(@store.avatar))%>" class="rounded align-center mt-5 max-w-xs max-h-72"/>
+          <img src="<%=(url_for(@store.avatar))%>" class="rounded align-center big_cover_img"/>
         <%end %>
       </div>
       <span class="text-3xl text-center font-bold mt-10">
@@ -25,29 +25,34 @@
     </div>
   <% end %>
 
+  <div class="mx-auto border-theme_blue w-1/2 border-b-2 mb-10"></div>
+
+
 <!-- 商品列表 -->
-  <div class=" mx-auto flex gap-10 flex-wrap justify-center px-3 pt-8 bg-theme_beige">
+<h2 class="text-center text-3xl font-bold text-theme_text4">商品列表</h2>
+  <div class=" mx-auto flex gap-10 flex-wrap justify-center px-3 pt-8  pb-3">
     <% @products.each do |product| %>
       <div class="bg-white shadow-md border-gray-200 rounded-lg ">
-          <%if @store.avatar.attached?%>
-            <img src="<%=(url_for(product.avatar))%>" class="rounded align-center img-fixed"/>
+          <%if product.avatar.attached?%>
+            <img src="<%=(url_for(product.avatar))%>" class="rounded-t align-center img-fixed"/>
           <%end%>
         <div class=" mt-2">
           <h1 class="text-center text-theme_text5 font-bold text-2xl tracking-tight mb-2">
             <%= product.name %>
           </h1>
-          <p class="text-lg text-theme_text5 mb-3 text-center font-bold">
-            商品描述：<%= product.description %>
+          <p class="text-base text-theme_text5 mb-3 ml-5">
+            <span class="font-bold">商品介紹：</span>
+            <div class="mb-3 ml-5">&nbsp&nbsp<%= product.description %></div>
           </p>
-          <p class="text-lg text-theme_text5 mb-3 text-center font-bold">
-            商品價格：<%= product.price %>
+          <p class="text-base text-theme_text5 mb-3  ml-5">
+            <span class="font-bold ">NTD. </span><%= product.price %>
           </p>
-          <p class="text-lg text-theme_text5 mb-3 text-center font-bold">
-            商品庫存量：<%= product.stock %>
+          <p class="text-sm text-theme_text3 mb-3 ml-5">
+            <span class="font-bold">庫存量：</span><%= product.stock %>
           </p>
           <% if current_user.role == 'vendor'%>
             <div class="mb-3 text-center">
-              <%= link_to '修改商品內容' , edit_store_product_path(@store,product) ,class:"edit-btn"%>
+              <%= link_to '編輯商品' , edit_store_product_path(@store,product) ,class:"theme-button"%>
               <%= link_to '刪除商品' , store_product_path(@store, product), method: 'DELETE' , data: {confirm: "確定嗎" } ,class:"destroy-btn"%>
             </div>
           <% end %>
@@ -58,7 +63,7 @@
               data-action="click->add-gift#toggle"
               data-event-id="<%= @event.id%>"
               data-product-id="<%= product.id %>"
-              class="creat-btn">
+              class="theme-button">
               <%= @event.products.include?(product) ? '已加入禮物' : '加入禮物'%>
               </button>
             </div>
