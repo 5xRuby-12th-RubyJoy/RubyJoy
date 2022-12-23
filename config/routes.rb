@@ -42,12 +42,10 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   resources :stores do
     resources :products
      member do
-       get :checkout_order
+       get :orders, to: 'stores#orders'
      end
   end
 end

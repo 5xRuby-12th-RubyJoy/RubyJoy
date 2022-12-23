@@ -15,7 +15,8 @@ class OrdersController < ApplicationController
       address: params[:address],
       receiver: params[:receiver],
       phone: params[:phone],
-      event_id: params[:event_id]
+      event_id: params[:event_id],
+      store_id: @product.store_id
     )
 
     if order.save
@@ -40,9 +41,11 @@ class OrdersController < ApplicationController
   end
 
 
-  def pay    
-      response = Newebpay::MpgResponse.new(params[:TradeInfo])   
 
+  def pay
+    
+      response = Newebpay::MpgResponse.new(params[:TradeInfo])
+      
       order = Order.find_by!(serial: response.result['MerchantOrderNo'])
       order.product.with_lock do
         @quantity = order.product.stock - order.sold_quantity
