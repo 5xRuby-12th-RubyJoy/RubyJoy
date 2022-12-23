@@ -1,49 +1,37 @@
-<nav class="relative flex items-center justify-between w-full md:px-3 z-10 bg-theme_light_purple h-16 pr-3">
-      <a href="/home" class="flex h-full">
-        <img src="/assets/RubyJoy_logo.png" alt="RubyJoy Logo" class="w-40 py-3.5"/>
-      </a>
-      <div class="hamburger cursor-pointer h-10 w-10 relative flex justify-center flex-wrap content-center md:hidden z-20">
-        <span class="hbtop bg-white h-1 w-8 absolute top-2"></span>
-        <span class="hbmid bg-white h-1 w-8 absolute top-5"></span>
-        <span class="hbbot bg-white h-1 w-8 absolute top-8"></span>
-      </div>
-    <ul id="navlist" class="hidden absolute md:h-full md:static md:flex md:mx-2 md:justify-end w-full top-full">
-      <li class="bg-theme_light_purple hover-theme-dark-purple ">
-        <a href="/home" aria-current="page" class="text-3xl md:text-base font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-t-2 border-b-2 md:border-0 md:h-full md:leading-10">首頁</a>
-      </li>
-    <% if current_user && current_user.role == "user" %>
-      <li class="bg-theme_light_purple hover-theme-dark-purple">
-        <a href="/events" aria-current="page" class="text-3xl md:text-base font-bold text-white md:px-3  text-center block w-full py-2 md:py-3 border-b-2 md:border-0 md:h-full md:leading-10">我的活動</a>
-      </li>
-    <% elsif current_user && current_user.role == "vendor" %>
-      <li class="bg-theme_light_purple hover-theme-dark-purple">
-        <a href="/stores" aria-current="page" class="text-3xl md:text-base font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-b-2 md:border-0 md:h-full md:leading-10">進入店鋪</a>
-        </li>
-    <% end %> 
-    <% if current_user %>
-      <li class="bg-theme_light_purple hover-theme-dark-purple">
-        <a href="/users/sign_out" rel="nofollow" data-method="delete" aria-current="page" class="text-3xl md:text-base font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-b-2 md:border-0 md:h-full md:leading-10">登出</a>
-      </li>
-    <% else %>
-      <li class="bg-theme_light_purple hover-theme-dark-purple">
-        <a href="/users/sign_up" aria-current="page" class="text-3xl md:text-base font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-b-2 md:border-0 md:h-full md:leading-10">註冊</a>
-      </li>
-      <li class="bg-theme_light_purple hover-theme-dark-purple">
-        <a href="/sign_in_session" aria-current="page" class="text-3xl md:text-base font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-b-2 md:border-0 md:h-full md:leading-10">登入</a>
-      </li>
-    <% end %>
-  </ul>
+<nav data-controller="hamburger" class="relative flex items-center justify-between w-full md:px-3 z-10 bg-theme_light_purple h-16 pr-3">
+  <a href="/home" class="flex h-full">
+    <img src="/assets/RubyJoy_logo.png" alt="RubyJoy Logo" class="w-40 py-3.5"/>
+  </a>
+  <div  data-action="click->hamburger#toggle"   class="hamburger cursor-pointer h-10 w-10 relative flex justify-center flex-wrap content-center md:hidden z-20">
+    <span id="hbtop" data-hamburger-target="hbTop" class=" bg-white h-1 w-8 absolute top-2"></span>
+    <span id="hbmid" data-hamburger-target="hbMid" class=" bg-white h-1 w-8 absolute top-5"></span>
+    <span id="hbbot" data-hamburger-target="hbBot" class=" bg-white h-1 w-8 absolute top-8"></span>
+  </div>
+<ul data-action="click->hamburger#toggle"  
+    data-hamburger-target="navList" id="navList" class="hidden absolute md:h-full md:static md:flex md:mx-2 md:justify-end w-full top-full">
+  <li class="bg-theme_light_purple hover-theme-dark-purple ">
+    <a href="/home" aria-current="page" class="text-3xl md:text-base font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-t-2 border-b-2 md:border-0 md:h-full md:leading-10">首頁</a>
+  </li>
+<% if current_user && current_user.role == "user" %>
+  <li class="bg-theme_light_purple hover-theme-dark-purple">
+    <a href="/events" aria-current="page" class="text-3xl md:text-base font-bold text-white md:px-3  text-center block w-full py-2 md:py-3 border-b-2 md:border-0 md:h-full md:leading-10">我的活動</a>
+  </li>
+<% elsif current_user && current_user.role == "vendor" %>
+  <li class="bg-theme_light_purple hover-theme-dark-purple">
+    <a href="/stores" aria-current="page" class="text-3xl md:text-base font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-b-2 md:border-0 md:h-full md:leading-10">進入店鋪</a>
+    </li>
+<% end %> 
+<% if current_user %>
+  <li class="bg-theme_light_purple hover-theme-dark-purple">
+    <a href="/users/sign_out" rel="nofollow" data-method="delete" aria-current="page" class="text-3xl md:text-base font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-b-2 md:border-0 md:h-full md:leading-10">登出</a>
+  </li>
+<% else %>
+  <li class="bg-theme_light_purple hover-theme-dark-purple">
+    <a href="/users/sign_up" aria-current="page" class="text-3xl md:text-base font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-b-2 md:border-0 md:h-full md:leading-10">註冊</a>
+  </li>
+  <li class="bg-theme_light_purple hover-theme-dark-purple">
+    <a href="/sign_in_session" aria-current="page" class="text-3xl md:text-base font-bold text-white md:px-3 text-center block w-full py-2 md:py-3 border-b-2 md:border-0 md:h-full md:leading-10">登入</a>
+  </li>
+<% end %>
+</ul>
 </nav>
-<script>
-    document.querySelector(".hamburger").addEventListener("click",toggle);
-    function toggle(){
-      document.querySelector("#navlist").classList.toggle("hidden");
-      document.querySelector(".hbtop").classList.toggle("rotate-45");
-      document.querySelector(".hbtop").classList.toggle("top-2");
-      document.querySelector(".hbtop").classList.toggle("top-5");
-      document.querySelector(".hbmid").classList.toggle("hidden");
-      document.querySelector(".hbbot").classList.toggle("rotate-135");
-      document.querySelector(".hbbot").classList.toggle("top-8");
-      document.querySelector(".hbbot").classList.toggle("top-5");
-    }
-</script>
