@@ -6743,6 +6743,11 @@ statuses@2.0.1:
   resolved "https://registry.npmjs.org/statuses/-/statuses-1.5.0.tgz"
   integrity sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==
 
+stimulus-clipboard@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/stimulus-clipboard/-/stimulus-clipboard-3.2.2.tgz#33c695b29ea3be5e3b0f691da0a1304fc0c60297"
+  integrity sha512-J/dCoyxL+hItBQrI6TkiBR+WkRXiSNPJw8hBRZtvdAOL/iXGm88nTOCKoU0T1tFlGcy1ODX0uyjxWgCKvNhFRw==
+
 stimulus@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-3.2.1.tgz#bf049a4379ed4ff7475515acce1f0b6fa15a0187"
