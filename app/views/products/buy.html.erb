@@ -8,8 +8,8 @@
 
 <%= form_with(url: orders_path, method: 'post', data: { controller: "order-quantity" }) do |f| %>
   <div class="flex justify-center">
-    <input type="hidden" name="product_id" value="<%= @product.id%>">
-    <input type="hidden" name="event_id" value="<%= @event.id%>">
+    <%= f.hidden_field :product_id, value: @product.id %>
+    <%= f.hidden_field :event_id, value: @event.id %>
     <button data-action="click->order-quantity#decrement" class="text-5xl font-bold px-5">-</button>
     <input data-order-quantity-target="quantity" type="number" name="quantity" value="1" min="1" max="<%= @product.stock %>">
     <button data-action="click->order-quantity#increment" class="text-5xl font-bold px-5">+</button>
@@ -34,7 +34,7 @@
     </ul>  
 
   
-  <div class="text-center flex justify-center my-4">
-    <button class="theme-button w-40">結帳</button>
+  
+    <%= f.submit '結帳' %>
   </div>
 <% end %>

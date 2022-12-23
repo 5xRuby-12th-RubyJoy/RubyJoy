@@ -31,7 +31,6 @@ class EventsController < ApplicationController
 
   def show
     @event_products = @event.products.all
-  
   end
 
   def edit; end

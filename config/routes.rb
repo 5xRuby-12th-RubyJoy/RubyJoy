@@ -17,8 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products, only: [] do
-    member do
+  resources :events, only: [] do
+    resources :products, only: [] do
       get :buy
     end
   end

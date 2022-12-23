@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
         @quantity = order.product.stock - order.sold_quantity
       end
       @old_stock = order.product.stock + order.sold_quantity   
-     
+
         if response.success?
           order.pay!
           redirect_to root_path, notice: '付款成功'
