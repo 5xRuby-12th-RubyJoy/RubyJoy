@@ -80,7 +80,12 @@
         <% if @event.user == current_user %> 
         <%= link_to '移除禮物', event_event_product_path(@event, event_product) , method: "delete", data:{ confirm: "確定刪除禮物嗎？"} ,class: "destroy-btn"%> 
         <% else %>
-        <%=link_to "前往結賬",event_product_buy_path(@event, event_product), class: "new-btn" %>
+
+          <%if @product_paid.include?(event_product.id)%>
+            <%="已付款"%>
+          <% else %>
+            <%=link_to "前往結賬",event_product_buy_path(@event, event_product), class: "new-btn" %>
+          <% end %>
         <% end %>
       </div>
     </div>

@@ -31,6 +31,9 @@ class EventsController < ApplicationController
 
   def show
     @event_products = @event.products.all
+    @event=Event.find(params[:id]) 
+    @product_paid= Order.where({event_id:params[:id],state:"paid"}).pluck(:product_id)
+   
   end
 
   def edit; end
