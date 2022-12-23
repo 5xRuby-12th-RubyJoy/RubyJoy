@@ -45,8 +45,8 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    @event = Event.find(params[:id])
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:product_id])
+    @event = Event.find(params[:event_id])
   end
 
   private
