@@ -120,27 +120,3 @@
     </div>
   </div>
 </footer>
-
-<script>
-    window.addEventListener("load",()=>{
-        let slideBox = document.querySelector('.slide-box');
-        let cardGroup = slideBox.querySelectorAll('.group')[0];
-        let card = cardGroup.getElementsByTagName('li');
-        let space = -1;
-        let timer = setInterval(move,30);
-
-        cardGroup.innerHTML = cardGroup.innerHTML + cardGroup.innerHTML;
-        cardGroup.style.width = card[0].offsetWidth * card.length+'px';          
-        function move() {
-            if (cardGroup.offsetLeft < -cardGroup.offsetWidth / 2) {
-                cardGroup.style.left = 0;
-            }
-            if (cardGroup.offsetLeft > 0) {
-                cardGroup.style.left = -cardGroup.offsetWidth / 2 + 'px';
-            }
-            cardGroup.style.left = cardGroup.offsetLeft + space + 'px';
-        };
-        slideBox.addEventListener("mouseover",() => clearInterval(timer));
-        slideBox.addEventListener("mouseout",() => {timer = setInterval(move,30);}); 
-    });
-</script>

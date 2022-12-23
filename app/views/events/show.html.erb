@@ -1,5 +1,5 @@
 <!-- Section: Design Block -->
-<section class="pt-20  mb-10">
+<section data-controller="clipboard" class="pt-20  mb-10">
   <div class="md:px-12 text-gray-800 text-center lg:text-left">
     <div class="container mx-auto xl:px-32">
       <div class="grid lg:grid-cols-2 md:gap-x-10 items-center ">
@@ -43,7 +43,7 @@
             <a href="/events/<%= @event.id %>/edit" class="success-button">
               編輯活動
             </a>
-            <a id="copybtn" class="block cursor-pointer mt-3 ml-2 font-medium text-primary-600 dark:text-primary-500 hover:underline">
+            <a data-action="click->clipboard#copy" id="copybtn" data-hello-target="copyOutput" class="block cursor-pointer mt-3 ml-2 font-medium text-primary-600 dark:text-primary-500 hover:underline">
               複製活動網址
             </a>
             <% end %>
@@ -86,15 +86,3 @@
     </div>
   </div>
   <% end %>
-
-
-
-
-
-<script>
-    document.querySelector("#copybtn").addEventListener("click",copy);
-    function copy(){
-      navigator.clipboard.writeText(window.location.href);
-      alert("您已成功複製此頁面網址!!")
-    }
-</script>
