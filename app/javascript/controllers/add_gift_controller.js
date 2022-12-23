@@ -28,8 +28,12 @@ export default class extends Controller {
   #setState(state) {
     if (state) {
       this.element.textContent = "已加入禮物";
+      this.element.classList.remove("theme-button");
+      this.element.classList.add("success-button");
     } else {
       this.element.textContent = "加入禮物";
+      this.element.classList.remove("success-button");
+      this.element.classList.add("theme-button");
     }
   }
 }

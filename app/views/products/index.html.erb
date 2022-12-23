@@ -1,4 +1,4 @@
-<div class="pt-28">
+<div class="pt-10">
   <!-- 商店資訊 -->
   <section>
     <div class="flex flex-col items-center justify-center">
@@ -25,7 +25,11 @@
     </div>
   <% end %>
 
+  <div class="mx-auto border-theme_blue w-1/2 border-b-2 mb-10"></div>
+
+
 <!-- 商品列表 -->
+<h2 class="text-center text-3xl font-bold text-theme_text4">商品列表</h2>
   <div class=" mx-auto flex gap-10 flex-wrap justify-center px-3 pt-8  pb-3">
     <% @products.each do |product| %>
       <div class="bg-white shadow-md border-gray-200 rounded-lg ">
@@ -36,14 +40,15 @@
           <h1 class="text-center text-theme_text5 font-bold text-2xl tracking-tight mb-2">
             <%= product.name %>
           </h1>
-          <p class="text-lg text-theme_text5 mb-3 ml-5">
-            <span class="font-bold">商品描述：</span><%= product.description %>
+          <p class="text-base text-theme_text5 mb-3 ml-5">
+            <span class="font-bold">商品介紹：</span>
+            <div class="mb-3 ml-5">&nbsp&nbsp<%= product.description %></div>
           </p>
-          <p class="text-lg text-theme_text5 mb-3  ml-5">
-            <span class="font-bold">商品價格：</span><%= product.price %>
+          <p class="text-base text-theme_text5 mb-3  ml-5">
+            <span class="font-bold ">NTD. </span><%= product.price %>
           </p>
-          <p class="text-lg text-theme_text5 mb-3 ml-5">
-            <span class="font-bold">商品庫存量：</span><%= product.stock %>
+          <p class="text-sm text-theme_text3 mb-3 ml-5">
+            <span class="font-bold">庫存量：</span><%= product.stock %>
           </p>
           <% if current_user.role == 'vendor'%>
             <div class="mb-3 text-center">
