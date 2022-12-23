@@ -16,12 +16,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def remove_gift
-    @gift = @event.event_products.find_by(product_id: params[:id])
-    @gift.destroy
-    redirect_to root_path, notice: "禮物新增成功"
-  end
-
   def new
     @event = Event.new
   end

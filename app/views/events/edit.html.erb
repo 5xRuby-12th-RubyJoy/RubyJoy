@@ -1,54 +1,98 @@
-<section class="h-screen pt-20">
-        <div class="container px-6 py-12 h-full flex justify-center">
-          <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-            <%= form_for @event  do |form| %>
-              <div class="mb-3">
-                <h1 class="text-3xl font-bold leading-tight tracking-tight text-center text-black md:text-3xl dark:text-white mb-5">
-                  編 輯 活 動
-                </h1>
-                <%= form.label :title, '活動名稱', autofocus: true, 
-                class:"block mb-2 text-base font-medium text-gray-900 dark:text-white" %>
-                <%= form.text_field :title, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
-                required: true %>
-              </div>
-              <div class="mb-3">
-                <%= form.label :subtitle, '副標題', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"  %>
-                <%= form.text_field :subtitle, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
-                required: true %>
-              </div>
-              <div class="mb-3">
-                <%= form.label :description, '活動簡述' , class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
-                <%= form.text_area :description, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
-                required: true %>
-              </div>
-              <div class="mb-3">
-                <%= form.label :venue, '活動場地', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
-                <%= form.text_field :venue, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
-                required: true %>
-              </div>
-              <div class="mb-3">
-                <%= form.label :start_at, '活動開始日期', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
-                <%= form.datetime_field :start_at , class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
-                required: true %>
-              </div>
-              <div class="mb-3">
-                <%= form.label :end_at, '活動結束日期', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
-                <%= form.datetime_field :end_at, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
-                required: true %>
-              </div>
-              <div class="mb-3">
-                <%=form.label :avatar,"活動封面照片", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
-                <%=form.file_field :avatar, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", required: true%>
-              </div>
-              <div class="flex justify-center">
-                <button type="submit" data-mdb-ripple="true" data-mdb-ripple-color="light" class="new-btn mb-5">
-                  編輯活動
-                </button>
-              </div>
-            <% end %>
+
+      <section class="h-full pt-5">
+        <div class=" pb-5 container px-6 pt-14 mx-auto flex items-center justify-center lg:h-full ">
+          <div class="flex justify-center items-center flex-wrap g-6 text-gray-800 ">
+            <div class="mt-5 md:mt-0 md:col-span-2">
+              <%= form_for @event  do |form| %>
+                <div class="shadow-xl overflow-hidden rounded-md ">
+                  <div class="px-4 py-3 bg-theme_light_purple text-right sm:px-6 flex justify-center">
+                    <h1 class=" text-white text-2xl font-bold leading-tight tracking-tight text-center  md:text-3xl dark:text-white ">
+                      編 輯 活 動
+                    </h1>
+                  </div>
+                  <div class="px-4 py-5 bg-white sm:p-6 flex">
+                    <div class="grid grid-cols-6 gap-6 ">
+                      <div class="col-span-6 sm:col-span-3">
+                        <%= form.label :title, '活動名稱', 
+                        class:"block mb-2 text-base font-medium text-gray-900 dark:text-white" %>
+                        <%= form.text_field :title, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
+                        required: true , autofocus: true%>
+                      </div>
+        
+                      <div class=" col-span-6 sm:col-span-3">
+  
+                        <div class="mb-3">
+                          <%= form.label :subtitle, '副標題', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"  %>
+                          <%= form.text_field :subtitle, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
+                          required: true %>
+                        </div>
+                      </div>
+        
+                      <div class="col-span-6 sm:col-span-3">
+                        <%= form.label :venue, '活動場地', class:" block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                        <%= form.text_area :venue, class: " resize-none bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
+                        required: true %>
+                      </div>                    
+                      <div class="col-span-6 sm:col-span-3">
+                        <%= form.label :description, '活動簡述' , class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                        <%= form.text_area :description, class: "resize-none bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
+                        required: true %>
+                      </div>
+        
+                      <div class=" col-span-6 sm:col-span-3">
+  
+                        <div class="mb-3">
+                          <%= form.label :start_at, '活動開始日期', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                          <%= form.datetime_field :start_at , class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
+                          required: true %>
+                        </div>
+                      </div>                    
+                      <div class=" col-span-6 sm:col-span-3">
+  
+                        <div class="mb-3">
+                          <%= form.label :end_at, '活動結束日期', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                          <%= form.datetime_field :end_at, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
+                          required: true %>
+                        </div>
+                      </div>
+                      <div class="col-span-6 sm:col-span-3 items-center my-auto">
+                        <%=form.label :address,"禮品收件地址", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                        <%=form.text_field :address , class: " bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" , require: true%>
+                      </div>
+
+                      <div class="col-span-6 sm:col-span-3 items-center my-auto">
+                        <%=form.label :phone,"收件人電話", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                        <%=form.text_field :phone , class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" , require: true%>
+                      </div>
+
+                      <div class="col-span-6 sm:col-span-3 items-center ">
+                        <%=form.label :receiver,"收件人姓名", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                        <%=form.text_field :receiver , class: "mb-8 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" , require: true%>
+                        <div class="col-span-6 sm:col-span-3 items-center ">
+                          <%=form.label :avatar,"更換封面（無需更換請點擊完成編輯）", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                          <%=form.file_field :avatar , class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"%>
+                        </div>
+                      </div>
+
+
+
+
+
+                      <div class="col-span-6 sm:col-span-3">
+                        <%if @event.avatar.attached?%>
+                        <img src="<%=(url_for(@event.avatar))%>"  class="img-fixed rounded mx-auto">
+                      <%end%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 flex justify-center">
+                    <button type="submit" class="theme-button">
+                      編 輯 完 成
+                    </button>
+                  </div>
+                </div>
+              <% end  %>
+            </div>
           </div>
         </div>
       </section>
-      
-
-      
