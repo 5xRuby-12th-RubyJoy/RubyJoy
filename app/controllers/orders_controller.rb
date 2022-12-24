@@ -54,6 +54,8 @@ class OrdersController < ApplicationController
 
         if response.success?
           order.pay!
+          # 寄送付款成功通知信
+          RubyJoyMailer.pay_suecess_notify('5xruby12thrubyjoy@gmail.com').deliver
           redirect_to root_path, notice: '付款成功'
         else
           order.product.update(stock: @old_stock)
