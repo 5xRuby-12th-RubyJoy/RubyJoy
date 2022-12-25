@@ -1,28 +1,27 @@
-<h1>結帳</h1>
-
-<div class="min-h-screen bg-gray-50 dark:bg-gray-900 flex justify-center items-center">
-  <div class="flex flex-col justify-between w-72 sm:w-96 h-96 bg-white bg-center text-gray-800 shadow-md overflow-hidden rounded-r-xl" style="background-image:url('https://placeimg.com/480/480/any')">
-    <div class="flex justify-between items-center ml-4 pr-8 rounded-r-xl">
-      <div class="bg-red-600 text-white bg-opacity-95 shadow px-2 py-1 flex items-center font-bold text-xs rounded">確認商品資訊</div>
-      <div class="bg-red-600 w-12 h-24 shadow flex flex-col-reverse p-2 text-center font-bold text-white rounded-b-full">50%<br>off</div>
+<div class="container px-6 pt-14 mx-auto flex flex-wrap items-center justify-center lg:h-full md:w-2/4">
+    <div class="py-3 bg-theme_light_purple w-full text-center text-white text-3xl font-bold rounded-t-md">
+      確認商品資訊
     </div>
-    <div class="w-2/3 bg-white bg-opacity-95 shadow-md rounded-r-xl p-4 flex flex-col mr-4 mb-8">
-      <h2 class="text-xl font-bold pb-2">購買商品：<%= @product.name %></h2>
-      <p class="truncate text-gray-500 text-sm">商品單價：<%= @product.price %></p>
-      <p class="truncate text-gray-500 text-sm">購買數量：<%= @order.sold_quantity %></p>
-      <div class="text-lg font-semibold text-slate-500">
+    <div class="w-full w-2/3 bg-white bg-opacity-95 shadow-md p-4 flex flex-col">
+      <h2 class="text-center text-2xl font-bold pb-2">
+        購買商品：<%= @product.name %>
+      </h2>
+      <p class="text-center font-bold text-gray-500 text-xl my-2">
+        商品單價：<%= @product.price %>
+      </p>
+      <p class="text-center font-bold text-gray-500 text-xl my-2">
+        購買數量：<%= @order.sold_quantity %>
+      </p>
+      <div class="text-center text-2xl font-semibold text-slate-500 my-2">
         總金額：<%= @order.price %> 元
       </div>
-      <form class="flex-auto p-6" method=post action="https://ccore.spgateway.com/MPG/mpg_gateway">
-        <input type="hidden" name="MerchantID" value="<%= @form_info[:MerchantID] %>" readonly>
-        <input type="hidden" name="Version" value="<%= @form_info[:Version] %>" readonly>
-        <input type="hidden" name="TradeInfo" value="<%= @form_info[:TradeInfo] %>" readonly>
-        <input type="hidden" name="TradeSha" value="<%= @form_info[:TradeSha] %>" readonly>
-        <input type="hidden" name="Amt" value="<%= @order.price.to_i %>" readonly>
-        <button class="h-10 px-6 font-semibold rounded-md bg-red-500 hover:bg-red-800 text-white " type="submit">
-          付款
-        </button>
-      </form>
-    </div>
+      <%= form_tag "https://ccore.spgateway.com/MPG/mpg_gateway", method: :post, class: "w-full flex justify-center my-2" do %>
+        <%= hidden_field_tag "MerchantID", @form_info[:MerchantID], readonly: true %>
+        <%= hidden_field_tag "Version", @form_info[:Version], readonly: true %>
+        <%= hidden_field_tag "TradeInfo", @form_info[:TradeInfo], readonly: true %>
+        <%= hidden_field_tag "TradeSha", @form_info[:TradeSha], readonly: true %>
+        <%= hidden_field_tag "Amt", @order.price.to_i, readonly: true %>
+        <%= submit_tag "付款", class: "theme-button cursor-pointer" %>
+      <% end %>
   </div>
 </div>
