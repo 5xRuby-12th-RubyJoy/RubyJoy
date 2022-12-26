@@ -58,14 +58,21 @@
           <% end %>
           <% if current_user.role == 'user'  %>
             <div class="flex justify-center mb-3">
-              <button
-              data-controller="add-gift"
-              data-action="click->add-gift#toggle"
-              data-event-id="<%= @event.id%>"
-              data-product-id="<%= product.id %>"
-              class="theme-button">
-              <%= @event.products.include?(product) ? '已加入禮物' : '加入禮物'%>
-              </button>
+              <% if @event.products.include?(product) %>
+                <button
+                data-controller="add-gift"
+                data-action="click->add-gift#toggle"
+                data-event-id="<%= @event.id%>"
+                data-product-id="<%= product.id %>"
+                class="success-button">已加入禮物</button>
+              <% else %>
+                <button
+                data-controller="add-gift"
+                data-action="click->add-gift#toggle"
+                data-event-id="<%= @event.id%>"
+                data-product-id="<%= product.id %>"
+                class="theme-button">加入禮物</button>
+              <% end %>
             </div>
           <% end %>
         </div>
