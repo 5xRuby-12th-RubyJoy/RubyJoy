@@ -1,3 +1,15 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@media screen and (min-width: 768px) {
+    .md-bg-gradient{
+        background:linear-gradient(115deg, #c5a2eb 50%, #ffffff 50%)
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .bg-gradient{
+        height:auto;
+    }
+  }
+  .big_cover2_img{
+    height:350px;
+    width: 400px;
+    object-fit: cover;
+  }

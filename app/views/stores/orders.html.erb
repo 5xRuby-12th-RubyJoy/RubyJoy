@@ -2,36 +2,40 @@
 
 <table class="mt-5">
   <tr>
-    <td>訂單編號</td>
-    <td>訂單金額</td>
-    <td>訂單狀態</td>
-    <td>商品數量</td>
-    <td>寄送地址</td>
-    <td>收貨人</td>
-    <td>收貨人聯絡電話</td>
+    <td class="text-center">訂單編號</td>
+    <td class="text-center">訂單金額</td>
+    <td class="text-center">商品名稱</td>
+    <td class="text-center">訂單狀態</td>
+    <td class="text-center">商品數量</td>
+    <td class="text-center">寄送地址</td>
+    <td class="text-center">收貨人</td>
+    <td class="text-center">收貨人聯絡電話</td>
   </tr>
 
 <% @orders.each do |order| %>
   <tr>
-    <td class="text-center">
+    <td class="text-center px-3">
       <%= order.serial%>
     </td>
-    <td class="text-center">
+    <td class="text-center px-3">
       <%= order.price %>
     </td>
-    <td class="text-center">
+    <td class="text-center px-3">
+      <%= order.product.name %>
+    </td>
+    <td class="text-center px-3">
       <%= order.state %>
     </td>
-    <td class="text-center">
+    <td class="text-center px-3">
       <%= order.sold_quantity %>
     </td>
-    <td class="text-center">
+    <td class="text-center px-3">
       <%= order.address %>
     </td>
-    <td class="text-center">
+    <td class="text-center px-3">
       <%= order.receiver %>
     </td>
-    <td class="text-center">
+    <td class="text-center px-3">
       <%= order.phone %>
     </td>
   </tr>

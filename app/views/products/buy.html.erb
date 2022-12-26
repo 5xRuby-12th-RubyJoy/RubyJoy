@@ -1,3 +1,4 @@
+
 <div class="container px-6 pt-14 mx-auto flex items-center justify-center lg:h-full md:w-2/4">
   <%= form_with(url: orders_path, method: 'post', data: { controller: "order-quantity" }) do |f| %>
     <div class="my-2 flex justify-center flex-wrap rounded-md shadow-xl">
@@ -25,9 +26,9 @@
           小計：<span data-order-amount-target="amount"></span>元
         </div>
       </div>
-      <p class="hidden w-full text-center text-2xl mb-1"> 收件人姓名 : <%= @event.receiver%></p>
-      <p class="hidden w-full text-center text-2xl mb-1"> 收件人地址 : <%= @event.address%></p>
-      <p class="hidden w-full text-center text-2xl mb-1"> 收件人電話 : <%= @event.phone%></p>
+      <p class="w-full text-center text-2xl mb-1"> 收件人姓名 : <%= @event.receiver%></p>
+      <p class="w-full text-center text-2xl mb-1"> 收件人地址 : <%= @event.address%></p>
+      <p class="w-full text-center text-2xl mb-1"> 收件人電話 : <%= @event.phone%></p>
       <%= f.submit '結帳', class: 'theme-button cursor-pointer mb-6 mt-3' %>
     </div>
   <% end %>
