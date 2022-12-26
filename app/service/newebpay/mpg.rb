@@ -53,8 +53,8 @@ module Newebpay
     def aes_encode(string)
       cipher = OpenSSL::Cipher.new('aes-256-cbc')
       cipher.encrypt
-      cipher.key = ENV['MERCHANT_HASH_KEY']
-      cipher.iv = ENV['MERCHANT_HASH_IV']
+      cipher.key = @key
+      cipher.iv = @iv
       cipher.padding = 0
       padding_data = add_padding(string)
       encrypted = cipher.update(padding_data) + cipher.final
