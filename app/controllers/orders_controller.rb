@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   def create
     sold_quantity = params[:quantity].to_i
     price = @product.price * sold_quantity
- 
+
     order = current_user.orders.new(
       sold_quantity:,
       price:,
@@ -23,14 +23,14 @@ class OrdersController < ApplicationController
       order.product.with_lock do
         @quantity = order.product.stock - order.sold_quantity
       end
-        if @quantity >=0
-          order.product.update(stock: @quantity)
-          redirect_to checkout_order_path(id: order.serial)
-        else
-          redirect_to buy_product_path(@product), alert: '商品庫存不足'
-        end
+      if @quantity >= 0
+        order.product.update(stock: @quantity)
+        redirect_to checkout_order_path(id: order.serial)
       else
-        redirect_to buy_product_path(@product), alert: '訂單建立失敗'
+        redirect_to buy_product_path(@product), alert: '商品庫存不足'
+      end
+    else
+      redirect_to buy_product_path(@product), alert: '訂單建立失敗'
     end
   end
 
@@ -40,30 +40,26 @@ class OrdersController < ApplicationController
     @form_info = Newebpay::Mpg.new(@order).form_info
   end
 
-
-
   def pay
-    
-      response = Newebpay::MpgResponse.new(params[:TradeInfo])
-      
-      order = Order.find_by!(serial: response.result['MerchantOrderNo'])
-      order.product.with_lock do
-        @quantity = order.product.stock - order.sold_quantity
-      end
-      @old_stock = order.product.stock + order.sold_quantity   
+    response = Newebpay::MpgResponse.new(params[:TradeInfo])
 
-        if response.success?
-          order.pay!
-          redirect_to root_path, notice: '付款成功'
-        else
-          order.product.update(stock: @old_stock)
-          redirect_to root_path, alert: '付款發生問題'
-        end
+    order = Order.find_by!(serial: response.result['MerchantOrderNo'])
+    order.product.with_lock do
+      @quantity = order.product.stock - order.sold_quantity
+    end
+    @old_stock = order.product.stock + order.sold_quantity
+
+    if response.success?
+      order.pay!
+      redirect_to root_path, notice: '付款成功'
+    else
+      order.product.update(stock: @old_stock)
+      redirect_to root_path, alert: '付款發生問題'
+    end
   end
 
   private
-  
-  
+
   def find_product
     @product = Product.find(params[:product_id])
   end
