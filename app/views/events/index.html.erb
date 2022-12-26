@@ -7,9 +7,7 @@
       <div class='flex justify-center content-center flex-wrap m-2 bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full md:max-w-xs min-w-xs pt-3'>
         
         <div>
-          <%if event.avatar.attached?%>
-            <img class="rounded align-center img-fixed" src="<%=(url_for(event.avatar))%>"/>
-          <%end%>
+          <%= image_tag url_for(event.avatar), class: "rounded align-center img-fixed" if event.avatar.attached?%>
         </div>
           <div class='w-full text-center text-xl font-bold my-3'>
             <%= event.title %>
