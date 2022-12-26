@@ -1,11 +1,7 @@
-
-<!-- Section: Design Block -->
-<section data-controller="clipboard" class="flex flex-wrap justify-center md:mt-0">
+<section class="flex flex-wrap justify-center md:mt-0">
   <div class="flex justify-evenly flex-wrap w-full items-center bg-gradient md-bg-gradient md:shadow-xl py-10">
     <div class="w-full md:w-2/5 lg:mb-0 mb-5 md:mb-0 flex justify-center">
-      <%if @event.avatar.attached?%>
-        <%= image_tag @event.avatar, class: "rounded-2xl big_cover2_img shadow-2xl" %>
-      <%end%>
+        <%= image_tag @event.avatar, class: "rounded-2xl big_cover2_img shadow-2xl"  if @event.avatar.attached? %>
     </div>
 
     <div class="w-3/4 md:w-1/3 p-3">
@@ -46,7 +42,7 @@
           <%= link_to "前往選擇禮物", stores_event_path(@event.id), class: "theme-button" %>
           <%= link_to "編輯活動", edit_event_path(@event), class: "success-button" %>
           <div class="w-full flex my-3 justify-center md:justify-start">
-            <button data-action="click->clipboard#copy" data-clipboard-target="copyOutput" id="copybtn" class="cursor-pointer text-sm text-purple-600 font-semibold rounded-full p-2 border-2 border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent inline-block">複製活動連結</button>
+            <button data-action="click->clipboard#copy" data-controller="clipboard" class="cursor-pointer text-sm text-purple-600 font-semibold rounded-full p-2 border-2 border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent inline-block">複製活動連結</button>
           </div>
         <% end %>
       </div>
@@ -59,9 +55,7 @@
   <div class=" mx-auto flex gap-10 flex-wrap justify-center px-3 pt-8 pb-3">
     <% @event_products.each do |event_product| %>
       <div class="rounded-lg shadow-lg bg-white max-w-sm">
-        <%if event_product.avatar.attached?%>
-          <%= image_tag event_product.avatar, class: "rounded-t-lg img-fixed" %>
-        <%end%>
+          <%= image_tag event_product.avatar, class: "rounded-t-lg img-fixed" if event_product.avatar.attached? %>
         <div class="p-6">
           <h5 class="text-gray-900 text-center text-xl font-medium mb-2">
             <%= event_product.name %>
