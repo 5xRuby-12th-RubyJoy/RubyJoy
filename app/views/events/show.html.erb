@@ -45,7 +45,9 @@
           <%= link_to "前往選擇禮物", stores_event_path(@event.id), class: "theme-button" %>
           <%= link_to "編輯活動", edit_event_path(@event), class: "success-button" %>
           <div class="w-full flex my-3 justify-center md:justify-start">
-            <%= link_to "複製活動網址", "", id: "copybtn", class: "cursor-pointer text-sm text-purple-600 font-semibold rounded-full p-2 border-2 border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent inline-block", data: { action: "click->clipboard#copy", "hello-target" => "copyOutput" } %>
+            <a id="copybtn" data-action="click->clipboard#copy" data-clipboard-target="copyOutput" class="cursor-pointer text-sm text-purple-600 font-semibold rounded-full p-2 border-2 border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent inline-block">
+              複製活動網址
+            </a>
           </div>
         <% end %>
       </div>
