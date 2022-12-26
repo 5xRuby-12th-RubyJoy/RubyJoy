@@ -69,6 +69,11 @@ gem 'aasm', '~> 5.4'
 gem "aws-sdk-s3", require: false
 gem 'ransack'
 
-gem 'net-smtp', require: false
-gem 'net-imap', require: false
-gem 'net-pop', require: false
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'koala'
+gem 'omniauth-rails_csrf_protection'
+
+
+
