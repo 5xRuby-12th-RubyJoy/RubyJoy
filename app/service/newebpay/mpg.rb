@@ -3,7 +3,6 @@ module Newebpay
     attr_accessor :info
 
     def initialize(params)
-
       @key = ENV['MERCHANT_HASH_KEY']
       @iv = ENV['MERCHANT_HASH_IV']
       @merchant_id = ENV['MERCHANT_ID']
@@ -39,7 +38,9 @@ module Newebpay
       info[:TimeStamp] = Time.now.to_i
       info[:RespondType] = 'JSON'
       info[:Version] = '1.6'
+
       info[:ReturnURL] = "https://f9c6-61-220-182-115.jp.ngrok.io/orders/pay"
+
       info[:LoginType] = 0
       info[:CREDIT] =  1
       info[:VACC] = 1
@@ -53,8 +54,8 @@ module Newebpay
     def aes_encode(string)
       cipher = OpenSSL::Cipher.new('aes-256-cbc')
       cipher.encrypt
-      cipher.key = ENV['MERCHANT_HASH_KEY']
-      cipher.iv = ENV['MERCHANT_HASH_IV']
+      cipher.key = @key
+      cipher.iv = @iv
       cipher.padding = 0
       padding_data = add_padding(string)
       encrypted = cipher.update(padding_data) + cipher.final
