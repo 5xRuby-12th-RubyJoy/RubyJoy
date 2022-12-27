@@ -26,9 +26,16 @@
           小計：<span data-order-amount-target="amount"></span>元
         </div>
       </div>
-      <p class="w-full text-center text-2xl mb-1"> 收件人姓名 : <%= @event.receiver%></p>
-      <p class="w-full text-center text-2xl mb-1"> 收件人地址 : <%= @event.address%></p>
-      <p class="w-full text-center text-2xl mb-1"> 收件人電話 : <%= @event.phone%></p>
+      <p class="w-full text-center font-bold text-base mb-1"> 
+        收件人姓名 : 
+        <span class="font-normal text-theme_text4"><%= @event.receiver%></span>  
+      </p>
+      <p class="w-full text-center font-bold text-base mb-1"> 收件人地址 : 
+        <span class="font-normal text-theme_text4"><%= @event.address%></span>
+      </p>
+      <p class="w-full text-center font-bold text-base mb-1"> 收件人電話 : 
+        <span class="font-normal text-theme_text4"> <%= @event.phone%></span>
+      </p>
       <%= f.submit '結帳', class: 'theme-button cursor-pointer mb-6 mt-3' %>
     </div>
   <% end %>
