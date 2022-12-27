@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  # before_action :authenticate_user!, only: [:checkout]
   before_action :find_product, only: [:create]
   skip_before_action :verify_authenticity_token, only: [:pay]
   protect_from_forgery with: :null_session, only: [:pay]

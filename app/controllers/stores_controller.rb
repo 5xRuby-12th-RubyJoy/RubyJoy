@@ -1,4 +1,5 @@
 class StoresController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_store, only: %i[update edit destroy show]
 
   def index

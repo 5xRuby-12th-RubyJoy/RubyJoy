@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_event, only: %i[show edit update destroy index add_gift]
   before_action :find_product, only: %i[add_gift remove_gift]
 
