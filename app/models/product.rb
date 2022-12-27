@@ -8,9 +8,9 @@ class Product < ApplicationRecord
 
   # relation
   has_one_attached :avatar
-  has_many :event_products, :dependent => :destroy
+  has_many :event_products, dependent: :destroy
   has_many :events, through: :event_products
-  has_many :product_orders, :dependent => :destroy
+  has_many :product_orders, dependent: :destroy
   has_many :orders, through: :product_orders
   belongs_to :store
 end

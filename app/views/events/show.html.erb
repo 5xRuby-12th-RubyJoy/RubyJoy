@@ -1,85 +1,83 @@
-<!-- Section: Design Block -->
-<section data-controller="clipboard" class="pt-20  mb-10">
-  <div class="md:px-12 text-gray-800 text-center lg:text-left">
-    <div class="container mx-auto xl:px-32">
-      <div class="grid lg:grid-cols-2 md:gap-x-10 items-center ">
-        <div class="mb-12 lg:mb-0 flex justify-center">
-          <%if @event.avatar.attached?%>
-            <img src="<%=(url_for(@event.avatar))%>" class="rounded align-center big_cover_img mt-5"/>
-          <%end%>
+<section class="flex flex-wrap justify-center md:mt-0">
+  <div class="flex justify-evenly flex-wrap w-full items-center bg-gradient md-bg-gradient md:shadow-xl py-10">
+    <div class="w-full md:w-2/5 lg:mb-0 mb-5 md:mb-0 flex justify-center">
+        <%= image_tag @event.avatar, class: "rounded-2xl big_cover2_img shadow-2xl"  if @event.avatar.attached? %>
+    </div>
+
+    <div class="w-3/4 md:w-1/3 p-3">
+      <h1 class="mb-3 text-4xl md:text-5xl xl:text-5xl font-bold tracking-tight text-theme_light_purple text-center">
+        <%= @event.title %>
+      </h1>
+      <h2 class="font-bold text-3xl my-2 text-center py-2">
+        <%= @event.subtitle %>
+      </h2>
+
+      <div class="text-center md:text-left">
+        <strong class="block text-lg my-1">
+          活動內容：
+        </strong>
+        <p class="break-words my-3 md:pl-3"><%= @event.description %></p>
+      </div>
+
+      <div class="text-center md:text-left ">
+        <strong class="block text-lg my-1">
+          活動地點：
+        </strong>
+        <span class=" break-words block my-3 md:pl-3"><%= @event.venue %></span>
+      </div>
+
+      <div class="text-center md:text-left ">
+        <div>
+          <strong class="block md:inline-block ">活動開始時間：</strong>
+          <%= @event.start_at.strftime("%Y-%m-%d-%H:%M") %>
         </div>
-        <div class="mt-12 lg:mt-0">
-          <h1 class="mb-3 text-4xlmd:text-4xl xl:text-4xl font-bold tracking-tight text-center">
-            <%= @event.title %><br />
-            <div class="mt-3 text-theme_dark_red text-2xl md:text-xl xl:text-xl font-bold tracking-tight border-2 rounded-md border-gray-500 px-2 py-2 mb-3">
-              <%= @event.subtitle %>
-            </div>
-          </h1>
-          <article>
-            <div class="mb-3">
-              <strong class="block text-lg font-medium text-theme_dark_red dark:text-white">
-                活動內容：
-              </strong>
-              <span><%= @event.description %></span>
-            </div>
-            <div class="mb-3">
-              <strong class="block text-lg font-medium text-theme_dark_red dark:text-white">
-                活動地點：
-              </strong>
-              <span><%= @event.venue %></span>
-            </div>
-          </article>
-          <div>
-            <strong>活動開始時間：</strong>
-            <%= @event.start_at.strftime("%Y-%m-%d-%H:%M") %> <br />
-            <strong>活動結束時間：</strong>
-            <%= @event.end_at.strftime("%Y-%m-%d-%H:%M") %>
-          </div>
-          <div class="mt-5">
-            <% if @event.user == current_user %>
-            <a href="/events/<%= @event.id %>/stores" class="theme-button">
-              前往選擇禮物
-            </a>
-            <a href="/events/<%= @event.id %>/edit" class="success-button">
-              編輯活動
-            </a>
-            <a data-action="click->clipboard#copy" id="copybtn" data-hello-target="copyOutput" class="block cursor-pointer mt-3 ml-2 font-medium text-primary-600 dark:text-primary-500 hover:underline">
-              複製活動網址
-            </a>
-            <% end %>
-          </div>
+        <div class="py-2">
+          <strong class="block md:inline-block ">活動結束時間：</strong>
+          <%= @event.end_at.strftime("%Y-%m-%d-%H:%M") %>
         </div>
+      </div>
+            
+      <div class="w-full flex flex-wrap ">
+        <% if @event.user == current_user %>
+          <%= link_to "前往選擇禮物", stores_event_path(@event.id), class: "theme-button" %>
+          <%= link_to "編輯活動", edit_event_path(@event), class: "success-button" %>
+          <div class="w-full flex my-3 justify-center md:justify-start">
+            <button data-action="click->clipboard#copy" data-controller="clipboard" class="cursor-pointer text-sm text-purple-600 font-semibold rounded-full p-2 border-2 border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent inline-block">複製活動連結</button>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </section>
-<div class="mx-auto border-theme_blue w-1/2 border-b-2 mb-10"></div>
-<h2 class="text-3xl font-bold leading-tight tracking-tight text-center text-theme_text4 dark:text-white mb-5">我的許願清單</h2>
-
-<div class=" mx-auto flex gap-10 flex-wrap justify-center px-3 pt-8 pb-3">
-  <% @event_products.each do |event_product| %>
+  <div class="mx-auto border-theme_blue w-1/2 border-b-2 my-10"></div>
+  <h2 class="text-3xl font-bold leading-tight tracking-tight text-center text-theme_text4 dark:text-white mb-5">我的許願清單</h2>
   
-  <div class="rounded-lg shadow-lg bg-white max-w-sm">
-    <%if event_product.avatar.attached?%>
-      <img src="<%=(url_for(event_product.avatar))%>" class="rounded-t-lg img-fixed"/>
-    <%end%>
-    <div class="p-6">
-      <h5 class="text-gray-900 text-xl font-medium mb-2">
-        <%= event_product.name %>
-      </h5>
-      <p class="text-gray-700 text-base mb-4">
-        <%= event_product.description %>
-      </p>
-      <p class="text-gray-700 text-base mb-4">
-        <span class="font-bold">NTD. </span><%= event_product.price %>
-      </p>
-      <div class="flex justify-center">
-<%if @product_paid.include?(event_product.id)%>
+  <div class=" mx-auto flex gap-10 flex-wrap justify-center px-3 pt-8 pb-3">
+    <% @event_products.each do |event_product| %>
+      <div class="rounded-lg shadow-lg bg-white max-w-sm">
+          <%= image_tag event_product.avatar, class: "rounded-t-lg img-fixed" if event_product.avatar.attached? %>
+        <div class="p-6">
+          <h5 class="text-gray-900 text-center text-xl font-medium mb-2">
+            <%= event_product.name %>
+          </h5>
+          <p class="text-gray-700 text-base mb-4">
+            <%= event_product.description %>
+          </p>
+          <p class="text-gray-700 text-base mb-4">
+            <span class="font-bold">NTD. </span><%= event_product.price %>
+          </p>
+          <div class="flex justify-center">
+            <% if @event.user == current_user %> 
+              <%= link_to '移除禮物', event_event_product_path(@event, event_product) , method: "delete", data:{ confirm: "確定刪除禮物嗎？"} ,class: "destroy-btn"%> 
+            <% else %>
+            <%if @product_paid.include?(event_product.id)%>
             <%="已付款"%>
           <% else %>
-            <%=link_to "前往結賬",event_product_buy_path(@event, event_product), class: "new-btn" %>
+            <%=link_to "前往結賬",event_product_buy_path(@event, event_product), class: "success-button" %>
           <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-  <% end %>
