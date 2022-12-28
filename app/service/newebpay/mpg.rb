@@ -38,9 +38,7 @@ module Newebpay
       info[:TimeStamp] = Time.now.to_i
       info[:RespondType] = 'JSON'
       info[:Version] = '1.6'
-
       info[:ReturnURL] = "https://www.astrocamprubyjoy.com/orders/pay"
-
       info[:LoginType] = 0
       info[:CREDIT] =  1
       info[:VACC] = 1
