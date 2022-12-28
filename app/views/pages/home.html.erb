@@ -13,17 +13,17 @@
   <h2 class="text-center text-3xl my-6 font-bold text-theme_text4">RubyJoy 分三步</h2>
   <div class="w-full flex justify-center flex-wrap">
     <div class= "flex justify-center flex-wrap my-2 bg-white max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full md:w-1/3 px-3">
-      <img src="images/creat_icon.png" class="w-20 h-20"/>
+      <%= image_tag '/images/creat_icon.png', class: 'w-20 h-20' %>
       <h3 class="text-xl font-bold my-6 w-full text-center text-theme_text4">1. 創建願望清單<h3>
       <p class="text-base font-bold text-theme_text3 mx-5">註冊即可創建您自己的願望清單。您可以從在線商店使用我們的合作夥伴商店。<p>
     </div>
     <div class= "flex justify-center flex-wrap my-2 bg-white max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full md:w-1/3 px-3">
-      <img src="images/share_icon.png" class="w-20 h-20"/>
+      <%= image_tag '/images/share_icon.png', class: 'w-20 h-20' %>
       <h3 class="text-xl font-bold my-6 w-full text-center text-theme_text4">2. 分享願望清單<h3>
       <p class="text-base font-bold text-theme_text3 mx-5">您可以與您的朋友和家人分享您的願望清單，請朋友和家人幫您完成。<p>
     </div>
     <div class= "flex justify-center flex-wrap my-2 bg-white max-w-sm dark:bg-gray-800 dark:border-gray-700 w-full md:w-1/3 px-3">
-      <img src="images/gift_icon.png" class="w-20 h-20"/>
+      <%= image_tag '/images/gift_icon.png', class: 'w-20 h-20' %>
       <h3 class="text-xl font-bold my-6 w-full text-center text-theme_text4">3. 實現願望<h3>
       <p class="text-base font-bold text-theme_text3 mx-5">那些被邀請到您的願望清單的人將保留他們想要實現的願望。<p>
     </div>
@@ -41,27 +41,27 @@
     <div class=" flex justify-center">
       <ul class="group">
         <li id="card"  class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg w-52 slide-card-hover cursor-pointer hover:bg-theme_pink">
-          <img class="rounded-lg good_review_img" src="/images/good_review1.jpg">
+          <%= image_tag '/images/good_review1.jpg', class: 'rounded-lg good_review_img' %>
           <p class="w-full break-all py-2 font-bold mx-3">從來不知道舉辦活動可以是這麼輕鬆的事！</p>
           <p class="w-full break-all font-bold  text-theme_text3 text-right">Krystal</p>
         </li>
         <li class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg w-52 slide-card-hover cursor-pointer hover:bg-theme_pink">
-          <img class="rounded-lg good_review_img" src="images/good_review2.jpg">
+          <%= image_tag '/images/good_review2.jpg', class: 'rounded-lg good_review_img' %>
           <p class="w-full break-all py-2 font-bold mx-3">終於不會再收到自己不想要的禮物了ＸＤ</p>
           <p class="w-full break-all font-bold  text-theme_text3 text-right">Sabrina</p>
         </li>
         <li class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg w-52 slide-card-hover cursor-pointer hover:bg-theme_pink">
-          <img class="rounded-lg good_review_img" src="images/good_review3.jpg">
+          <%= image_tag '/images/good_review3.jpg', class: 'rounded-lg good_review_img' %>
           <p class="w-full break-all py-2 font-bold mx-3">謝謝RubyJoy這個平台，我非常滿意，絕對推薦。</p>
           <p class="w-full break-all font-bold  text-theme_text3 text-right">wayne</p>
         </li>
         <li class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg w-52 slide-card-hover cursor-pointer hover:bg-theme_pink">
-          <img class="rounded-lg good_review_img" src="images/good_review4.jpg">
+          <%= image_tag '/images/good_review4.jpg', class: 'rounded-lg good_review_img' %>
           <p class="w-full break-all py-2 font-bold mx-3">超讚的平台，已經推薦好多朋友使用了</p>
           <p class="w-full break-all font-bold  text-theme_text3 text-right">Keddie</p>
         </li>
         <li class="m-3 p-3 flex justify-center content-center flex-wrap bg-white shadow-md border border-gray-200 rounded-lg w-52 slide-card-hover cursor-pointer hover:bg-theme_pink">
-          <img class="rounded-lg good_review_img " src="images/good_review5.jpg">
+          <%= image_tag '/images/good_review5.jpg', class: 'rounded-lg good_review_img' %>
           <p class="w-full break-all py-2 font-bold mx-3">從來都不知道有這麼方便的平台，大推！</p>
           <p class="w-full break-all font-bold  text-theme_text3 text-right">Melissa</p>
         </li>
@@ -72,50 +72,50 @@
 <footer class="bg-theme_light_purple flex flex-wrap justify-center">
   <h2 class="w-full text-center font-bold py-5 text-3xl text-gray-50">RubyJoy團隊成員</h2>
   <div class="w-full md:w-1/5 flex justify-center flex-wrap m-2 py-3 rounded-lg border-2 bg-white hover-scale">
-    <img src="images/jn.JPG" class="w-40 h-40 radius-80 border-2 md:mx-3" alt="" >
+    <%= image_tag '/images/jn.JPG', class: 'w-40 h-40 radius-80 border-2 md:mx-3' %>
     <h3 class="text-xl pb-3 text-center w-full m-4 font-bold border-b-2 img">陳僅恩</h3>
       <div class="w-full flex justify-center">
         <a href="mailto:elijahbecerrakc@gmail.com" class="m-2">
-          <img src="images/gmail.png" class="w-6 h-6" alt="gmail">
+          <%= image_tag '/images/gmail.png', class: 'w-6 h-6', alt: 'gmail' %>
         </a>
         <a href="https://github.com/ElijahBecerra-Chen" class="m-2">
-          <img src="images/github.png" class="w-6 h-6 rounded-2xl" alt="github">
+          <%= image_tag '/images/github.png', class: 'w-6 h-6 rounded-2xl', alt: 'github' %>
         </a>
     </div>
   </div>
   <div class=" md:w-1/5 flex justify-center flex-wrap m-2 py-3 rounded-lg border-2 bg-white hover-scale">
-    <img src="images/jt.jpg" class="w-40 h-40 radius-80 border-2 md:mx-3" alt="" >
+    <%= image_tag '/images/jt.jpg', class: 'w-40 h-40 radius-80 border-2 md:mx-3' %>
     <h3 class="text-xl pb-3 text-center w-full m-4 font-bold border-b-2">謝政庭</h3>
       <div class="w-full flex justify-center">
         <a href="mailto:GibbsHsieh2015@gmail.com" class="m-2">
-          <img src="images/gmail.png" class="w-6 h-6" alt="gmail">
+          <%= image_tag '/images/gmail.png', class: 'w-6 h-6', alt: 'gmail' %>
         </a>
         <a href="https://github.com/Danny3766" class="m-2">
-          <img src="images/github.png" class="w-6 h-6 rounded-2xl" alt="github">
+          <%= image_tag '/images/github.png', class: 'w-6 h-6 rounded-2xl', alt: 'github' %>
         </a>
     </div>
   </div>
   <div class="w-full md:w-1/5 flex justify-center flex-wrap m-2 py-3 rounded-lg border-2 bg-white hover-scale">
-    <img src="images/jw.jpg" class="w-40 h-40 radius-80 border-2 md:mx-3" alt="" >
+    <%= image_tag '/images/jw.jpg', class: 'w-40 h-40 radius-80 border-2 md:mx-3' %>
     <h3 class="text-xl pb-3 text-center w-full m-4 font-bold border-b-2">吳家瑋</h3>
       <div class="w-full flex justify-center">
         <a href="mailto:twd1000015706@gmail.com" class="m-2">
-          <img src="images/gmail.png" class="w-6 h-6" alt="gmail">
+          <%= image_tag '/images/gmail.png', class: 'w-6 h-6', alt: 'gmail' %>
         </a>
         <a href="https://github.com/wucheiwei?tab=repositories" class="m-2">
-          <img src="images/github.png" class="w-6 h-6 rounded-2xl" alt="github">
+          <%= image_tag '/images/github.png', class: 'w-6 h-6 rounded-2xl', alt: 'github' %>
         </a>
     </div>
   </div>
   <div class="w-full md:w-1/5 flex justify-center flex-wrap m-2 py-3 rounded-lg border-2 bg-white hover-scale">
-    <img src="images/tw.png" class="w-40 h-40 radius-80 border-2 md:mx-3" alt="" >
+    <%= image_tag '/images/tw.png', class: 'w-40 h-40 radius-80 border-2 md:mx-3' %>
     <h3 class="text-xl pb-3 text-center w-full m-4 font-bold border-b-2">陳廷偉</h3>
       <div class="w-full flex justify-center">
         <a href="mailto:QWE24367705@gmail.com" class="m-2">
-          <img src="images/gmail.png" class="w-6 h-6" alt="gmail">
+          <%= image_tag '/images/gmail.png', class: 'w-6 h-6', alt: 'gmail' %>
         </a>
         <a href="https://github.com/wayne035" class="m-2">
-          <img src="images/github.png" class="w-6 h-6 rounded-2xl" alt="github">
+          <%= image_tag '/images/github.png', class: 'w-6 h-6 rounded-2xl', alt: 'github' %>
         </a>
     </div>
   </div>
