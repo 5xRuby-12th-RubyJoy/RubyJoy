@@ -74,7 +74,7 @@
                         </div>
                       </div>
                       <div class="col-span-6 sm:col-span-3">
-                      <%= image_tag @event.avatar, class: "img-fixed rounded mx-auto" if @event.avatar.attached? %>
+                        <%= image_tag url_for(@event.avatar), class: "img-fixed rounded mx-auto" if @event.avatar.attached? %>
                       </div>
                     </div>
                   </div>
