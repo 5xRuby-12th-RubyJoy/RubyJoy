@@ -50,10 +50,10 @@ class OrdersController < ApplicationController
       @old_stock = order.product.stock + order.sold_quantity   
         if response.success?
           order.pay!
-          redirect_to "https://rubyjoy-5xruby.herokuapp.com/events/#{order.event_id}", notice: '付款成功'
+          redirect_to "https://www.astrocamprubyjoy.com/events/#{order.event_id}", notice: '付款成功'
         else
           order.product.update(stock: @old_stock)
-          redirect_to "https://rubyjoy-5xruby.herokuapp.com/events/#{order.event_id}", alert: '付款發生問題'
+          redirect_to "https://www.astrocamprubyjoy.com/events/#{order.event_id}", alert: '付款發生問題'
         end
   end
 
