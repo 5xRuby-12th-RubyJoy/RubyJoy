@@ -25,7 +25,7 @@ RubyJoy 是一個結合活動頁面、個人募資、站內商城的平台
 
 ## 如何使用
 
-- run `mpn start` or `yarn install`
+- run `npm start` or `yarn install`
 - run `bundle`
 - replace your own keys for AWS3 & payment system, refer to .env.example
 
