@@ -13,22 +13,20 @@
     </div>
   <% end %>
 </div>
-
 <!-- store card list -->
 <div class=" mx-auto flex gap-10 flex-wrap justify-center px-3 pt-8  pb-3">
   <%@store.each do |store| %>
-  <%=link_to event_store_products_path(@event,store) do%> 
-    <div class="bg-white shadow-md border-gray-200 rounded-lg ">
-      <%if store.avatar.attached?%>
-        <img src="<%=(url_for(store.avatar))%>" class="rounded align-center img-fixed"/>
-      <%end%>
-        <h1 class="text-center text-theme_text5 font-bold text-2xl tracking-tight mb-2 pt-3">
+    <%=link_to event_store_products_path(@event,store) do%> 
+      <div class="bg-white shadow-md border-gray-200 rounded-lg w-72">
+        <%= image_tag store.avatar, class: "rounded align-center img-fixed" if store.avatar.attached?%>
+        <h1 class="text-center text-theme_text5 font-bold text-2xl tracking-tight mb-2 pt-3 break-words px-5">
+
           <%=store.title%>
         </h1>
-        <p class="text-lg text-theme_text5 pb-8 ml-5">
+        <p class="text-lg text-theme_text5 pb-8 px-5 break-words">
           <%=store.description%>
         </p>
-    </div>
+      </div>
     <% end  %>
   <% end %>
 </div>
