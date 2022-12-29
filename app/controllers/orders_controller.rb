@@ -51,10 +51,10 @@ class OrdersController < ApplicationController
       if response.successful?
         order.pay!
         RubyjoyMailJob.perform_later(order)
-        redirect_to root_path, notice: '付款成功'
+        redirect_to "https://www.astrocamprubyjoy.com/events/#{order.event_id}", notice: '付款成功'
       else
         order.product.update(stock: @old_stock)
-        redirect_to root_path, alert: '付款發生問題'
+        redirect_to "https://www.astrocamprubyjoy.com/events/#{order.event_id}", alert: '付款發生問題'
       end
   end
 
