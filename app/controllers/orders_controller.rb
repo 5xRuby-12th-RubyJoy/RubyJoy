@@ -61,8 +61,4 @@ class OrdersController < ApplicationController
   def find_product
     @product = Product.find(params[:product_id])
   end
-  
-  def find_order
-    @order = Order.find_by!(serial: params[:id])
-  end
 end
