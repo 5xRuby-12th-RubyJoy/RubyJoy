@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: '5xruby12thrubyjoy@gmail.com'
+  default from: '5xruby12thrubyjoy@rubyjoy.com'
   layout 'mailer'
 end
