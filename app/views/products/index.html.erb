@@ -7,10 +7,10 @@
           <img src="<%=(url_for(@store.avatar))%>" class="rounded align-center big_cover_img"/>
         <%end %>
       </div>
-      <span class="text-3xl text-center font-bold mt-10">
+      <span class="text-3xl text-center font-bold mt-10 w-8/12 break-words">
         <%= @store.title %>
       </span>
-      <span class="my-5 text-base text-center w-6/12">
+      <span class="my-5 text-base text-center w-6/12 break-words">
         <%= @store.description %>
       </span>
     </div>
@@ -19,9 +19,9 @@
   <!-- 功能列按鈕 -->
   <% if current_user.role == 'vendor' %>
     <div class="flex space-x-10 bg-gray-100 p-2 w-full justify-center">
-      <%= link_to '編輯商店資訊' , edit_store_path(@store.id) ,class:"edit-btn"%>
-      <%= link_to '訂單查詢' , orders_store_path(@store.id),class:"show-btn" %>
-      <%= link_to '新增商品' , new_store_product_path(@store.id) ,class:"new-btn" %>
+      <%= link_to '編輯商店資訊' , edit_store_path(@store.id) ,class:"theme-button"%>
+      <%= link_to '訂單查詢' , orders_store_path(@store.id),class:"theme-button" %>
+      <%= link_to '新增商品' , new_store_product_path(@store.id) ,class:"theme-button" %>
     </div>
   <% end %>
 
@@ -32,22 +32,22 @@
 <h2 class="text-center text-3xl font-bold text-theme_text4">商品列表</h2>
   <div class=" mx-auto flex gap-10 flex-wrap justify-center px-3 pt-8  pb-3">
     <% @products.each do |product| %>
-      <div class="bg-white shadow-md border-gray-200 rounded-lg ">
+      <div class="bg-white shadow-md border-gray-200 rounded-lg w-72">
           <%if product.avatar.attached?%>
             <img src="<%=(url_for(product.avatar))%>" class="rounded-t align-center img-fixed"/>
           <%end%>
         <div class=" mt-2">
-          <h1 class="text-center text-theme_text5 font-bold text-2xl tracking-tight mb-2">
+          <h1 class="text-center text-theme_text5 font-bold text-2xl tracking-tight mb-2 break-words px-2">
             <%= product.name %>
           </h1>
-          <p class="text-base text-theme_text5 mb-3 ml-5">
+          <p class="text-base text-theme_text5 mb-3 px-3">
             <span class="font-bold">商品介紹：</span>
-            <div class="mb-3 ml-5">&nbsp&nbsp<%= product.description %></div>
+            <div class="mb-3 px-5 break-words"><%= product.description %></div>
           </p>
-          <p class="text-base text-theme_text5 mb-3  ml-5">
+          <p class="text-base text-theme_text5 mb-3 px-3">
             <span class="font-bold ">NTD. </span><%= product.price %>
           </p>
-          <p class="text-sm text-theme_text3 mb-3 ml-5">
+          <p class="text-sm text-theme_text3 mb-3 px-3">
             <span class="font-bold">庫存量：</span><%= product.stock %>
           </p>
           <% if current_user.role == 'vendor'%>
@@ -58,14 +58,21 @@
           <% end %>
           <% if current_user.role == 'user'  %>
             <div class="flex justify-center mb-3">
-              <button
-              data-controller="add-gift"
-              data-action="click->add-gift#toggle"
-              data-event-id="<%= @event.id%>"
-              data-product-id="<%= product.id %>"
-              class="theme-button">
-              <%= @event.products.include?(product) ? '已加入禮物' : '加入禮物'%>
-              </button>
+              <% if @event.products.include?(product) %>
+                <button
+                data-controller="add-gift"
+                data-action="click->add-gift#toggle"
+                data-event-id="<%= @event.id%>"
+                data-product-id="<%= product.id %>"
+                class="success-button">已加入禮物</button>
+              <% else %>
+                <button
+                data-controller="add-gift"
+                data-action="click->add-gift#toggle"
+                data-event-id="<%= @event.id%>"
+                data-product-id="<%= product.id %>"
+                class="theme-button">加入禮物</button>
+              <% end %>
             </div>
           <% end %>
         </div>

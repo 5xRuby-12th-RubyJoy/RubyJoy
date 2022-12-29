@@ -9,11 +9,7 @@
         >
           註 冊
         </h1>
-        <img
-          src="/assets/sign_up_background_img.jpg"
-          class="w-full rounded-lg shadow-2xl big_cover_img"
-          alt="image"
-        />
+        <%= image_tag "/assets/sign_up_background_img.jpg", class: "w-full rounded-lg shadow-2xl big_cover_img", alt: "image" %>
       </div>
       <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
         <form
@@ -23,11 +19,7 @@
           accept-charset="UTF-8"
           method="post"
         >
-          <input
-            type="hidden"
-            name="authenticity_token"
-            value="<%= form_authenticity_token %>"
-          />
+          <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
           <div class="mb-3">
             <label
               for="user_name"
@@ -35,32 +27,15 @@
               class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
               >暱稱</label
             >
-            <input
-              autofocus="autofocus"
-              type="text"
-              name="user[name]"
-              id="user_name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              required=""
-            />
+            <%= text_field_tag "user[name]", nil, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", autofocus: true, required: true, id: "user_name" %>
           </div>
-
           <div class="mb-3">
             <label
               for="user_email"
               class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
               >信箱</label
             >
-            <input
-              autocomplete="email"
-              type="email"
-              value=""
-              name="user[email]"
-              id="user_email"
-              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="name@example.com"
-              required=""
-            />
+            <%= email_field_tag "user[email]", nil, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", autocomplete: "email", required: true, id: "user_email", placeholder: "name@example.com" %>
           </div>
           <div class="mb-3">
             <label
@@ -68,15 +43,7 @@
               class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
               >密碼</label
             >
-            <input
-              autocomplete="current-password"
-              type="password"
-              name="user[password]"
-              id="user_password"
-              placeholder="密碼需要至少6個字元"
-              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              required=""
-            />
+            <%= password_field_tag "user[password]", nil, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", autocomplete: "current-password", required: true, id: "user_password", placeholder: "密碼需要至少6個字元" %>
           </div>
           <div class="mb-3">
             <label
@@ -84,15 +51,7 @@
               class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
               >再次輸入密碼</label
             >
-            <input
-              autocomplete="new-password"
-              type="password"
-              name="user[password_confirmation]"
-              id="user_password_confirmation"
-              placeholder="密碼需要至少6個字元"
-              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              required=""
-            />
+            <%= password_field_tag 'user[password_confirmation]', nil, autocomplete: 'new-password', id: 'user_password_confirmation', placeholder: '密碼需要至少6個字元', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500', required: true %>
           </div>
           <div class="mb-5">
             <input type="radio" name="user[role]" value="user" required="" />
@@ -112,11 +71,7 @@
           <div class="mt-3">
             <p class="text-sm font-light text-gray-500 dark:text-gray-400">
               已經有帳號了嗎?
-              <a
-                href=" /sign_in_session"
-                class="font-medium text-primary-600 hover:underline dark:text-primary-500 pb-5"
-                >登入</a
-              >
+              <%= link_to '登入', '/sign_in_session', class: 'font-medium text-primary-600 hover:underline dark:text-primary-500 pb-5' %>
             </p>
           </div>
         </form>

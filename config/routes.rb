@@ -44,8 +44,8 @@ Rails.application.routes.draw do
 
   resources :stores do
     resources :products
-     member do
-       get :orders, to: 'stores#orders'
-     end
+    member do
+      get :orders, to: 'stores#orders'
+    end
   end
 end
