@@ -70,7 +70,6 @@ gem "aws-sdk-s3", require: false
 gem 'ransack'
 
 gem 'omniauth'
-gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'koala'
 gem 'omniauth-rails_csrf_protection'
