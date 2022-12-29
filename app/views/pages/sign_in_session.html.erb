@@ -1,20 +1,42 @@
+
 <section class="flex flex-wrap items-center justify-center gap-16 h-screen -mt-16 pt-20  ">
   <div class="mt-5 md:mt-0 max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700" >
     <%= image_tag '/assets/user_login_port.jpg', alt: 'user_login_port_image', class: 'rounded-t-lg' %>
+
     <div class="p-5 shadow-2xl">
-      <h2 class="mb-5 text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white">
+      <h2
+        class="mb-5 text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white"
+      >
         會員登入
       </h2>
-      <div class="flex justify-center">
-        <%= link_to '前往登入', '/users/sign_in', class: 'theme-button' %>
+
+      <div class="flex justify-center flex-wrap">
+        <div><a href="/users/sign_in" class="theme-button">前往登入</a></div>
+
+        <button class="gap-1 google-button flex hover:bg-gray-100">
+          <img
+            src="https://tailus.io/sources/blocks/social/preview/images/google.svg"
+            class="w-5"
+            alt="google logo"
+          />
+          <%=link_to "Google登入",
+          user_google_oauth2_omniauth_authorize_path,method: :post, class:
+          "block w-max font-semibold tracking-wide text-gray-700 text-sm
+          transition duration-300 group-hover:text-blue-600 sm:text-base" %>
+        </button>
+
       </div>
     </div>
   </div>
 
+
   <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700" >
     <%= image_tag '/assets/vendor_login_port.jpg', alt: 'vendor_login_port_image', class: 'rounded-t-lg' %>
+
     <div class="p-5 shadow-2xl">
-      <h2 class="mb-5 text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white">
+      <h2
+        class="mb-5 text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white"
+      >
         店舖登入
       </h2>
       <div class="flex justify-center">
