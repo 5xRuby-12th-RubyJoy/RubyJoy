@@ -39,7 +39,7 @@ module Newebpay
       info[:RespondType] = 'JSON'
       info[:Version] = '1.6'
 
-      info[:ReturnURL] = "https://www.astrocamprubyjoy.com/orders/pay"
+      info[:ReturnURL] = "https://8ed6-61-220-182-115.jp.ngrok.io/orders/pay"
 
       info[:LoginType] = 0
       info[:CREDIT] =  1

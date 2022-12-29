@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_221_222_100_747) do
+ActiveRecord::Schema.define(version: 2022_12_29_052612) do
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -70,25 +72,36 @@ ActiveRecord::Schema.define(version: 20_221_222_100_747) do
     t.index ['user_id'], name: 'index_events_on_user_id'
   end
 
-  create_table 'orders', force: :cascade do |t|
-    t.string 'serial'
-    t.integer 'price'
-    t.integer 'sold_quantity'
-    t.text 'address'
-    t.string 'receiver'
-    t.string 'phone'
-    t.string 'state', default: 'pending'
-    t.datetime 'deleted_at'
-    t.bigint 'product_id', null: false
-    t.bigint 'user_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.bigint 'event_id', null: false
-    t.bigint 'store_id'
-    t.index ['event_id'], name: 'index_orders_on_event_id'
-    t.index ['product_id'], name: 'index_orders_on_product_id'
-    t.index ['store_id'], name: 'index_orders_on_store_id'
-    t.index ['user_id'], name: 'index_orders_on_user_id'
+
+  create_table "identities", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "provider"
+    t.string "uid"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_identities_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "serial"
+    t.integer "price"
+    t.integer "sold_quantity"
+    t.text "address"
+    t.string "receiver"
+    t.string "phone"
+    t.string "state", default: "pending"
+    t.datetime "deleted_at"
+    t.bigint "product_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "event_id", null: false
+    t.bigint "store_id"
+    t.index ["event_id"], name: "index_orders_on_event_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index ["store_id"], name: "index_orders_on_store_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+
   end
 
   create_table 'product_orders', force: :cascade do |t|
@@ -123,31 +136,36 @@ ActiveRecord::Schema.define(version: 20_221_222_100_747) do
     t.index ['user_id'], name: 'index_stores_on_user_id'
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'name'
-    t.integer 'role'
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "name"
+    t.integer "role", default: 0
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "provider"
+    t.string "uid"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
-  add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'
-  add_foreign_key 'event_products', 'events'
-  add_foreign_key 'event_products', 'products'
-  add_foreign_key 'events', 'users'
-  add_foreign_key 'orders', 'events'
-  add_foreign_key 'orders', 'products'
-  add_foreign_key 'orders', 'stores'
-  add_foreign_key 'orders', 'users'
-  add_foreign_key 'product_orders', 'orders'
-  add_foreign_key 'product_orders', 'products'
-  add_foreign_key 'products', 'stores'
-  add_foreign_key 'stores', 'users'
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "event_products", "events"
+  add_foreign_key "event_products", "products"
+  add_foreign_key "events", "users"
+  add_foreign_key "identities", "users"
+  add_foreign_key "orders", "events"
+  add_foreign_key "orders", "products"
+  add_foreign_key "orders", "stores"
+  add_foreign_key "orders", "users"
+  add_foreign_key "product_orders", "orders"
+  add_foreign_key "product_orders", "products"
+  add_foreign_key "products", "stores"
+  add_foreign_key "stores", "users"
+
 end

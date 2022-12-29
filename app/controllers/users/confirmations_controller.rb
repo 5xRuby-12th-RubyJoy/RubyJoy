@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
 class Users::ConfirmationsController < Devise::ConfirmationsController
+  def self.create_from_provider_data(provider_data)
+    where(email: provider_data.info.email).first_or_create do |user|
+      user.email = provider_data.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.name = provider_data.info.last_name
+      user.provider = provider_data.provider
+      user.uid = provider_data.uid
+    end
+  end
   # GET /resource/confirmation/new
   # def new
   #   super
