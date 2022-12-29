@@ -4,8 +4,7 @@
 
 <img alt="To-do List sample" src="https://drive.google.com/uc?export=view&id=1q5wEphJZWE-RxlnvyIer48thONmABGZc" />
 <br />
-<br />
-<br />
+
 
 ## 專案介紹
 
