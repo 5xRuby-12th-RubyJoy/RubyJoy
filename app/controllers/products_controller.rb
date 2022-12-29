@@ -58,5 +58,5 @@ class ProductsController < ApplicationController
 
   def find_store
     @store = Store.find_by(id: params[:store_id])
-  end
+  end 
 end

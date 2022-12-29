@@ -1,6 +1,6 @@
 class StoresController < ApplicationController
-  before_action :find_store, only: %i[update edit destroy show]
-
+before_action :find_store, only: %i[update edit destroy show]
+  
   def index
     if current_user?
       @q = Store.ransack(params[:q])
@@ -70,7 +70,6 @@ class StoresController < ApplicationController
   def find_store
     @store = Store.find_by(id: params[:store_id])
     return unless current_user_store?
-
     @store = current_user.store
   end
 

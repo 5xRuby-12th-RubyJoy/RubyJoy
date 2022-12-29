@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  # before_action :authenticate_user!, only: [:checkout]
   before_action :find_product, only: [:create]
   skip_before_action :verify_authenticity_token, only: [:pay]
   protect_from_forgery with: :null_session, only: [:pay]
@@ -41,24 +40,24 @@ class OrdersController < ApplicationController
   end
 
   def pay
-      response = Newebpay::MpgResponse.new(params[:TradeInfo])
-      
-      order = Order.find_by!(serial: response.result['MerchantOrderNo'])
+      @response = Newebpay::MpgResponse.new(params[:TradeInfo])
+      order = Order.find_by!(serial: @response.result['MerchantOrderNo'])
       order.product.with_lock do
         @quantity = order.product.stock - order.sold_quantity
       end
-      @old_stock = order.product.stock + order.sold_quantity   
-        if response.success?
-          order.pay!
-          redirect_to "https://www.astrocamprubyjoy.com/events/#{order.event_id}", notice: '付款成功'
-        else
-          order.product.update(stock: @old_stock)
-          redirect_to "https://www.astrocamprubyjoy.com/events/#{order.event_id}", alert: '付款發生問題'
-        end
+
+      @old_stock = order.product.stock + order.sold_quantity  
+      if response.successful?
+        order.pay!
+        RubyjoyMailJob.perform_later(order)
+        redirect_to "https://www.astrocamprubyjoy.com/events/#{order.event_id}", notice: '付款成功'
+      else
+        order.product.update(stock: @old_stock)
+        redirect_to "https://www.astrocamprubyjoy.com/events/#{order.event_id}", alert: '付款發生問題'
+      end
   end
 
   private
-
   def find_product
     @product = Product.find(params[:product_id])
   end
