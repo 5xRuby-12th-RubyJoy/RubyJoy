@@ -48,7 +48,7 @@ RubyJoy 是一個結合活動頁面、個人募資、站內商城的平台
 <strong>前端：</strong>HTML5、 CSS3、 Tailwindcss、 JavaScript、 Stimulus.js <br />
 <strong>後端：</strong>Ruby、 Ruby on Rails<br />
 <strong>資料庫：</strong>PosgreSQL<br />
-<strong>圖片上傳：</strong>AWS3<br />
+<strong>圖片上傳：</strong>AWS S3<br />
 <strong>會員系統：</strong>Devise<br />
 <strong>部署：</strong>Heroku<br />
 <strong>版本控制：</strong>Git、GitHub<br />
