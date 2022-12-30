@@ -2,7 +2,7 @@
 
 <br />
 
-<img alt="To-do List sample" src="https://drive.google.com/uc?export=view&id=1q5wEphJZWE-RxlnvyIer48thONmABGZc" />
+<img alt="RubyJoy home page" src="https://drive.google.com/uc?export=view&id=1q5wEphJZWE-RxlnvyIer48thONmABGZc" />
 <br />
 
 
