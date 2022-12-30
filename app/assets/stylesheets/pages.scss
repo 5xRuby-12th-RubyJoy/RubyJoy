@@ -3,13 +3,13 @@
 @media screen and (min-width: 768px) {
     .md-bg-gradient-450{
         height:450px;
-        background:linear-gradient(115deg, #f8eece 50%,transparent 50%),url(images/description_img.png) right / auto 120% ; 
+        background:linear-gradient(115deg, #f8eece 50%,transparent 50%),url(images/description_img.webp) right / auto 120% ; 
     }
   }
   @media screen and (max-width: 768px) {
     .bg-gradient-450{
         height:450px;
-        background-image:url(images/description_opacity50_img.png);
+        background-image:url(images/description_opacity50_img.webp);
     }
   }
 
