@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :orders
 
   enum role: { user: 0, vendor: 1 }
-  def self.from_omniauth(auth,session)
+  def self.from_omniauth(auth,organization)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
