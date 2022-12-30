@@ -37,7 +37,7 @@
         </div>
       </div>
             
-      <div class="w-full flex flex-wrap ">
+      <div class="w-full flex flex-wrap justify-center">
         <% if @event.user == current_user %>
           <%= link_to "前往選擇禮物", stores_event_path(@event.id), class: "theme-button" %>
           <%= link_to "編輯活動", edit_event_path(@event), class: "success-button" %>
