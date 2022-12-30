@@ -23,7 +23,7 @@ module.exports = {
         theme_light_purple: "#4a437c",
       },
       backgroundImage: {
-        log_in_page_background_img: "url('/assets/log_in_page_background.jpg')",
+        log_in_page_background_img: "url('/assets/log_in_page_background.webp')",
       },
     },
   },
