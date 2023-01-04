@@ -18,10 +18,10 @@
   
   <!-- 功能列按鈕 -->
   <% if current_user.role == 'vendor' %>
-    <div class="flex space-x-10 bg-gray-100 p-2 w-full justify-center">
-      <%= link_to '編輯商店資訊' , edit_store_path(@store.id) ,class:"theme-button"%>
-      <%= link_to '訂單查詢' , orders_store_path(@store.id),class:"theme-button" %>
-      <%= link_to '新增商品' , new_store_product_path(@store.id) ,class:"theme-button" %>
+    <div class="flex bg-gray-100 w-full justify-center flex-wrap">
+      <%= link_to '編輯商店資訊' , edit_store_path(@store.id) ,class:"theme-button md:mx-6"%>
+      <%= link_to '訂單查詢' , orders_store_path(@store.id),class:"theme-button md:mx-6" %>
+      <%= link_to '新增商品' , new_store_product_path(@store.id) ,class:"theme-button md:mx-6" %>
     </div>
   <% end %>
 

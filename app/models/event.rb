@@ -4,16 +4,19 @@ class Event < ApplicationRecord
   
   belongs_to :user
 
-  validates :title, presence: true
-  validates :subtitle, presence: true
-  validates :description, presence: true
-  validates :venue, presence: true
-  validates :receiver, presence: true
-  validates :address, presence: true
+  validates_presence_of :title,:subtitle,:description,:venue,:receiver,:address,:start_at,:end_at
   validates :phone, numericality: true
+  validate :start_date_after_end_date 
 
   # relation
   has_one_attached :avatar
   has_many :event_products, dependent: :destroy
   has_many :products, through: :event_products
+
+  private
+  def start_date_after_end_date
+    if start_at < Time.current || end_at < start_at
+      errors.add("開始時間不能小於現在時間，或者開始日期不能大於結束日期")
+    end
+  end
 end
