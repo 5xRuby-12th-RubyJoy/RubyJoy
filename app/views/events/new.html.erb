@@ -13,7 +13,7 @@
                   <div class="px-4 py-5 bg-white sm:p-6 flex">
                     <div class="grid grid-cols-6 gap-6 ">
                       <div class="col-span-6 sm:col-span-3">
-                        <%= form.label :title, '活動名稱', 
+                        <%= form.label :title, content_tag(:span, "*", style: "color: red;") + '活動名稱', 
                         class:"block mb-2 text-base font-medium text-gray-900 dark:text-white" %>
                         <%= form.text_field :title, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
                         required: true , autofocus: true%>
@@ -22,27 +22,26 @@
                       <div class=" col-span-6 sm:col-span-3">
   
                         <div class="mb-3">
-                          <%= form.label :subtitle, '副標題', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"  %>
+                          <%= form.label :subtitle,  content_tag(:span, "*", style: "color: red;") + '副標題', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"  %>
                           <%= form.text_field :subtitle, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
                           required: true %>
                         </div>
                       </div>
         
                       <div class="col-span-6 sm:col-span-3">
-                        <%= form.label :venue, '活動場地', class:" block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                        <%= form.label :venue,  content_tag(:span, "*", style: "color: red;") + '活動場地', class:" block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                         <%= form.text_area :venue, class: " resize-none bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
                         required: true %>
                       </div>                    
                       <div class="col-span-6 sm:col-span-3">
-                        <%= form.label :description, '活動簡述' , class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                        <%= form.label :description, content_tag(:span, "*", style: "color: red;") +  '活動簡述' , class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                         <%= form.text_area :description, class: "resize-none bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
                         required: true %>
                       </div>
         
                       <div class=" col-span-6 sm:col-span-3">
-  
                         <div class="mb-3">
-                          <%= form.label :start_at, '活動開始日期', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                          <%= form.label :start_at, content_tag(:span, "*", style: "color: red;") +  '活動開始日期', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                           <%= form.datetime_field :start_at , class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
                           required: true %>
                         </div>
@@ -50,28 +49,28 @@
                       <div class=" col-span-6 sm:col-span-3">
   
                         <div class="mb-3">
-                          <%= form.label :end_at, '活動結束日期', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                          <%= form.label :end_at, content_tag(:span, "*", style: "color: red;") +  '活動結束日期', class:"block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                           <%= form.datetime_field :end_at, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
                           required: true %>
                         </div>
                       </div>
                       <div class="col-span-6 sm:col-span-3 items-center my-auto">
-                        <%=form.label :address,"禮品收件地址", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                        <%=form.label :address, content_tag(:span, "*", style: "color: red;") + "禮品收件地址", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                         <%=form.text_field :address , class: " bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" , require: true%>
                       </div>
 
                       <div class="col-span-6 sm:col-span-3 items-center my-auto">
-                        <%=form.label :phone,"收件人電話", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                        <%=form.label :phone, content_tag(:span, "*", style: "color: red;") + "收件人電話", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                         <%=form.text_field :phone , class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" , require: true%>
                       </div>
 
                       <div class="col-span-6 sm:col-span-3 items-center my-auto">
-                        <%=form.label :receiver,"收件人姓名", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                        <%=form.label :receiver, content_tag(:span, "*", style: "color: red;") + "收件人姓名", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                         <%=form.text_field :receiver , class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" , require: true%>
                       </div>
 
                       <div class="col-span-6 sm:col-span-3 items-center my-auto">
-                        <%=form.label :avatar,"上傳活動封面", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
+                        <%=form.label :avatar,content_tag(:span, "*", style: "color: red;") + "上傳活動封面", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white"%>
                         <%=form.file_field :avatar , class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", require: true%>
                       </div>
 
