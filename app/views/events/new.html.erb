@@ -1,5 +1,14 @@
 
-      <section class="h-full pt-5">
+      <% if @event.errors.any? %>
+      <div class="mt-10 border sm:w-4/12 text-center mx-3 p-2 text-base text-gray-800 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300 font-bold ">
+        <ul class="block border-1 text-lg text-red-600 ">
+          <% @event.errors.full_messages_for(:start_at).each do |msg| %>
+            <li class=""><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <section class="h-full">
         <div class=" pb-5 container px-6 pt-14 mx-auto flex items-center justify-center lg:h-full ">
           <div class="flex justify-center items-center flex-wrap g-6 text-gray-800 ">
             <div class="mt-5 md:mt-0 md:col-span-2">
