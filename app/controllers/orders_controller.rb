@@ -21,16 +21,18 @@ class OrdersController < ApplicationController
     if order.save
       order.product.with_lock do
         @quantity = order.product.stock - order.sold_quantity
-      end
-      if @quantity >= 0
-        order.product.update(stock: @quantity)
-        redirect_to checkout_order_path(id: order.serial)
-      else
-        redirect_to buy_product_path(@product), alert: '商品庫存不足'
-      end
+      
+        if @quantity >= 0
+          order.product.update(stock: @quantity)
+          redirect_to checkout_order_path(id: order.serial)
+        else
+          redirect_to buy_product_path(@product), alert: '商品庫存不足'
+        end
     else
-      redirect_to buy_product_path(@product), alert: '訂單建立失敗'
+        redirect_to buy_product_path(@product), alert: '訂單建立失敗'
+      end
     end
+    OrderCancleJob.set(wait: 1.minutes).perform_later(order)
   end
 
   def checkout
