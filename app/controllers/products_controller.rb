@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :find_product, only: %i[index show edit destroy]
   before_action :find_store, only: %i[index create edit update new]
+  before_action :authenticate_user!
 
   def index
     @event = Event.find(params[:event_id]) if current_user?
