@@ -41,9 +41,15 @@
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
                 <%= order.product.name %>
               </td>
+              <% if order.state == 'paid' %>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
-                <%= order.state %>
+              已付款
               </td>
+              <% else %>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
+              尚未完成付款
+              </td>
+              <% end %>  
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
                 <%= order.sold_quantity %>
               </td>
