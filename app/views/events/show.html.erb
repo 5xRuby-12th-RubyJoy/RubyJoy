@@ -55,13 +55,13 @@
   
   <div class=" mx-auto flex gap-10 flex-wrap justify-center px-3 pt-8 pb-3">
     <% @event_products.each do |event_product| %>
-      <div class="rounded-lg shadow-lg bg-white max-w-sm">
+      <div class="rounded-lg shadow-lg bg-white max-w-sm w-72">
           <%= image_tag event_product.avatar, class: "rounded-t-lg img-fixed" if event_product.avatar.attached? %>
         <div class="p-6">
           <h5 class="text-gray-900 text-center text-xl font-medium mb-2">
             <%= event_product.name %>
           </h5>
-          <p class="text-gray-700 text-base mb-4">
+          <p class="text-gray-700 text-base mb-4 break-words">
             <%= event_product.description %>
           </p>
           <p class="text-gray-700 text-base mb-4">
