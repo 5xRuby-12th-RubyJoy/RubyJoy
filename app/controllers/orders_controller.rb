@@ -25,11 +25,11 @@ class OrdersController < ApplicationController
           order.product.update(stock: @quantity)
           redirect_to checkout_order_path(id: order.serial)
         else
-          redirect_to buy_product_path(@product), alert: '商品庫存不足'
+          redirect_to event_product_buy_path(order.event_id, order.product_id), alert: '商品庫存不足'
         end
       end
     else
-      redirect_to buy_product_path(@product), alert: '訂單建立失敗'
+      redirect_to event_product_buy_path(order.event_id, oreder.product_id), alert: '訂單建立失敗'
     end
     OrderCancleJob.set(wait: 1.minutes).perform_later(order)
   end
