@@ -25,6 +25,7 @@ RubyJoy 是一個結合活動頁面、個人募資、站內商城的平台
 
   輕鬆幫你解決活動頁面建立以及禮物清單的煩惱！
   
+  專案介紹影片：https://www.youtube.com/watch?v=HYIGw6shoC0
   <br />
   
   >We used Ruby version 3.1.2；Rails version 6.1.7 for the development
@@ -41,6 +42,9 @@ Now you have RubyJoy to solve this problem, you just need to:
 Register an account → Create an event → Pick a gift → Share the link to the event page with your friends and family and let them pay for it! 
 
 Easily help you out with the troubles of creating an event page and gift listing!
+
+
+Project Introduction Video：https://www.youtube.com/watch?v=HYIGw6shoC0
 
 <br />
 
