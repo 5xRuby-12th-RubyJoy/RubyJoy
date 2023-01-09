@@ -75,8 +75,7 @@ Project Introduction Video：https://www.youtube.com/watch?v=HYIGw6shoC0
 <br />
 
 ### 3. 加禮物功能 - Add the products you like to the wishlist 
-> 使用者可以輕鬆透過加禮物按鈕將喜歡的禮物加入自己活動的許願清單
-<br/>
+> 使用者可以輕鬆透過加禮物按鈕將喜歡的禮物加入自己活動的許願清單<br />
 Users can easily add the products they like to the wishlist of the event page
 <br />
 
